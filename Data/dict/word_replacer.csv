@@ -1,3 +1,8 @@
+# This is the original dict Chenglong used for word replacement
+# Note that the comments are out-of-date, and we have
+# share everything need to be shared according to the rule
+# on the forum. See:
+# https://www.kaggle.com/buinyi/home-depot-product-search-relevance/disclosing-external-data
 #==================================================
 # Part I - NOT TO SHARE
 #==================================================
@@ -138,7 +143,7 @@ thresh hold,threshold
 #
 #--------------------------------------------------
 # Feature engineering (OK not to share)
-# "Stemming"
+# Stemming
 #
 cabinets,cabinet
 splitting,split
