@@ -1,0 +1,553 @@
+#==================================================
+# Part I - NOT TO SHARE
+#==================================================
+#
+#--------------------------------------------------
+# Feature engineering (Ok not to share)
+# AB -> A B or A B -> AB
+#
+undercabinet,under cabinet
+snowerblower,snower blower
+mountreading,mount reading
+zeroturn,zero turn
+stemcartridge,stem cartridge
+greecianmarble,greecian marble
+outdoorfurniture,outdoor furniture
+outdoorlounge,outdoor lounge
+heaterconditioner,heater conditioner
+heater/conditioner,heater conditioner
+conditioner/heater,conditioner heater
+air condtion ,air conditioner 
+airconditioner,air conditioner
+snowbl,snow bl
+plexigla,plexi gla
+whirlpoolga,whirlpool ga
+whirlpoolstainless,whirlpool stainless
+nutdriver,nut driver
+screwdriving,screw driver
+screwdrivers,screw driver
+screwdriver,screw driver
+sedgehamm,sledge hamm
+childproof,child proof
+flatbraces,flat braces
+zmax,z max
+fireplace,fire place
+workbench,work bench
+hardwood,hard wood
+softwood,soft wood
+woodgrain,wood grain
+basswood,bass wood
+nailup,nail up
+nails,nail
+nailgun,nail gun
+nailer,nail
+nailers,nail
+7qquart,7 qt.
+sim tek,simtek
+mega shot,megashot
+shelter logic,shelterlogic
+gal vanized,galvanized
+battery powere weedeater,battery power weed eater
+nailup,nail up
+shark bite,sharkbite
+joist hanger,joisthanger
+rigid saw,ridgid saw
+black & decker,black and decker
+black+decker,black and decker
+black decker,black and decker
+black decke,black and decker
+phillips led,philips led
+exteriorpaint,exterior paint
+firewood,fire wood
+fuelpellets,fuel pellet
+bandsaw,band saw
+jogsaw,jog saw
+jigsaw,jig saw
+bandsaw,band saw
+hacksaw,hack saw
+skillsaw,skill saw
+polesaw,pole saw
+chainsaws,chain saw
+chainsaw,chain saw
+counterdepth,counter depth
+wirenuts,wire nut
+doorbell,door bell
+bathroom,bath room
+whitesilicone,white silicone
+whiteled,white led
+backerboard,backer board
+hardboard,hard board
+bathtub,bath tub
+cabinetwithouttops,cabinet without tops
+kitchenaid,kitchen aid
+castiron,cast iron
+pfistersaxton,pfister saxton 
+weedeater,weed eater
+splitbolt,split bolt
+soundfroofing,sound froofing
+snapstone,snap stone
+cornershower,corner shower
+stronglus,strong lus
+shopvac,shop vac
+shoplight,shop light
+spotlight,spot light
+airconditioner,air conditioner
+whirlpoolga,whirlpool ga
+whirlpoolstainless,whirlpool stainless
+snowblower,snow blower
+plexigla,plexi gla
+trashcan,trash can
+redwood,red wood
+mountspacesaver,mount space saver
+undercounter,under counter
+stairtreads,stair tread
+#
+#--------------------------------------------------
+# Feature engineering (Ok not to share)
+# A B -> AB
+#
+techni soil,technisoil
+in sulated,insulated
+stove top,stovetop
+steam fast,steamfast
+sand castle,sandcastle
+soft spring,softspring
+plasma wave,plasmawave
+rust[\s|-]ol[e|l]um ,rustoleum 
+c\s+u ,cu
+z-wave,zwave
+closet maid,closetmaid
+saw horse,sawhorse
+play set,playset
+in let,inlet
+wheel barrel,wheelbarrow
+we mo,wemo
+weather tech,weathertech
+weather vane,weathervane
+versa tube,versatube
+versa bond,versabond
+in termatic,intermatic
+therma cell,thermacell
+tuff screen,tuffscreen
+tow behind,towbehind
+top rail,toprail
+sani flo,saniflo
+timber lok,timberlok
+thin set,thinset
+thresh hold,threshold
+#
+#--------------------------------------------------
+# Feature engineering (OK not to share)
+# "Stemming"
+#
+cabinets,cabinet
+splitting,split
+splitter,split
+fencing,fence
+landscaping,landscape
+playsets,playset
+wooden,wood
+accessories,accessory
+lighting,light
+lights,light
+framed,frame
+drilling,drill
+filing,file
+shelving,shelf
+shelves,shelf
+shelve,shelf
+puller,pull
+winterizing,winterizer
+insulator,insulation
+cleaning,cleaner
+interconnected,interconnect
+decor,decoration
+decorator,decoration
+decorative,decoration
+welder,weld
+containing,container
+weatherstrip,weatherstripper
+waterproofer,water proof
+waterproofing,water proof
+abrasive,abrasion
+wider,wide
+protective,protect
+protection,protect
+protector,protect
+soldering,solder
+painter,paint
+louvered,louver
+repeller,repellent
+misting,mist
+mister,mist
+detection,detect
+detector,detect
+washing,washer
+tubing,tube
+railing,rail
+weather stripping,weatherstripper
+water proofing,water proof
+#
+#--------------------------------------------------
+# Synonym replacement (Ok not to share)
+#
+electrical,electric
+electronic,electric
+electronics,electric
+lamp,light
+stripper,remover
+wire,cable
+drape,curtain
+shelter,tent
+canopy,tent
+two pole ch breaker,double pole ch breaker
+#
+#--------------------------------------------------
+# Abbreviation conversion
+#
+a c,air condition
+bbq,barbeque
+elec.,electric
+elec,electric
+tv,television
+uv,ultraviolet
+vac,vacuum
+#
+#--------------------------------------------------
+# Feature engineering (OK not to share)
+# Pattern replacement
+#
+(^\.|/), 
+(\.|/)$, 
+([0-9])([a-z]), \1 \2
+([a-z])([0-9]), \1 \2
+([a-z])( *)\.( *)([a-z]), \1 \4
+([a-z])( *)/( *)([a-z]), \1 \4
+([0-9])( *)\.( *)([0-9]), \1.\4
+a\s*c[\s+|\$],air conditioner 
+#
+#--------------------------------------------------
+# Feature engineering (OK not to share)
+# Other
+#
+splashback,backsplash
+backsplashes,backsplash
+yardguard,yardgard
+access,accessory
+#
+#==================================================
+# Part II - SHARE ON THE FORUM
+#==================================================
+#
+#--------------------------------------------------
+# Spelling checking (Share on the forum)
+#
+incyh,in.
+diswasher,dishwasher
+closetmade,closetmaid
+repir,repair
+handycap,handicap
+toliet,toilet
+conditionar,conditioner
+aircondition,air conditioner
+aircondiioner,air conditioner
+comercialcarpet,commercial carpet
+commercail,commercial
+inyl,vinyl
+vinal,vinyl
+vynal,vinyl
+vynik,vinyl
+skill,skil
+whirpool,whirlpool
+glaciar,glacier
+glacie,glacier
+rheum,rheem
+one+,1
+toll,tool
+ceadar,cedar
+shelv,shelf
+toillet,toilet
+toiet,toilet
+toilest,toilet
+toitet,toilet
+ktoilet,toilet
+tiolet,toilet
+tolet,toilet
+eater,heater
+robi,ryobi
+robyi,ryobi
+roybi,ryobi
+rayobi,ryobi
+riobi,ryobi
+screww,screw
+stailess,stainless
+dor,door
+vaccuum,vacuum
+vacum,vacuum
+vaccum,vacuum
+vinal,vinyl
+vynal,vinyl
+vinli,vinyl
+viyl,vinyl
+vynil,vinyl
+vlave,valve
+vlve,valve
+walll,wall
+steal,steel
+stell,steel
+pcv,pvc
+blub,bulb
+ligt,light
+bateri,battery
+kolher,kohler
+fame,frame
+have,haven
+acccessori,accessory
+accecori,accessory
+accesnt,accessory
+accesor,accessory
+accesori,accessory
+accesorio,accessory
+accessori,accessory
+repac,replacement
+repalc,replacement
+repar,repair
+repir,repair
+replacemet,replacement
+replacemetn,replacement
+replacemtn,replacement
+replaclacemt,replacement
+replament,replacement
+toliet,toilet
+skill,skil
+whirpool,whirlpool
+stailess,stainless
+stainlss,stainless
+stainstess,stainless
+jigsaww,jig saw
+woodwen,wood
+pywood,plywood
+woodebn,wood
+repellant,repellent
+concret,concrete
+windos,window
+wndows,window
+wndow,window
+winow,window
+caamera,camera
+sitch,switch
+doort,door
+coller,cooler
+flasheing,flashing
+wiga,wigan
+bathroon,bath room
+sinl,sink
+melimine,melamine
+inyrtior,interior
+tilw,tile
+wheelbarow,wheelbarrow
+pedistal,pedestal
+submerciable,submercible
+weldn,weld
+contaner,container
+webmo,wemo
+genis,genesis
+waxhers,washer
+softners,softener
+sofn,softener
+connecter,connector
+heather,heater
+heatere,heater
+electic,electric
+quarteround,quarter round
+bprder,border
+pannels,panel
+framelessmirror,frameless mirror
+paneling,panel
+controle,control
+flurescent,fluorescent
+flourescent,fluorescent
+molding,moulding
+lattiace,lattice
+barackets,bracket
+vintemp,vinotemp
+vetical,vertical
+verticle,vertical
+vesel,vessel
+versatiube,versatube
+versabon,versabond
+dampr,damper
+vegtable,vegetable
+plannter,planter
+fictures,fixture
+mirros,mirror
+topped,top
+preventor,breaker
+traiter,trailer
+ureka,eureka
+uplihght,uplight
+upholstry,upholstery
+untique,antique
+unsulation,insulation
+unfinushed,unfinished
+verathane,varathane
+ventenatural,vent natural
+shoer,shower
+floorong,flooring
+tsnkless,tankless
+tresers,dresers
+treate,treated
+transparant,transparent
+transormations,transformation
+mast5er,master
+anity,vanity
+tomostat,thermostat
+thromastate,thermostat
+kphler,kohler
+tji,tpi
+cuter,cutter
+medalions,medallion
+tourches,torch
+tighrner,tightener
+thewall,the wall
+thru,through
+wayy,way
+temping,tamping
+outsde,outdoor
+bulbsu,bulb
+ligh,light
+swivrl,swivel
+switchplate,switch plate
+swiss+tech,swiss tech
+sweenys,sweeney
+susbenders,suspender
+cucbi,cu
+gaqs,gas
+structered,structured
+knops,knob
+adopter,adapter
+patr,part
+storeage,storage
+venner,veneer
+veneerstone,veneer stone
+stm,stem
+steqamers,steamer
+latter,ladder
+steele,steel
+builco,bilco
+panals,panel
+grasa,grass
+unners,runner
+maogani,maogany
+sinl,sink
+grat,grate
+showerheards,shower head
+spunge,sponge
+conroller,controller
+cleanerm,cleaner
+preiumer,primer
+fertillzer,fertilzer
+spectrazide,spectracide
+spaonges,sponge
+stoage,storage
+sower,shower
+solor,solar
+sodering,solder
+powerd,powered
+lmapy,lamp
+naturlas,natural
+sodpstone,soapstone
+punp,pump
+blowerr,blower
+medicn,medicine
+slidein,slide
+sjhelf,shelf
+oard,board
+singel,single
+paintr,paint
+silocoln,silicon
+poinsetia,poinsettia
+sammples,sample
+sidelits,sidelight
+nitch,niche
+pendent,pendant
+shopac,shop vac
+shoipping,shopping
+shelfa,shelf
+cabi,cabinet
+nails18,nail
+dewaqlt,dewalt
+barreir,barrier
+ilumination,illumination
+mortice,mortise
+lumes,lumen
+blakck,black
+exterieur,exterior
+expsnsion,expansion
+air condit$,air conditioner
+double pole type chf breaker,double pole type ch breaker
+mast 5 er,master
+toilet rak,toilet rack
+govenore,governor
+in wide,in white
+shepard hook,shepherd hook
+frost fee,frost free
+kitchen aide,kitchen aid
+saww horse,saw horse
+weather striping,weatherstripper
+#
+#---------------------------------------------------------------
+# From CrowdFlower (Share on the forum)
+#
+'girls,girl
+girl's,girl
+girls',girl
+girls,girl
+girlz,girl
+boy's,boy
+boys',boy
+boys,boy
+men's,man
+mens',man
+mens,mam
+men,man
+women's,woman
+womens',woman
+womens,woman
+women,woman
+kid's,kid
+kids',kid
+kids,kid
+children's,kid
+childrens',kid
+childrens,kid
+children,kid
+child,kid
+bras,bra
+bicycles,bike
+bicycle,bike
+bikes,bike
+refridgerators,fridge
+refrigerator,fridge
+refrigirator,fridge
+freezer,fridge
+memories,memory
+fragance,perfume
+fragrance,perfume
+cologne,perfume
+anime,animal
+assassinss,assassin
+assassin's,assassin
+assassins,assassin
+bedspreads,bedspread
+shoppe,shop
+extenal,external
+knives,knife
+kitty's,kitty
+levi's,levi
+squared,square
+rachel,rachael
+rechargable,rechargeable
+batteries,battery
+seiko's,seiko
+ounce,oz
