@@ -393,7 +393,7 @@ class TaskOptimizer:
         self.logger.info("-"*50)
 
 
-#------------------ Main -------------------------------
+#------------------------ Main -------------------------
 def main(options):
     logname = "[Feat@%s]_[Learner@%s]_hyperopt_%s.log"%(
         options.feature_name, options.learner_name, time_utils._timestamp())
