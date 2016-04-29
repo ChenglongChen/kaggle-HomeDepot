@@ -1,0 +1,193 @@
+RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=15,
+           max_features=0.55, max_leaf_nodes=None, min_samples_leaf=12,
+           min_samples_split=1, min_weight_fraction_leaf=0.0,
+           n_estimators=100, n_jobs=-1, oob_score=False, random_state=2016,
+           verbose=0, warm_start=False)
+Model RF_params1_selected
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.442022] [0.7 minutes]
+                Fold [1] [RMSE: 0.443153] [1.5 minutes]
+                Fold [2] [RMSE: 0.442311] [2.2 minutes]
+                Fold [3] [RMSE: 0.444249] [2.9 minutes]
+                Fold [4] [RMSE: 0.441874] [3.6 minutes]
+                Fold [5] [RMSE: 0.442707] [4.3 minutes]
+        Train validation file saved [RMSE: 0.442719]
+        Step 1: Predict test labels
+        Test prediction file saved [6.7 minutes]
+
+ExtraTreesRegressor(bootstrap=False, criterion='mse', max_depth=None,
+          max_features='auto', max_leaf_nodes=None, min_samples_leaf=1,
+          min_samples_split=12, min_weight_fraction_leaf=0.0,
+          n_estimators=250, n_jobs=-1, oob_score=False, random_state=2016,
+          verbose=1, warm_start=False)
+Model extratrees_selected
+        Step 0: Cross validation[Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:   23.9s
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  1.8min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed:  2.3min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    1.1s finished
+
+                Fold [0] [RMSE: 0.444344] [2.3 minutes][Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:   24.6s
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  1.8min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed:  2.4min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    1.0s finished
+
+                Fold [1] [RMSE: 0.446436] [4.7 minutes][Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:   24.0s
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  1.8min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed:  2.3min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    1.0s finished
+
+                Fold [2] [RMSE: 0.446007] [7.1 minutes][Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:   24.2s
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  1.8min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed:  2.3min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    0.9s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    1.1s finished
+
+                Fold [3] [RMSE: 0.446999] [9.5 minutes][Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:   24.9s
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  1.8min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed:  2.3min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    0.7s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    1.0s finished
+
+                Fold [4] [RMSE: 0.445216] [11.8 minutes][Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:   23.7s
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  1.7min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed:  2.3min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    0.7s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    0.9s finished
+
+                Fold [5] [RMSE: 0.445619] [14.1 minutes]
+        Train validation file saved [RMSE: 0.44577][Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:  1.7min
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed:  7.6min
+[Parallel(n_jobs=-1)]: Done 250 out of 250 | elapsed: 10.0min finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.9s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    4.9s
+[Parallel(n_jobs=4)]: Done 250 out of 250 | elapsed:    6.3s finished
+
+        Step 1: Predict test labels
+        Test prediction file saved [24.3 minutes]
+
+GradientBoostingRegressor(alpha=0.9, init=None, learning_rate=0.035,
+             loss='ls', max_depth=6, max_features=None,
+             max_leaf_nodes=None, min_samples_leaf=15, min_samples_split=1,
+             min_weight_fraction_leaf=0.0, n_estimators=500,
+             presort='auto', random_state=2016, subsample=1.0, verbose=0,
+             warm_start=False)
+Model GB_params1_important
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.438129] [26.6 minutes]
+                Fold [1] [RMSE: 0.439675] [53.1 minutes]
+                Fold [2] [RMSE: 0.439511] [79.8 minutes]
+                Fold [3] [RMSE: 0.441239] [104.5 minutes]
+                Fold [4] [RMSE: 0.439086] [128.9 minutes]
+                Fold [5] [RMSE: 0.439045] [153.5 minutes]
+        Train validation file saved [RMSE: 0.439448]
+        Step 1: Predict test labels
+        Test prediction file saved [211.6 minutes]
+
+BaggingRegressor(base_estimator=XGBRegressor(base_score=0.5, colsample_bylevel=1, colsample_bytree=1,
+       gamma=0.0, learning_rate=0.08, max_delta_step=0, max_depth=6,
+       min_child_weight=12, missing=None, n_estimators=165, nthread=8,
+       objective='reg:linear', reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=2016, silent=1, subsample=1),
+         bootstrap=True, bootstrap_features=False, max_features=1.0,
+         max_samples=1.0, n_estimators=10, n_jobs=1, oob_score=False,
+         random_state=<mtrand.RandomState object at 0x0000000034FC8710>,
+         verbose=0, warm_start=False)
+Model xgboost1+bagging10_all
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.437978] [15.4 minutes]
+                Fold [1] [RMSE: 0.439042] [30.7 minutes]
+                Fold [2] [RMSE: 0.438827] [46.0 minutes]
+                Fold [3] [RMSE: 0.440848] [61.4 minutes]
+                Fold [4] [RMSE: 0.437184] [76.8 minutes]
+                Fold [5] [RMSE: 0.438464] [92.2 minutes]
+        Train validation file saved [RMSE: 0.438724]
+        Step 1: Predict test labels
+        Test prediction file saved [137.3 minutes]
+
+SVR(C=0.2, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto',
+  kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
+Model SVR_C0_2_kernel_rbf_selected
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.446047] [14.0 minutes]
+                Fold [1] [RMSE: 0.448968] [28.2 minutes]
+                Fold [2] [RMSE: 0.449035] [42.5 minutes]
+                Fold [3] [RMSE: 0.44993] [56.5 minutes]
+                Fold [4] [RMSE: 0.447322] [70.7 minutes]
+                Fold [5] [RMSE: 0.448133] [84.9 minutes]
+        Train validation file saved [RMSE: 0.448239]
+        Step 1: Predict test labels
+        Test prediction file saved [393.0 minutes]
+
+BaggingRegressor(base_estimator=XGBRegressor(base_score=0.5, colsample_bylevel=1, colsample_bytree=1,
+       gamma=0.0, learning_rate=0.09, max_delta_step=0, max_depth=7,
+       min_child_weight=10, missing=None, n_estimators=300, nthread=8,
+       objective='reg:linear', reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=10, silent=1, subsample=1),
+         bootstrap=True, bootstrap_features=False, max_features=1.0,
+         max_samples=1.0, n_estimators=10, n_jobs=1, oob_score=False,
+         random_state=<mtrand.RandomState object at 0x0000000034FC8940>,
+         verbose=0, warm_start=False)
+Model xgboost2+bagging10_important
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.43714] [20.7 minutes]
+                Fold [1] [RMSE: 0.438646] [41.7 minutes]
+                Fold [2] [RMSE: 0.437914] [62.5 minutes]
+                Fold [3] [RMSE: 0.439777] [83.1 minutes]
+                Fold [4] [RMSE: 0.436365] [103.9 minutes]
+                Fold [5] [RMSE: 0.437388] [125.0 minutes]
+        Train validation file saved [RMSE: 0.437872]
+        Step 1: Predict test labels
+        Test prediction file saved [186.9 minutes]
+
+
+FROM KOSTIA:
+BaggingRegressor(base_estimator=XGBRegressor(base_score=0.5, colsample_bylevel=1, colsample_bytree=0.5,
+       gamma=0.2, learning_rate=0.025, max_delta_step=0, max_depth=6,
+       min_child_weight=12, missing=None, n_estimators=500, nthread=8,
+       objective='reg:linear', reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=11, silent=1, subsample=0.7),
+         bootstrap=True, bootstrap_features=False, max_features=1.0,
+         max_samples=1.0, n_estimators=10, n_jobs=1, oob_score=False,
+         random_state=<mtrand.RandomState object at 0x0000000014832C88>,
+         verbose=0, warm_start=False)
+Model xgboost3+bagging10_selected
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.437037] [13.0 minutes]
+                Fold [1] [RMSE: 0.4383] [26.0 minutes]
+                Fold [2] [RMSE: 0.438101] [38.8 minutes]
+                Fold [3] [RMSE: 0.439748] [51.4 minutes]
+                Fold [4] [RMSE: 0.436765] [64.1 minutes]
+                Fold [5] [RMSE: 0.437386] [77.0 minutes]
+        Train validation file saved [RMSE: 0.437889]
+        Step 1: Predict test labels
+        Test prediction file saved [114.9 minutes]
+
+GradientBoostingRegressor(alpha=0.9, init=None, learning_rate=0.02, loss='ls',
+             max_depth=6, max_features=None, max_leaf_nodes=None,
+             min_samples_leaf=12, min_samples_split=1,
+             min_weight_fraction_leaf=0.0, n_estimators=900,
+             presort='auto', random_state=2017, subsample=1.0, verbose=0,
+             warm_start=False)
+Model GB_params2_selected
+        Step 0: Cross validation
+                Fold [0] [RMSE: 0.437823] [33.7 minutes]
+                Fold [1] [RMSE: 0.439799] [67.2 minutes]
+                Fold [2] [RMSE: 0.438729] [100.6 minutes]
+                Fold [3] [RMSE: 0.441108] [134.1 minutes]
+                Fold [4] [RMSE: 0.438699] [167.2 minutes]
+                Fold [5] [RMSE: 0.438782] [200.7 minutes]
+        Train validation file saved [RMSE: 0.439157]
+        Step 1: Predict test labels
+        Test prediction file saved [289.2 minutes]
+
+
+

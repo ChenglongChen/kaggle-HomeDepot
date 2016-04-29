@@ -1,0 +1,977 @@
+,others,query,source,suggestion,title,word
+abc1401,,6,added space before digit,abc 1401,0,abc1401
+abralon,[],6,from all products,,0,abralon
+abz,[],7,from all products,,0,abz
+accesorios,"[(u'accessories', 509)]",11,from all products,accessories,0,accesorios
+acondicionado,[],17,from all products,,0,acondicionado
+acq,[],15,from all products,,0,acq
+adaapter,"[(u'adapter', 1444), (u'adapters', 26)]",6,from all products,adapter,0,adaapter
+adara,"[(u'aaa', 84), (u'avara', 16), (u'mandara', 66), (u'radar', 52), (u'adr', 14), (u'ada', 86), (u'adora', 53), (u'ara', 20)]",16,from all products,mandara,0,adara
+adi,"[(u'audio', 144), (u'sadie', 12), (u'radio', 142)]",11,from all products,,0,adi
+adj,[],9,from all products,,0,adj
+adk,[],13,from all products,,0,adk
+adrienne,"[(u'andenne', 16)]",11,from matched products,andenne,0,adrienne
+adrone,"[(u'adorne', 135)]",11,from matched products,adorne,0,adrone
+afakro,"[(u'fakro', 60)]",14,from matched products,fakro,0,afakro
+afi,"[(u'afci', 28)]",1,from matched products,afci,0,afi
+against,[],10,from all products,,0,against
+agustin,"[(u'austin', 61), (u'augustine', 14)]",11,from all products,austin,0,agustin
+airconditioner,[],44,from bigrams,air conditioner,0,airconditioner
+airens,"[(u'ariens', 287)]",1,from matched products,ariens,0,airens
+airhose,[],2,from bigrams,air hose,0,airhose
+airnailer,[],9,from bigrams,air nailer,0,airnailer
+airvents,[],1,from all products,,0,airvents
+akc,[],13,from all products,,0,akc
+akio,"[(u'akro', 21)]",16,from all products,akro,0,akio
+akita,"[(u'makita', 1091)]",12,from matched products,makita,0,akita
+alick,"[(u'click', 395), (u'alike', 36)]",2,from all products,,0,alick
+all18,,10,added space before digit,all 18,0,all18
+alm,"[(u'alum', 56), (u'palm', 242), (u'salem', 41), (u'alarm', 565)]",1,from all products,,0,alm
+alu,"[(u'alum', 56), (u'value', 516)]",15,from all products,alum,0,alu
+alvin,"[(u'lin', 58), (u'align', 17)]",11,from all products,align,0,alvin
+amco,"[(u'camco', 88), (u'emco', 174), (u'camo', 152), (u'raco', 494), (u'taco', 30)]",10,from all products,camco,0,amco
+americna,"[(u'american', 2961), (u'americast', 50)]",11,from matched products,american,0,americna
+amt,[],12,from all products,,0,amt
+anabelle,[],8,from all products,,0,anabelle
+andril,"[(u'handrail', 206)]",15,from all products,handrail,0,andril
+antivibration,"[(u'vibration', 22)]",1,from matched products,vibration,0,antivibration
+aok,[],9,from all products,,0,aok
+apper,"[(u'paper', 789), (u'per', 2010)]",14,from matched products,paper,0,apper
+aprent,"[(u'argent', 20)]",1,from all products,argent,0,aprent
+aprilaire,[],19,from all products,,0,aprilaire
+arcfault,[],2,from bigrams,arc fault,0,arcfault
+ardex,"[(u'arden', 12), (u'carex', 21)]",4,from all products,,0,ardex
+armboard,"[(u'board', 2077)]",10,from matched products,board,0,armboard
+artifical,"[(u'artificial', 1324)]",8,from matched products,artificial,0,artifical
+asa,"[(u'alsa', 32), (u'asian', 16), (u'casa', 124), (u'pasta', 18)]",7,from all products,,0,asa
+asher,"[(u'washer', 1726)]",4,from matched products,washer,0,asher
+ashtabula,[],15,from all products,,0,ashtabula
+ashwell,"[(u'shell', 102)]",12,from all products,shell,0,ashwell
+askoll,[],2,from all products,,0,askoll
+aspectmetal,[],3,from bigrams,aspect metal,0,aspectmetal
+aspiradora,[],18,from all products,,0,aspiradora
+assorment,"[(u'assortment', 170)]",13,from matched products,assortment,0,assorment
+assy,"[(u'pass', 222), (u'alsy', 12), (u'classy', 34), (u'easy', 979), (u'ass', 30)]",8,from all products,ass,0,assy
+astm,"[(u'ast', 12), (u'stem', 240), (u'fast', 213), (u'cast', 992)]",18,from all products,ast,0,astm
+atomatica,"[(u'aromatic', 74), (u'automatic', 538)]",11,from all products,automatic,0,atomatica
+atr,"[(u'after', 76), (u'cator', 11), (u'eater', 13), (u'astro', 13), (u'gator', 44), (u'altra', 33), (u'water', 5094)]",1,from all products,,0,atr
+autofeeder,[],14,from all products,,0,autofeeder
+awap,"[(u'wap', 17)]",11,from all products,wap,0,awap
+awp,[],8,from all products,,0,awp
+axxes,"[(u'axe', 64), (u'axess', 30), (u'axxys', 25)]",3,from all products,,0,axxes
+azuvi,[],11,from all products,,0,azuvi
+baag,"[(u'bag', 945), (u'bags', 460)]",2,from matched products,bag,0,baag
+bacco,"[(u'basco', 57)]",13,from matched products,basco,0,bacco
+backbrace,[],1,from all products,,0,backbrace
+backpocket,[],2,from bigrams,back pocket,0,backpocket
+backsp,"[(u'backup', 196)]",9,from all products,backup,0,backsp
+backsplashes,"[(u'backsplash', 437)]",19,from matched products,backsplash,0,backsplashes
+bakewarte,"[(u'bakeware', 23)]",19,from matched products,bakeware,0,bakewarte
+balafon,[],10,from all products,,0,balafon
+ballaster,"[(u'baluster', 209)]",6,from matched products,baluster,0,ballaster
+barden,"[(u'arden', 12)]",3,from matched products,arden,0,barden
+barranco,[],18,from all products,,0,barranco
+barreir,"[(u'barrier', 338)]",9,from matched products,barrier,0,barreir
+basem,"[(u'base', 3763), (u'based', 597)]",12,from matched products,base,0,basem
+bathfan,[],17,from bigrams,bath fan,0,bathfan
+bathfans,[],18,from bigrams,bath fans,0,bathfans
+bathroomvanity,[],7,from bigrams,bathroom vanity,0,bathroomvanity
+batte,"[(u'battery', 2753)]",9,from matched products,battery,0,batte
+battery72517063,,11,added space before digit,battery 72517063,0,battery72517063
+beadex,"[(u'beaded', 96)]",12,from matched products,beaded,0,beadex
+beadez,"[(u'bead', 208)]",18,from matched products,bead,0,beadez
+beekman,[],20,from all products,,0,beekman
+behroil,"[(u'broil', 147)]",17,from all products,broil,0,behroil
+behrwooden,[],10,from all products,,0,behrwooden
+bener,"[(u'bender', 239), (u'blender', 38), (u'eer', 33), (u'bee', 12), (u'beer', 57)]",10,from all products,bender,0,bener
+bentgrass,[],20,from all products,,0,bentgrass
+bestair,"[(u'stair', 960)]",2,from all products,stair,0,bestair
+bestine,[],20,from all products,,0,bestine
+bestos,[],14,from all products,,0,bestos
+bgr,[],5,from all products,,0,bgr
+biax,[],14,from all products,,0,biax
+bidat,"[(u'bidet', 110)]",6,from matched products,bidet,0,bidat
+biech,"[(u'birch', 322)]",2,from matched products,birch,0,biech
+bigass,[],1,from bigrams,big ass,0,bigass
+biofuels,[],10,from all products,,0,biofuels
+blash,"[(u'lash', 13), (u'flash', 63), (u'blast', 28), (u'ash', 134), (u'blush', 37), (u'leash', 24)]",6,from all products,lash,0,blash
+blk,"[(u'black', 13370)]",11,from matched products,black,0,blk
+blong,"[(u'oblong', 13), (u'blown', 46), (u'blocking', 36), (u'log', 246), (u'bog', 22), (u'long', 1013)]",13,from all products,oblong,0,blong
+bluemax,[],1,from bigrams,blue max,0,bluemax
+bluwood,[],13,from all products,,0,bluwood
+boardman,[],9,from all products,,0,boardman
+bolens,[],18,from all products,,0,bolens
+boombox,[],13,from bigrams,boom box,0,boombox
+bosche,"[(u'bosch', 1017)]",17,from matched products,bosch,0,bosche
+boscobel,[],10,from all products,,0,boscobel
+bostich,"[(u'bosch', 1017), (u'bostitch', 104)]",9,from all products,bostitch,0,bostich
+boxspring,[],2,from bigrams,box spring,0,boxspring
+brakers,"[(u'breaker', 983)]",1,from matched products,breaker,0,brakers
+brambury,"[(u'banbury', 190)]",9,from matched products,banbury,0,brambury
+bramerton,[],12,from all products,,0,bramerton
+brayer,"[(u'bayer', 51)]",13,from matched products,bayer,0,brayer
+brinkman,"[(u'brinkmann', 239)]",27,from matched products,brinkmann,0,brinkman
+browel,"[(u'trowel', 96)]",13,from matched products,trowel,0,browel
+brownswitch,[],4,from all products,,0,brownswitch
+bti,[],18,from all products,,0,bti
+btype,"[(u'type', 1565)]",9,from all products,type,0,btype
+bulbsu,"[(u'bulb', 4214)]",7,from matched products,bulb,0,bulbsu
+bungie,"[(u'bungee', 111)]",9,from matched products,bungee,0,bungie
+bunners,"[(u'burner', 1132), (u'burners', 203)]",8,from matched products,burners,0,bunners
+byass,"[(u'brass', 4407), (u'bypass', 421)]",8,from matched products,bypass,0,byass
+byefold,[],3,from all products,,0,byefold
+cabi,"[(u'carb', 34), (u'crab', 33), (u'cabrio', 58), (u'cabo', 22), (u'cabin', 45), (u'cab', 38)]",20,from all products,cabin,0,cabi
+cabients,"[(u'cabinets', 144)]",17,from all products,cabinets,0,cabients
+cabniets,"[(u'cabinet', 6494)]",2,from matched products,cabinet,0,cabniets
+cair,"[(u'card', 37), (u'chair', 1785), (u'char', 156), (u'chairs', 145), (u'air', 4677), (u'cars', 22), (u'cart', 696), (u'carb', 34), (u'care', 314), (u'pair', 677), (u'hair', 60), (u'coir', 65), (u'car', 162)]",3,from all products,chair,0,cair
+calton,"[(u'canton', 19)]",2,from matched products,canton,0,calton
+campane,"[(u'champagne', 154)]",4,from all products,champagne,0,campane
+canapies,"[(u'canopies', 14)]",17,from all products,canopies,0,canapies
+canapu,[],8,from all products,,0,canapu
+candels,"[(u'candles', 30)]",16,from matched products,candles,0,candels
+canspot,[],14,from all products,,0,canspot
+canster,"[(u'caster', 67), (u'casters', 101), (u'canister', 60)]",10,from all products,canister,0,canster
+capipapia,[],5,from all products,,0,capipapia
+capua,"[(u'cap', 2584)]",7,from all products,cap,0,capua
+carla,"[(u'carolina', 69), (u'carol', 17), (u'carlo', 69), (u'ara', 20), (u'car', 162), (u'cal', 206)]",10,from all products,,0,carla
+carpetshampoo,[],11,from bigrams,carpet shampoo,0,carpetshampoo
+carpt,"[(u'carpet', 1358)]",2,from matched products,carpet,0,carpt
+carr,"[(u'card', 37), (u'char', 156), (u'cars', 22), (u'cart', 696), (u'carb', 34), (u'care', 314), (u'carter', 12), (u'carry', 39), (u'car', 162)]",7,from all products,carry,0,carr
+cartelized,[],10,from all products,,0,cartelized
+castiron,[],9,from bigrams,cast iron,0,castiron
+cawls,"[(u'cal', 206)]",12,from all products,cal,0,cawls
+ccl,"[(u'cycle', 397)]",3,from all products,cycle,0,ccl
+ceadar,"[(u'cedar', 1377)]",13,from matched products,cedar,0,ceadar
+celin,"[(u'lin', 58), (u'ceilings', 103), (u'ceiling', 4995)]",9,from all products,ceiling,0,celin
+celing,"[(u'ceiling', 4995), (u'ceilings', 103)]",6,from matched products,ceiling,0,celing
+centerprise,"[(u'centerpiece', 14)]",8,from matched products,centerpiece,0,centerprise
+ceto,"[(u'cetol', 56)]",9,from all products,cetol,0,ceto
+cetolsrd,[],11,from bigrams,cetol srd,0,cetolsrd
+chainlink,[],1,from bigrams,chain link,0,chainlink
+chaosaw,[],6,from all products,,0,chaosaw
+charbroi,[],10,from all products,,0,charbroi
+charbroil,[],29,from bigrams,char broil,0,charbroil
+chibli,"[(u'chili', 139)]",13,from matched products,chili,0,chibli
+chinu,"[(u'china', 156)]",11,from matched products,china,0,chinu
+chopsaw,[],4,from bigrams,chop saw,0,chopsaw
+cincking,[],11,from all products,,0,cincking
+clab,"[(u'clay', 274)]",12,from matched products,clay,0,clab
+claissic,"[(u'classic', 1982), (u'classico', 21), (u'classics', 302)]",16,from all products,classic,0,claissic
+cleane,"[(u'cleanser', 28), (u'clean', 463), (u'cleaners', 32), (u'cleaner', 1249)]",10,from all products,cleaner,0,cleane
+clivus,[],7,from all products,,0,clivus
+closable,[],8,from all products,,0,closable
+clr,"[(u'clear', 4134), (u'claro', 38), (u'clark', 56), (u'color', 1719)]",2,from all products,,0,clr
+coater,"[(u'carter', 12), (u'coated', 762), (u'caster', 67)]",20,from all products,,0,coater
+coffee3,,12,added space before digit,coffee 3,0,coffee3
+colared,[],8,from bigrams,cola red,0,colared
+coldtemp,[],8,from all products,,0,coldtemp
+colosso,[],8,from all products,,0,colosso
+comealong,[],3,from bigrams,come along,0,comealong
+comercialcarpet,[],17,from all products,,0,comercialcarpet
+comi,"[(u'omni', 24), (u'com', 49), (u'coir', 65), (u'coil', 466), (u'coin', 45), (u'comp', 84), (u'comb', 16)]",16,from all products,com,0,comi
+commercail,"[(u'commercial', 2252)]",14,from matched products,commercial,0,commercail
+compamia,"[(u'compania', 1)]",1,from matched products,compania,0,compamia
+compendent,"[(u'component', 60), (u'pendent', 26)]",11,from all products,component,0,compendent
+composit,"[(u'composite', 2323), (u'composition', 18), (u'compost', 35)]",9,from all products,composite,0,composit
+compressro,"[(u'compressor', 458)]",17,from matched products,compressor,0,compressro
+conc,"[(u'sconce', 439), (u'con', 151), (u'cognac', 198), (u'coca', 47), (u'coco', 81), (u'cone', 184), (u'coin', 45), (u'corn', 47), (u'icon', 21), (u'once', 13)]",4,from all products,con,0,conc
+concretetile,[],3,from bigrams,concrete tile,0,concretetile
+cond,"[(u'bond', 223), (u'code', 70), (u'cod', 117), (u'con', 151), (u'cold', 309), (u'cone', 184), (u'coin', 45), (u'cord', 1151), (u'corn', 47), (u'icon', 21), (u'pond', 217)]",15,from all products,,0,cond
+condit,"[(u'conduit', 649)]",14,from all products,conduit,0,condit
+condulets,[],5,from all products,,0,condulets
+congoleum,[],17,from all products,,0,congoleum
+controle,"[(u'control', 2446)]",10,from matched products,control,0,controle
+corelais,"[(u'coralais', 33)]",11,from all products,coralais,0,corelais
+corio,"[(u'cri', 187), (u'cuori', 17), (u'corso', 11), (u'scorpion', 12), (u'orion', 20), (u'rio', 35)]",11,from all products,,0,corio
+corne,"[(u'corner', 1945)]",16,from matched products,corner,0,corne
+cornershower,[],13,from bigrams,corner shower,0,cornershower
+corsar,[],8,from all products,,0,corsar
+cothom,[],10,from all products,,0,cothom
+couchen,"[(u'couch', 4)]",10,from matched products,couch,0,couchen
+could,"[(u'old', 415), (u'cod', 117), (u'col', 43), (u'cold', 309), (u'cloud', 36)]",8,from all products,cold,0,could
+coving,"[(u'coping', 13), (u'coring', 16), (u'covering', 100), (u'moving', 82)]",8,from all products,covering,0,coving
+craftsm,"[(u'crafts', 84), (u'craftsman', 663), (u'craftsmen', 75), (u'craft', 209)]",9,from all products,crafts,0,craftsm
+cranner,"[(u'crane', 51)]",8,from matched products,crane,0,cranner
+csm,"[(u'cosmo', 15)]",2,from all products,cosmo,0,csm
+cubicel,"[(u'cubicle', 1)]",1,from matched products,cubicle,0,cubicel
+cucbi,"[(u'cub', 431), (u'ubi', 43)]",4,from all products,,0,cucbi
+curlex,[],1,from all products,,0,curlex
+custo,"[(u'custom', 1621), (u'cut', 1140)]",3,from matched products,custom,0,custo
+cutte,"[(u'cutter', 562)]",11,from matched products,cutter,0,cutte
+cuv,"[(u'curve', 77)]",8,from all products,curve,0,cuv
+cwg,[],5,from all products,,0,cwg
+cypermethrin,[],22,from all products,,0,cypermethrin
+dacor,"[(u'ancor', 48), (u'acorn', 31), (u'decor', 943), (u'racor', 33), (u'dasco', 41), (u'danco', 510)]",5,from all products,,0,dacor
+dampiner,"[(u'dampener', 17)]",5,from matched products,dampener,0,dampiner
+danika,[],10,from all products,,0,danika
+dcf,[],11,from all products,,0,dcf
+dcon,"[(u'con', 151)]",2,from matched products,con,0,dcon
+deadblow,[],2,from bigrams,dead blow,0,deadblow
+deask,"[(u'desk', 327), (u'dek', 18), (u'ideas', 34)]",12,from all products,desk,0,deask
+decarail,"[(u'deckorail', 84)]",5,from matched products,deckorail,0,decarail
+deckpaint,[],18,from bigrams,deck paint,0,deckpaint
+decostrip,[],5,from all products,,0,decostrip
+dectot,[],4,from all products,,0,dectot
+deg,[],7,from all products,,0,deg
+dehimid,[],11,from all products,,0,dehimid
+dep,"[(u'deep', 1214)]",2,from matched products,deep,0,dep
+detecter,"[(u'detector', 134)]",5,from all products,detector,0,detecter
+discon,"[(u'edison', 63)]",10,from all products,edison,0,discon
+dlight,"[(u'light', 19307)]",11,from matched products,light,0,dlight
+dobble,"[(u'cobble', 12), (u'double', 4771)]",2,from all products,,0,dobble
+dolled,"[(u'rolled', 76)]",6,from matched products,rolled,0,dolled
+doly,"[(u'dolly', 105)]",10,from matched products,dolly,0,doly
+doorguard,[],3,from bigrams,door guard,0,doorguard
+doors32x78,,10,added space before digit,doors 32x78,0,doors32x78
+doorsmoocher,[],12,from all products,,0,doorsmoocher
+dorada,"[(u'dorado', 21)]",1,from all products,dorado,0,dorada
+doublesided,[],7,from bigrams,double sided,0,doublesided
+doug,"[(u'dogs', 43), (u'dog', 556)]",6,from all products,dog,0,doug
+dpdt,[],3,from all products,,0,dpdt
+dracket,"[(u'bracket', 1253), (u'drake', 30)]",11,from all products,bracket,0,dracket
+dreme,"[(u'dream', 29)]",16,from matched products,dream,0,dreme
+dreyns,[],7,from all products,,0,dreyns
+drione,[],15,from all products,,0,drione
+drp,"[(u'drop', 705)]",8,from matched products,drop,0,drp
+drumel,"[(u'dremel', 303)]",12,from matched products,dremel,0,drumel
+drye,"[(u'dry', 672), (u'dryer', 1185), (u'dryden', 35), (u'drydex', 24), (u'dye', 41)]",4,from all products,dryer,0,drye
+dryvit,[],1,from all products,,0,dryvit
+dsown,"[(u'dyson', 35), (u'down', 719), (u'own', 54)]",3,from all products,down,0,dsown
+duking,"[(u'decking', 246)]",15,from matched products,decking,0,duking
+dule,"[(u'idle', 21), (u'duet', 159), (u'dune', 109), (u'rule', 16), (u'mule', 123), (u'duplex', 761), (u'double', 4771), (u'dale', 119), (u'module', 220), (u'dual', 2278)]",2,from all products,,0,dule
+dupioni,[],3,from all products,,0,dupioni
+duratemp,[],9,from all products,,0,duratemp
+dutchlap,[],16,from bigrams,dutch lap,0,dutchlap
+dwall,"[(u'dewalt', 2373)]",1,from matched products,dewalt,0,dwall
+dymonic,[],6,from all products,,0,dymonic
+eastbay,[],2,from bigrams,east bay,0,eastbay
+easylight,[],9,from bigrams,easy light,0,easylight
+eathgrow,"[(u'earthgro', 34)]",3,from matched products,earthgro,0,eathgrow
+ecobulb,[],2,from all products,,0,ecobulb
+edod,"[(u'edo', 19)]",10,from matched products,edo,0,edod
+edsel,"[(u'edsal', 237)]",16,from matched products,edsal,0,edsel
+eglimgton,[],11,from all products,,0,eglimgton
+electral,"[(u'electrical', 579)]",9,from all products,electrical,0,electral
+electrica,"[(u'electric', 6579)]",5,from matched products,electric,0,electrica
+emp,"[(u'tempo', 95), (u'empty', 37), (u'temp', 346)]",12,from all products,temp,0,emp
+ennox,"[(u'lennox', 11)]",9,from matched products,lennox,0,ennox
+ensley,"[(u'hensley', 17)]",7,from matched products,hensley,0,ensley
+entrydoors,[],18,from bigrams,entry doors,0,entrydoors
+envios,"[(u'enviro', 35)]",3,from all products,enviro,0,envios
+epilateur,"[(u'epilator', 3)]",2,from matched products,epilator,0,epilateur
+ept,"[(u'empty', 37), (u'depth', 634), (u'depot', 265)]",18,from all products,,0,ept
+estore,"[(u'restore', 309)]",10,from matched products,restore,0,estore
+euroloft,[],18,from all products,,0,euroloft
+eurotherm,[],12,from all products,,0,eurotherm
+evap,"[(u'eva', 93)]",31,from all products,eva,0,evap
+evendale,[],12,from all products,,0,evendale
+everbuilt,"[(u'everbilt', 3386)]",10,from matched products,everbilt,0,everbuilt
+evergrain,[],6,from all products,,0,evergrain
+exacto,"[(u'acto', 3)]",11,from matched products,acto,0,exacto
+exhaustless,[],6,from all products,,0,exhaustless
+exp,[],20,from all products,,0,exp
+exteriordoors,[],20,from bigrams,exterior doors,0,exteriordoors
+fabris,"[(u'fabric', 730)]",4,from all products,fabric,0,fabris
+fairlawn,[],3,from all products,,0,fairlawn
+fameless,"[(u'frameless', 604)]",11,from all products,frameless,0,fameless
+fan25522,,13,added space before digit,fan 25522,0,fan25522
+fanall,[],10,from all products,,0,fanall
+fantdoors,[],1,from all products,,0,fantdoors
+fasad,"[(u'fasade', 274)]",3,from matched products,fasade,0,fasad
+fastcap,[],1,from all products,,0,fastcap
+faul,"[(u'full', 1477), (u'paul', 275), (u'fuel', 823), (u'fall', 281), (u'fault', 28), (u'azul', 13), (u'faux', 668)]",11,from all products,fault,0,faul
+felx,"[(u'felt', 83), (u'fuel', 823), (u'flux', 32), (u'feel', 41), (u'flex', 741)]",2,from all products,,0,felx
+felxfx,[],9,from all products,,0,felxfx
+ffill,"[(u'fill', 100)]",9,from matched products,fill,0,ffill
+fhnt,"[(u'fnpt', 51)]",11,from all products,fnpt,0,fhnt
+fierenz,"[(u'firenze', 23)]",7,from matched products,firenze,0,fierenz
+fija,"[(u'fiji', 11)]",10,from matched products,fiji,0,fija
+filerts,"[(u'filter', 2519)]",8,from matched products,filter,0,filerts
+fireglass,[],10,from bigrams,fire glass,0,fireglass
+fireless,"[(u'frameless', 604), (u'wireless', 1001)]",2,from all products,wireless,0,fireless
+firepot,[],11,from bigrams,fire pot,0,firepot
+firter,"[(u'filter', 2519)]",3,from matched products,filter,0,firter
+fitt,"[(u'fit', 570), (u'feit', 280), (u'fipt', 60), (u'fits', 306), (u'fitter', 150)]",20,from all products,fit,0,fitt
+flaire,"[(u'flare', 96), (u'flared', 16), (u'flair', 49)]",9,from all products,,0,flaire
+flexlock,[],13,from bigrams,flex lock,0,flexlock
+floaties,[],10,from all products,,0,floaties
+flomaster,[],3,from bigrams,flo master,0,flomaster
+floorong,"[(u'floor', 5203)]",15,from matched products,floor,0,floorong
+floot,"[(u'floor', 5203)]",8,from matched products,floor,0,floot
+floratam,[],5,from all products,,0,floratam
+florcant,[],16,from all products,,0,florcant
+florent,"[(u'foret', 62)]",11,from all products,foret,0,florent
+flotex,"[(u'flotec', 74)]",18,from matched products,flotec,0,flotex
+flushmate,[],8,from all products,,0,flushmate
+fma,"[(u'forma', 25)]",10,from all products,forma,0,fma
+foof,"[(u'food', 391), (u'foot', 752), (u'goof', 99), (u'roof', 941)]",10,from all products,,0,foof
+fosle,[],11,from all products,,0,fosle
+fost,"[(u'foss', 61), (u'frosty', 19), (u'post', 3138), (u'foot', 752), (u'fast', 213), (u'frost', 784), (u'most', 23), (u'forest', 376)]",3,from all products,frost,0,fost
+fpv,[],13,from all products,,0,fpv
+frazee,[],12,from all products,,0,frazee
+frenchwood,[],2,from bigrams,french wood,0,frenchwood
+friedrich,[],2,from all products,,0,friedrich
+frig,"[(u'ring', 1039)]",16,from matched products,ring,0,frig
+frontload,[],7,from bigrams,front load,0,frontload
+froses,"[(u'roses', 42)]",8,from all products,roses,0,froses
+fsu,[],11,from all products,,0,fsu
+fyrpon,"[(u'fypon', 172)]",10,from matched products,fypon,0,fyrpon
+gaceno,[],8,from all products,,0,gaceno
+galllon,"[(u'gallon', 59)]",13,from all products,gallon,0,galllon
+gallondrywall,[],5,from all products,,0,gallondrywall
+galloon,"[(u'gallon', 59)]",9,from all products,gallon,0,galloon
+garagedoor,[],2,from bigrams,garage door,0,garagedoor
+garde,"[(u'garden', 2287)]",22,from matched products,garden,0,garde
+gardena,"[(u'garden', 2287)]",9,from matched products,garden,0,gardena
+gasquet,"[(u'gasket', 196)]",10,from matched products,gasket,0,gasquet
+gate0,,16,added space before digit,gate 0,0,gate0
+gbi,[],8,from all products,,0,gbi
+gelco,"[(u'gelcoat', 102)]",9,from matched products,gelcoat,0,gelco
+geospring,[],5,from all products,,0,geospring
+geotextile,[],19,from all products,,0,geotextile
+gfic,"[(u'gfci', 349)]",18,from matched products,gfci,0,gfic
+giga,"[(u'gig', 1)]",1,from matched products,gig,0,giga
+gilmore,[],11,from all products,,0,gilmore
+gimmble,"[(u'gimbal', 57)]",2,from matched products,gimbal,0,gimmble
+glass3,,1,added space before digit,glass 3,0,glass3
+glauder,[],10,from all products,,0,glauder
+glifo,"[(u'glo', 190)]",11,from all products,glo,0,glifo
+gll,"[(u'grill', 1473), (u'gull', 384)]",3,from all products,gull,0,gll
+glm,"[(u'glam', 24)]",3,from all products,glam,0,glm
+glulam,[],2,from all products,,0,glulam
+goldroyalty,"[(u'royalty', 6)]",7,from matched products,royalty,0,goldroyalty
+gooba,[],4,from all products,,0,gooba
+gpx,[],9,from all products,,0,gpx
+granit,"[(u'granite', 1681)]",1,from matched products,granite,0,granit
+greaseless,[],10,from all products,,0,greaseless
+gregio,"[(u'grigio', 20)]",1,from matched products,grigio,0,gregio
+grib,"[(u'grip', 1155)]",9,from matched products,grip,0,grib
+gridlee,"[(u'griddle', 87)]",12,from matched products,griddle,0,gridlee
+grils,"[(u'grill', 1473)]",5,from matched products,grill,0,grils
+grippy,[],3,from all products,,0,grippy
+gsilestone,"[(u'silestone', 115)]",12,from all products,silestone,0,gsilestone
+gte,"[(u'grate', 308), (u'gate', 1067), (u'gates', 30)]",15,from all products,gate,0,gte
+gwtters,"[(u'gutters', 12)]",12,from all products,gutters,0,gwtters
+hacr,"[(u'char', 156), (u'hvac', 116), (u'acre', 19), (u'hard', 355), (u'hart', 19), (u'hair', 60), (u'hack', 35)]",10,from all products,,0,hacr
+haggerty,[],7,from all products,,0,haggerty
+hallodoor,[],17,from all products,,0,hallodoor
+hampton30,,9,added space before digit,hampton 30,0,hampton30
+handtools,[],16,from bigrams,hand tools,0,handtools
+hattic,"[(u'attic', 383)]",8,from matched products,attic,0,hattic
+hdk,[],3,from all products,,0,hdk
+headger,"[(u'edger', 460), (u'header', 94), (u'hedge', 338)]",7,from all products,header,0,headger
+heatgasget,[],2,from all products,,0,heatgasget
+heatwave,[],2,from all products,,0,heatwave
+heculine,[],2,from all products,,0,heculine
+hexhead,[],16,from bigrams,hex head,0,hexhead
+hexpin,[],5,from all products,,0,hexpin
+himalya,"[(u'himalaya', 13)]",1,from matched products,himalaya,0,himalya
+hindges,"[(u'hinges', 147), (u'hinge', 821)]",18,from all products,hinges,0,hindges
+hobbycrafter,[],16,from all products,,0,hobbycrafter
+homedepot,[],10,from bigrams,home depot,0,homedepot
+hoo,"[(u'photo', 54), (u'hook', 969), (u'hood', 708), (u'hoods', 16), (u'hooks', 265)]",15,from all products,,0,hoo
+hooverwindtunnel,[],11,from bigrams,hoover windtunnel,0,hooverwindtunnel
+hottubs,[],3,from bigrams,hot tubs,0,hottubs
+hotwater,[],1,from bigrams,hot water,0,hotwater
+hprse,"[(u'horse', 73)]",12,from matched products,horse,0,hprse
+hucky,"[(u'husky', 1651)]",8,from matched products,husky,0,hucky
+hummert,[],8,from all products,,0,hummert
+hvm,[],14,from all products,,0,hvm
+hxh,[],6,from all products,,0,hxh
+hydrolic,"[(u'hydraulic', 47)]",3,from matched products,hydraulic,0,hydrolic
+hypalon,[],9,from all products,,0,hypalon
+iba,"[(u'libra', 27)]",11,from all products,libra,0,iba
+ibeam,"[(u'beam', 191), (u'beams', 85)]",15,from matched products,beam,0,ibeam
+icey,"[(u'ice', 744)]",11,from matched products,ice,0,icey
+idylis,[],13,from all products,,0,idylis
+iftin,[],12,from all products,,0,iftin
+iile,"[(u'pile', 16)]",3,from matched products,pile,0,iile
+iiluminart,"[(u'illuminart', 7)]",2,from matched products,illuminart,0,iiluminart
+ilet,"[(u'inlet', 253)]",1,from matched products,inlet,0,ilet
+ilumination,[],10,from all products,,0,ilumination
+inanchor,"[(u'anchors', 219)]",4,from matched products,anchors,0,inanchor
+incerts,"[(u'inserts', 50)]",9,from all products,inserts,0,incerts
+inchesside,[],8,from all products,,0,inchesside
+inferni,"[(u'inferno', 19)]",11,from matched products,inferno,0,inferni
+inovations,"[(u'innovations', 67)]",1,from matched products,innovations,0,inovations
+insh,"[(u'fish', 66), (u'finish', 1478), (u'pins', 54), (u'insl', 28), (u'bins', 38), (u'dish', 95), (u'inch', 131)]",1,from all products,finish,0,insh
+insol,"[(u'sol', 14), (u'iso', 13), (u'insl', 28), (u'insoles', 12)]",17,from all products,insl,0,insol
+instastart,[],5,from all products,,0,instastart
+instock,"[(u'stock', 129)]",4,from all products,stock,0,instock
+int,"[(u'paint', 5565), (u'pint', 94)]",17,from matched products,pint,0,int
+internet202627028,,8,added space before digit,internet 202627028,0,internet202627028
+islating,"[(u'insulating', 110)]",1,from all products,insulating,0,islating
+itself,"[(u'self', 2973)]",15,from matched products,self,0,itself
+jeldwen,[],76,from bigrams,jeld wen,0,jeldwen
+jirdon,"[(u'jerdon', 17)]",14,from all products,jerdon,0,jirdon
+joisthangers,[],16,from all products,,0,joisthangers
+josie,"[(u'osi', 25), (u'jalousie', 18), (u'jobsite', 56), (u'joe', 288)]",11,from all products,jobsite,0,josie
+jrc,[],8,from all products,,0,jrc
+juera,[],15,from all products,,0,juera
+kaindl,[],11,from all products,,0,kaindl
+kalkey,[],9,from all products,,0,kalkey
+kally,"[(u'kelly', 14)]",1,from matched products,kelly,0,kally
+karacolor,[],1,from all products,,0,karacolor
+kelton,"[(u'kelston', 23)]",7,from matched products,kelston,0,kelton
+kendalwood,[],13,from all products,,0,kendalwood
+kenken,[],3,from all products,,0,kenken
+keystock,[],2,from bigrams,key stock,0,keystock
+kichler,[],1,from all products,,0,kichler
+kidco,[],10,from all products,,0,kidco
+kiiz,"[(u'kilz', 107)]",14,from all products,kilz,0,kiiz
+killeen,"[(u'kleen', 81)]",9,from all products,kleen,0,killeen
+killerique,[],3,from all products,,0,killerique
+kimtec,"[(u'kimtech', 2), (u'kimtex', 1)]",2,from matched products,kimtech,0,kimtec
+kindorf,[],11,from all products,,0,kindorf
+kitchenfaucet,[],2,from bigrams,kitchen faucet,0,kitchenfaucet
+kitching,[],15,from all products,,0,kitching
+knicken,"[(u'nickel', 6553)]",8,from matched products,nickel,0,knicken
+knurling,[],8,from all products,,0,knurling
+kobalt,"[(u'cobalt', 95)]",18,from all products,cobalt,0,kobalt
+koehler,"[(u'kohler', 3365)]",1,from matched products,kohler,0,koehler
+kohlerdrop,[],7,from all products,,0,kohlerdrop
+koler,"[(u'kohler', 3365), (u'older', 15)]",3,from all products,kohler,0,koler
+koolaroo,"[(u'coolaroo', 95)]",15,from matched products,coolaroo,0,koolaroo
+kraftsman,"[(u'craftsman', 663)]",3,from matched products,craftsman,0,kraftsman
+krylon,[],45,from all products,,0,krylon
+kti,[],10,from all products,,0,kti
+ktoilet,"[(u'toilet', 2745), (u'toilets', 95)]",2,from matched products,toilet,0,ktoilet
+kwal,"[(u'wall', 14159), (u'wal', 130), (u'walk', 697)]",12,from all products,wal,0,kwal
+kyobi,"[(u'ryobi', 2010)]",12,from matched products,ryobi,0,kyobi
+labo,"[(u'lab', 29), (u'labs', 10)]",11,from matched products,lab,0,labo
+ladders28,,9,added space before digit,ladders 28,0,ladders28
+lader,"[(u'ladder', 733)]",2,from matched products,ladder,0,lader
+laminate12,,11,added space before digit,laminate 12,0,laminate12
+laminet,[],3,from all products,,0,laminet
+lanco,"[(u'danco', 510)]",15,from matched products,danco,0,lanco
+lanterun,"[(u'lantern', 1001), (u'lanterns', 22)]",7,from matched products,lantern,0,lanterun
+lasco,"[(u'tasco', 37), (u'ascot', 30), (u'basco', 57), (u'lasko', 168), (u'lesco', 18), (u'dasco', 41), (u'classico', 21), (u'jasco', 15), (u'fasco', 42)]",14,from all products,,0,lasco
+latchbolt,[],2,from bigrams,latch bolt,0,latchbolt
+laticrete,[],13,from all products,,0,laticrete
+lattus,"[(u'lattis', 12)]",6,from matched products,lattis,0,lattus
+lauan,"[(u'laura', 56)]",18,from all products,laura,0,lauan
+layaway,[],10,from all products,,0,layaway
+leco,"[(u'emco', 174), (u'eco', 375), (u'deco', 309), (u'lesco', 18), (u'jeco', 18), (u'echo', 590)]",2,from all products,lesco,0,leco
+led2,,1,added space before digit,led 2,0,led2
+ledbulb,[],6,from bigrams,led bulb,0,ledbulb
+lenox,"[(u'lenor', 24), (u'nox', 148), (u'lennox', 11)]",12,from all products,lennox,0,lenox
+leonia,[],11,from all products,,0,leonia
+leum,"[(u'oleum', 1725)]",11,from matched products,oleum,0,leum
+leuver,"[(u'lever', 1164)]",10,from matched products,lever,0,leuver
+levelquick,"[(u'levelquik', 28)]",1,from all products,levelquik,0,levelquick
+leverlock,[],2,from bigrams,lever lock,0,leverlock
+levin,"[(u'klein', 735), (u'lin', 58), (u'leveling', 188), (u'sevin', 13), (u'leviton', 998)]",6,from all products,leviton,0,levin
+liftmaster,[],19,from bigrams,lift master,0,liftmaster
+lightsensor,[],14,from bigrams,light sensor,0,lightsensor
+linnart,[],1,from all products,,0,linnart
+litex,"[(u'latex', 801)]",18,from matched products,latex,0,litex
+lmi,[],5,from all products,,0,lmi
+lockin,"[(u'blocking', 36), (u'locbin', 14), (u'locking', 435)]",7,from all products,locking,0,lockin
+lohasras,[],7,from all products,,0,lohasras
+lolli,"[(u'loloi', 33)]",3,from all products,loloi,0,lolli
+lon,"[(u'alone', 16), (u'sloan', 21), (u'lyons', 153), (u'blown', 46), (u'lyon', 26), (u'linon', 63), (u'nylon', 670), (u'lion', 28), (u'talon', 27), (u'melon', 24), (u'logan', 18), (u'long', 1013), (u'lemon', 53), (u'olson', 15)]",9,from all products,,0,lon
+lswb,[],1,from all products,,0,lswb
+luana,"[(u'luna', 21), (u'lan', 45)]",17,from all products,luna,0,luana
+lub,"[(u'lube', 39)]",3,from matched products,lube,0,lub
+lumber4x4,,2,added space before digit,lumber 4x4,0,lumber4x4
+lumder,"[(u'lumber', 671)]",9,from matched products,lumber,0,lumder
+lumpkin,"[(u'pumpkin', 22), (u'lampkin', 13)]",12,from all products,,0,lumpkin
+lvl,"[(u'level', 356)]",5,from matched products,level,0,lvl
+maddock,"[(u'paddock', 2)]",2,from matched products,paddock,0,maddock
+madylin,[],11,from all products,,0,madylin
+mallory,"[(u'alloy', 92)]",8,from all products,alloy,0,mallory
+manassas,[],7,from all products,,0,manassas
+mandare,"[(u'mandara', 66)]",9,from matched products,mandara,0,mandare
+mandoors,[],12,from all products,,0,mandoors
+mapp,"[(u'map', 36)]",8,from matched products,map,0,mapp
+marineweld,[],4,from all products,,0,marineweld
+martina,"[(u'martha', 1210)]",10,from matched products,martha,0,martina
+mashine,"[(u'machine', 607)]",15,from matched products,machine,0,mashine
+masterlock,[],7,from bigrams,master lock,0,masterlock
+matha,"[(u'martha', 1210)]",9,from matched products,martha,0,matha
+maxfire,[],2,from bigrams,max fire,0,maxfire
+mdfrosette,[],5,from bigrams,mdf rosette,0,mdfrosette
+mdog,"[(u'dog', 556)]",9,from matched products,dog,0,mdog
+mech,"[(u'tech', 753), (u'mesh', 873), (u'each', 86), (u'etch', 20), (u'echo', 590)]",1,from all products,,0,mech
+melinger,[],6,from all products,,0,melinger
+menet,"[(u'net', 126), (u'met', 54), (u'ent', 19), (u'men', 55)]",11,from all products,,0,menet
+mepat,"[(u'epa', 45), (u'mpt', 266), (u'met', 54), (u'meat', 19), (u'mat', 813)]",14,from all products,meat,0,mepat
+merrill,[],1,from all products,,0,merrill
+meryl,"[(u'mel', 68), (u'merry', 15), (u'emery', 18)]",4,from all products,,0,meryl
+metaliks,"[(u'metal', 4222)]",12,from matched products,metal,0,metaliks
+meu,[],10,from all products,,0,meu
+mff,[],2,from all products,,0,mff
+midesion,"[(u'mission', 223)]",10,from matched products,mission,0,midesion
+milimet,[],13,from all products,,0,milimet
+millbury,[],6,from all products,,0,millbury
+milwaukee18,,7,added space before digit,milwaukee 18,0,milwaukee18
+milwaukie,"[(u'milwaukee', 1954)]",19,from matched products,milwaukee,0,milwaukie
+minimite,[],7,from all products,,0,minimite
+mirror18x20,,12,added space before digit,mirror 18x20,0,mirror18x20
+miticide,[],1,from all products,,0,miticide
+mitte,"[(u'emitters', 20), (u'mistlite', 12), (u'matte', 1006), (u'mites', 23), (u'miter', 409), (u'ite', 103), (u'emitter', 25), (u'mite', 33)]",6,from all products,mite,0,mitte
+mlv,[],1,from all products,,0,mlv
+mod51956,,9,added space before digit,mod 51956,0,mod51956
+modi,"[(u'mold', 223), (u'mode', 37), (u'modine', 34), (u'mod', 32), (u'midi', 12)]",12,from all products,mod,0,modi
+molemax,[],1,from all products,,0,molemax
+molex,"[(u'mole', 38)]",17,from matched products,mole,0,molex
+mollybold,[],1,from all products,,0,mollybold
+monaghan,[],10,from all products,,0,monaghan
+monococcion,[],11,from all products,,0,monococcion
+monor,"[(u'manor', 53), (u'mono', 82), (u'monitor', 132), (u'monorail', 12), (u'motor', 445)]",4,from all products,mono,0,monor
+mora,"[(u'more', 95), (u'morgan', 27), (u'mortar', 210)]",9,from all products,,0,mora
+morza,[],7,from all products,,0,morza
+mosaik,"[(u'mosaic', 1884)]",2,from matched products,mosaic,0,mosaik
+mountspacesaver,[],11,from all products,,0,mountspacesaver
+mssuv,[],1,from all products,,0,mssuv
+mswf,"[(u'mwf', 14)]",1,from all products,mwf,0,mswf
+mta,"[(u'metal', 4222)]",13,from all products,metal,0,mta
+mugel,"[(u'ugl', 30), (u'mel', 68), (u'gel', 183), (u'mug', 26)]",2,from all products,,0,mugel
+multipanel,[],14,from all products,,0,multipanel
+multitool,[],4,from bigrams,multi tool,0,multitool
+multralight,"[(u'ultralight', 83)]",1,from matched products,ultralight,0,multralight
+murrial,"[(u'mural', 80)]",11,from matched products,mural,0,murrial
+mystik,"[(u'hystik', 29), (u'mystic', 24)]",1,from all products,,0,mystik
+nadair,[],13,from all products,,0,nadair
+nailgun,[],24,from bigrams,nail gun,0,nailgun
+nails18,,6,added space before digit,nails 18,0,nails18
+nalgene,[],7,from all products,,0,nalgene
+natol,"[(u'anatolia', 15), (u'natco', 114), (u'national', 517)]",10,from all products,natco,0,natol
+needlenose,[],10,from bigrams,needle nose,0,needlenose
+neema,"[(u'eemax', 13), (u'nema', 66)]",10,from all products,nema,0,neema
+neiko,"[(u'neo', 184)]",13,from all products,neo,0,neiko
+neutrogena,[],2,from all products,,0,neutrogena
+nhk,[],2,from all products,,0,nhk
+nibcoa,"[(u'nibco', 56)]",1,from matched products,nibco,0,nibcoa
+nickelshower,[],10,from bigrams,nickel shower,0,nickelshower
+nicket,"[(u'nickel', 6553)]",14,from matched products,nickel,0,nicket
+nickl,"[(u'nickel', 6553)]",13,from matched products,nickel,0,nickl
+nup,"[(u'nupla', 33)]",13,from all products,nupla,0,nup
+nykros,[],12,from all products,,0,nykros
+nylin,"[(u'lin', 58), (u'nylon', 670)]",13,from all products,nylon,0,nylin
+oakmoss,[],6,from bigrams,oak moss,0,oakmoss
+ock,"[(u'locks', 115), (u'clock', 133), (u'sock', 38), (u'lock', 2088), (u'dock', 105), (u'stock', 129), (u'rocks', 28), (u'oreck', 21), (u'block', 1076), (u'rock', 464), (u'docks', 25), (u'knock', 39), (u'shock', 87)]",6,from all products,,0,ock
+oden,"[(u'wooden', 241), (u'golden', 423), (u'open', 312), (u'olde', 15), (u'boen', 29), (u'code', 70), (u'mode', 37), (u'modern', 451), (u'oven', 1824), (u'rodent', 42), (u'holden', 67), (u'eden', 62), (u'moen', 1407)]",3,from all products,,0,oden
+oerate,"[(u'operated', 501)]",12,from matched products,operated,0,oerate
+ofal,"[(u'opal', 113), (u'sofa', 175), (u'fall', 281), (u'coal', 18), (u'oval', 629)]",12,from all products,,0,ofal
+olean,"[(u'clean', 463)]",6,from matched products,clean,0,olean
+olinol,[],7,from all products,,0,olinol
+omri,"[(u'omni', 24)]",5,from all products,omni,0,omri
+ontrol,"[(u'control', 2446), (u'controls', 187), (u'moentrol', 29)]",4,from all products,control,0,ontrol
+oppeus,[],10,from all products,,0,oppeus
+orack,"[(u'rack', 976), (u'racks', 54), (u'crack', 132), (u'oreck', 21), (u'track', 1125), (u'oak', 3006)]",10,from all products,rack,0,orack
+oring,"[(u'rings', 121), (u'coring', 16), (u'storing', 268), (u'covering', 100), (u'flooring', 2617), (u'ring', 1039), (u'corning', 569), (u'scoring', 25), (u'morning', 47), (u'orion', 20), (u'rig', 14), (u'orian', 29), (u'boring', 28)]",4,from all products,,0,oring
+orzzanti,[],5,from all products,,0,orzzanti
+outdoorfurniture,[],16,from bigrams,outdoor furniture,0,outdoorfurniture
+outler,"[(u'router', 343), (u'outlet', 1737), (u'outer', 36), (u'butler', 51), (u'cutler', 35)]",11,from all products,outer,0,outler
+outlits,"[(u'outlets', 100)]",11,from all products,outlets,0,outlits
+oxyclean,"[(u'clean', 463)]",10,from matched products,clean,0,oxyclean
+padspads,[],13,from bigrams,pads pads,0,padspads
+paintr,"[(u'paint', 5565)]",3,from matched products,paint,0,paintr
+panelboard,[],19,from bigrams,panel board,0,panelboard
+parque,"[(u'plaque', 72), (u'opaque', 17), (u'parquet', 36)]",4,from all products,parquet,0,parque
+partical,"[(u'partial', 16), (u'particle', 63)]",4,from all products,partial,0,partical
+pasc,"[(u'pass', 222)]",6,from matched products,pass,0,pasc
+passway,[],8,from all products,,0,passway
+patena,"[(u'patina', 208)]",18,from all products,patina,0,patena
+paulista,[],10,from all products,,0,paulista
+paxair,"[(u'maxxair', 33)]",13,from matched products,maxxair,0,paxair
+paykel,[],12,from all products,,0,paykel
+paze,"[(u'pane', 73), (u'pale', 25), (u'pace', 72), (u'haze', 19), (u'azek', 26)]",2,from all products,,0,paze
+pdi,[],10,from all products,,0,pdi
+pebb,"[(u'pebbles', 134)]",1,from matched products,pebbles,0,pebb
+peelets,"[(u'pellets', 39)]",13,from matched products,pellets,0,peelets
+pelletized,[],1,from all products,,0,pelletized
+pembria,[],13,from all products,,0,pembria
+pembry,"[(u'pembrey', 78)]",1,from matched products,pembrey,0,pembry
+pemko,"[(u'pem', 23)]",4,from all products,pem,0,pemko
+penofin,[],11,from all products,,0,penofin
+pentas,[],16,from all products,,0,pentas
+penticlea,[],3,from all products,,0,penticlea
+perlatino,[],9,from all products,,0,perlatino
+permatex,"[(u'powermate', 98), (u'permeate', 13)]",2,from all products,permeate,0,permatex
+perren,"[(u'pierre', 15)]",8,from all products,pierre,0,perren
+persianas,"[(u'persian', 31)]",13,from all products,persian,0,persianas
+petscreen,[],7,from bigrams,pet screen,0,petscreen
+petzl,"[(u'pet', 1141)]",10,from matched products,pet,0,petzl
+pfistersaxton,[],6,from bigrams,pfister saxton,0,pfistersaxton
+pfj,[],11,from all products,,0,pfj
+pgdww,[],14,from all products,,0,pgdww
+phil,"[(u'pail', 260), (u'pile', 16), (u'hill', 97)]",9,from all products,,0,phil
+phillits,"[(u'phillips', 791)]",8,from all products,phillips,0,phillits
+piedrafina,[],9,from all products,,0,piedrafina
+pik,"[(u'pick', 51), (u'pink', 388), (u'spike', 166)]",3,from all products,,0,pik
+pino,"[(u'pinto', 8)]",2,from matched products,pinto,0,pino
+pipeinless,[],9,from all products,,0,pipeinless
+pipeized,[],5,from all products,,0,pipeized
+pipies,"[(u'pipe', 2826)]",15,from matched products,pipe,0,pipies
+pishinges,"[(u'shingles', 84)]",13,from all products,shingles,0,pishinges
+plaers,"[(u'pliers', 307)]",13,from matched products,pliers,0,plaers
+plastidip,[],12,from bigrams,plasti dip,0,plastidip
+plata,"[(u'plate', 1974)]",9,from matched products,plate,0,plata
+playstation,"[(u'plantation', 130)]",12,from all products,plantation,0,playstation
+plexi,"[(u'plexidor', 22), (u'pli', 11), (u'flexi', 15), (u'pex', 514)]",2,from all products,flexi,0,plexi
+plusrite,[],12,from all products,,0,plusrite
+plygem,[],5,from bigrams,ply gem,0,plygem
+pnrf,[],9,from all products,,0,pnrf
+polesaw,[],10,from bigrams,pole saw,0,polesaw
+polyboard,[],3,from all products,,0,polyboard
+polygroup,[],13,from all products,,0,polygroup
+ponuds,[],3,from all products,,0,ponuds
+pooron,[],1,from all products,,0,pooron
+popup,"[(u'poppy', 15), (u'pop', 340)]",2,from all products,poppy,0,popup
+portaband,[],1,from bigrams,porta band,0,portaband
+portacool,[],2,from all products,,0,portacool
+portair,[],3,from bigrams,port air,0,portair
+portalino,[],10,from all products,,0,portalino
+possini,[],9,from all products,,0,possini
+pouder,"[(u'powder', 352)]",10,from all products,powder,0,pouder
+poulty,"[(u'poultry', 53)]",1,from all products,poultry,0,poulty
+powere,"[(u'powered', 1014), (u'power', 2478), (u'powder', 352)]",8,from all products,powered,0,powere
+powershop,[],2,from all products,,0,powershop
+powrcoat,[],11,from all products,,0,powrcoat
+ppu,[],7,from all products,,0,ppu
+prebuilt,[],13,from bigrams,pre built,0,prebuilt
+preiumer,"[(u'primer', 983)]",11,from matched products,primer,0,preiumer
+prelit,[],71,from bigrams,pre lit,0,prelit
+premrey,"[(u'pembrey', 78)]",12,from matched products,pembrey,0,premrey
+preparer,[],1,from all products,,0,preparer
+preprimed,[],12,from bigrams,pre primed,0,preprimed
+presevent,"[(u'prevent', 11)]",4,from all products,prevent,0,presevent
+pretreated,"[(u'treated', 1330)]",5,from matched products,treated,0,pretreated
+preventor,"[(u'prevent', 11), (u'prevention', 44), (u'preventer', 103)]",1,from all products,preventer,0,preventor
+prito,"[(u'prato', 13)]",13,from matched products,prato,0,prito
+profloor,[],12,from bigrams,pro floor,0,profloor
+purp,"[(u'purpose', 1400)]",3,from matched products,purpose,0,purp
+pvt,"[(u'pivot', 403)]",18,from all products,pivot,0,pvt
+qdwt,"[(u'dwt', 21)]",11,from matched products,dwt,0,qdwt
+qtn,[],1,from all products,,0,qtn
+quadrato,"[(u'quadrant', 12), (u'quadro', 64)]",11,from all products,quadrant,0,quadrato
+quickfire,[],2,from bigrams,quick fire,0,quickfire
+ragne,"[(u'range', 2874)]",13,from matched products,range,0,ragne
+raido,"[(u'radio', 142)]",19,from matched products,radio,0,raido
+rainbarrel,[],5,from bigrams,rain barrel,0,rainbarrel
+rainbird,[],73,from bigrams,rain bird,0,rainbird
+rainhead,[],7,from bigrams,rain head,0,rainhead
+rainspout,"[(u'rainsuit', 16)]",12,from all products,rainsuit,0,rainspout
+rak,"[(u'rack', 976), (u'racks', 54)]",11,from matched products,rack,0,rak
+rambut,[],20,from all products,,0,rambut
+ranshower,"[(u'shower', 6920)]",9,from matched products,shower,0,ranshower
+rarts,"[(u'art', 667)]",10,from matched products,art,0,rarts
+ratator,"[(u'rotator', 24)]",1,from matched products,rotator,0,ratator
+readington,"[(u'edington', 80), (u'remington', 84), (u'reading', 26)]",17,from all products,edington,0,readington
+reb232,,8,added space before digit,reb 232,0,reb232
+rebarbender,[],3,from bigrams,rebar bender,0,rebarbender
+recep,"[(u'receptor', 18)]",13,from all products,receptor,0,recep
+receps,"[(u'recess', 26)]",5,from all products,recess,0,receps
+recharger,"[(u'recharge', 13), (u'rechargeable', 207)]",4,from matched products,recharge,0,recharger
+reco,"[(u'emco', 174), (u'raco', 494), (u'recoil', 47), (u'eco', 375), (u'tremco', 11), (u'deco', 309), (u'revo', 21), (u'jeco', 18), (u'reno', 14), (u'fresco', 17), (u'echo', 590)]",15,from all products,eco,0,reco
+reffridge,[],10,from all products,,0,reffridge
+refrig,[],26,from all products,,0,refrig
+refrigeratorators,"[(u'refrigerator', 1922)]",13,from matched products,refrigerator,0,refrigeratorators
+reg,"[(u'kreg', 133), (u'regal', 37)]",14,from all products,kreg,0,reg
+regis,"[(u'register', 598)]",5,from all products,register,0,regis
+rehrig,[],7,from all products,,0,rehrig
+rejuviati,[],12,from all products,,0,rejuviati
+rekey,"[(u'key', 601)]",2,from matched products,key,0,rekey
+reliabilt,[],24,from all products,,0,reliabilt
+remodal,"[(u'remodel', 77)]",3,from matched products,remodel,0,remodal
+renzo,"[(u'reno', 14)]",1,from all products,reno,0,renzo
+replaclacemt,[],14,from all products,,0,replaclacemt
+respine,[],10,from all products,,0,respine
+restor,"[(u'restorer', 32)]",7,from matched products,restorer,0,restor
+retr,"[(u'rest', 68), (u'rear', 209), (u'return', 577), (u'retro', 122), (u'rete', 39)]",2,from all products,retro,0,retr
+rib16,,12,added space before digit,rib 16,0,rib16
+riddex,[],7,from all products,,0,riddex
+ridget,"[(u'ridge', 225)]",18,from matched products,ridge,0,ridget
+ridx,"[(u'rid', 10)]",1,from matched products,rid,0,ridx
+rinnai,[],10,from all products,,0,rinnai
+ripp,"[(u'rip', 65)]",10,from matched products,rip,0,ripp
+rivettool,[],3,from bigrams,rivet tool,0,rivettool
+rln,[],10,from all products,,0,rln
+rnh,"[(u'ranch', 98)]",10,from all products,ranch,0,rnh
+roby,"[(u'troy', 19), (u'robe', 119), (u'ruby', 23)]",12,from all products,,0,roby
+rockwool,[],13,from all products,,0,rockwool
+rodskit,[],14,from all products,,0,rodskit
+romax,"[(u'aroma', 12), (u'duromax', 23), (u'roma', 19), (u'homax', 132), (u'roman', 525), (u'romex', 76)]",1,from all products,roma,0,romax
+rools,"[(u'tools', 1611)]",12,from matched products,tools,0,rools
+rotomartillo,[],12,from all products,,0,rotomartillo
+round2x2,,11,added space before digit,round 2x2,0,round2x2
+roxel,"[(u'roxul', 42)]",4,from all products,roxul,0,roxel
+rubiks,[],8,from all products,,0,rubiks
+rustoleum,[],317,from bigrams,rust oleum,0,rustoleum
+ruud,"[(u'krud', 27)]",1,from all products,krud,0,ruud
+ryd,[],10,from all products,,0,ryd
+ryod,"[(u'rod', 1661)]",3,from matched products,rod,0,ryod
+rzs,[],3,from all products,,0,rzs
+safavids,[],2,from all products,,0,safavids
+safire,[],9,from all products,,0,safire
+saltless,"[(u'faultless', 24)]",1,from all products,faultless,0,saltless
+sanagloss,[],6,from all products,,0,sanagloss
+sandler,"[(u'handle', 5781)]",10,from matched products,handle,0,sandler
+sanfron,[],10,from all products,,0,sanfron
+saquets,[],3,from all products,,0,saquets
+satcreek,[],3,from all products,,0,satcreek
+saud,"[(u'sand', 859)]",18,from matched products,sand,0,saud
+sawall,"[(u'sawzall', 108)]",4,from matched products,sawzall,0,sawall
+sawd,"[(u'saws', 69), (u'sawn', 71), (u'saw', 2990), (u'sand', 859), (u'shaw', 118)]",11,from all products,saw,0,sawd
+saww,"[(u'saw', 2990)]",13,from matched products,saw,0,saww
+sched,"[(u'schedule', 318)]",15,from matched products,schedule,0,sched
+schulte,"[(u'chute', 19)]",11,from all products,chute,0,schulte
+scod,"[(u'cod', 117)]",5,from matched products,cod,0,scod
+scoville,[],12,from all products,,0,scoville
+screwgun,[],1,from bigrams,screw gun,0,screwgun
+scruby,"[(u'scrub', 109)]",6,from matched products,scrub,0,scruby
+sealkrete,[],1,from bigrams,seal krete,0,sealkrete
+searchgalvanized,[],6,from all products,,0,searchgalvanized
+sedgehammer,[],22,from all products,,0,sedgehammer
+seedeater,[],11,from all products,,0,seedeater
+selfstick,[],1,from bigrams,self stick,0,selfstick
+sen983,,15,added space before digit,sen 983,0,sen983
+sendero,[],13,from all products,,0,sendero
+seperate,[],8,from all products,,0,seperate
+sez,[],10,from all products,,0,sez
+sflss,[],3,from all products,,0,sflss
+sfsq,[],15,from all products,,0,sfsq
+sgw,[],8,from all products,,0,sgw
+shaanchor,[],7,from all products,,0,shaanchor
+shades2,,5,added space before digit,shades 2,0,shades2
+shanker,"[(u'shaker', 337), (u'shake', 16), (u'shank', 605)]",12,from all products,shaker,0,shanker
+sharkbait,"[(u'sharkbite', 771)]",15,from all products,sharkbite,0,sharkbait
+sharpe,"[(u'shapes', 11), (u'shape', 149), (u'harper', 12), (u'sharpie', 87), (u'sharp', 296), (u'shaped', 188)]",4,from all products,sharpie,0,sharpe
+sheetin,"[(u'sheeting', 151)]",6,from matched products,sheeting,0,sheetin
+sheetinum,"[(u'sheeting', 151)]",20,from all products,sheeting,0,sheetinum
+sheetmetal,[],2,from bigrams,sheet metal,0,sheetmetal
+sheface,[],4,from all products,,0,sheface
+shelfa,"[(u'shelf', 2922)]",11,from matched products,shelf,0,shelfa
+shels,"[(u'shelf', 2922), (u'shelves', 235)]",23,from matched products,shelves,0,shels
+shere,"[(u'shower', 6920)]",8,from matched products,shower,0,shere
+sheves,"[(u'shelves', 235)]",19,from matched products,shelves,0,sheves
+shopac,[],10,from all products,,0,shopac
+shopvac,[],12,from bigrams,shop vac,0,shopvac
+showerheards,"[(u'showerhead', 517)]",10,from matched products,showerhead,0,showerheards
+showerstall,[],15,from bigrams,shower stall,0,showerstall
+showerstorage,[],2,from all products,,0,showerstorage
+showerz,"[(u'shower', 6920)]",13,from matched products,shower,0,showerz
+siclica,"[(u'silica', 6)]",7,from matched products,silica,0,siclica
+sidelits,"[(u'sidelight', 11)]",2,from matched products,sidelight,0,sidelits
+sideout,[],15,from bigrams,side out,0,sideout
+sie,"[(u'side', 1714), (u'sided', 327), (u'sides', 35), (u'site', 100), (u'sadie', 12), (u'essie', 18), (u'size', 1234), (u'shine', 27), (u'suite', 72), (u'slide', 1104), (u'siena', 16), (u'sizes', 129), (u'sized', 31), (u'spice', 111), (u'spike', 166), (u'slice', 54)]",1,from all products,,0,sie
+siegel,[],6,from all products,,0,siegel
+silcock,"[(u'sillcock', 134)]",1,from matched products,sillcock,0,silcock
+sillcick,"[(u'sillcock', 134)]",17,from matched products,sillcock,0,sillcick
+silocoln,[],11,from all products,,0,silocoln
+simonton,[],10,from all products,,0,simonton
+simteck,"[(u'simtek', 49)]",1,from matched products,simtek,0,simteck
+sinks3,,2,added space before digit,sinks 3,0,sinks3
+sippy,"[(u'spy', 18)]",12,from matched products,spy,0,sippy
+sistem,"[(u'system', 2278)]",15,from matched products,system,0,sistem
+sjo,"[(u'sjoow', 24)]",3,from all products,sjoow,0,sjo
+sku,[],149,from all products,,0,sku
+sld,"[(u'solid', 3425)]",7,from matched products,solid,0,sld
+slrd,"[(u'sled', 22)]",11,from matched products,sled,0,slrd
+smartstrand,[],1,from all products,,0,smartstrand
+smt,"[(u'smart', 1018), (u'smith', 35)]",12,from all products,,0,smt
+snowblower,[],93,from bigrams,snow blower,0,snowblower
+snowblowers,[],5,from bigrams,snow blowers,0,snowblowers
+snowtex,[],11,from all products,,0,snowtex
+sobrevivencia,[],10,from all products,,0,sobrevivencia
+soc,"[(u'sock', 38), (u'stock', 129), (u'sonic', 152), (u'shock', 87)]",3,from all products,sock,0,soc
+sofn,"[(u'sofa', 175), (u'sons', 302), (u'soft', 1587)]",15,from all products,,0,sofn
+softlite,[],13,from all products,,0,softlite
+softowood,"[(u'softwood', 1)]",3,from matched products,softwood,0,softowood
+solidconcrete,[],3,from bigrams,solid concrete,0,solidconcrete
+sonax,"[(u'sox', 13)]",12,from all products,sox,0,sonax
+sotc,"[(u'spot', 708), (u'slot', 55), (u'sock', 38), (u'stc', 35), (u'scotch', 158), (u'shot', 91), (u'soft', 1587)]",13,from all products,stc,0,sotc
+spacks,"[(u'packs', 35)]",7,from all products,packs,0,spacks
+speedzone,"[(u'speedione', 3)]",1,from matched products,speedione,0,speedzone
+spikey,"[(u'spike', 166)]",1,from matched products,spike,0,spikey
+splenda,[],13,from all products,,0,splenda
+spotffree,[],9,from all products,,0,spotffree
+spraypaint,[],10,from bigrams,spray paint,0,spraypaint
+spret,"[(u'sport', 87), (u'spare', 22), (u'set', 7276), (u'spt', 230), (u'pet', 1141), (u'pre', 839)]",9,from all products,,0,spret
+srq,[],8,from all products,,0,srq
+stairtreads,[],17,from all products,,0,stairtreads
+stant,"[(u'stand', 848)]",10,from matched products,stand,0,stant
+starcoat,[],11,from all products,,0,starcoat
+steamfresh,[],7,from all products,,0,steamfresh
+steamwasher,[],2,from all products,,0,steamwasher
+steinmann,[],2,from all products,,0,steinmann
+stendop,[],11,from all products,,0,stendop
+sterlite,"[(u'sterilite', 124)]",6,from matched products,sterilite,0,sterlite
+sterno,"[(u'steren', 26), (u'stereo', 70)]",12,from all products,,0,sterno
+stiprs,"[(u'stairs', 339), (u'strips', 215)]",2,from all products,strips,0,stiprs
+stnless,"[(u'stainless', 9698)]",8,from matched products,stainless,0,stnless
+stnls,"[(u'stainless', 9698)]",12,from matched products,stainless,0,stnls
+stobe,"[(u'stone', 2308), (u'strobe', 14), (u'toe', 111), (u'stove', 592), (u'store', 57)]",3,from all products,strobe,0,stobe
+stopwa,"[(u'stop', 688)]",8,from matched products,stop,0,stopwa
+storeges,"[(u'storage', 2569)]",14,from matched products,storage,0,storeges
+str,"[(u'storm', 873), (u'strip', 798)]",16,,,0,str
+strabury,[],7,from all products,,0,strabury
+strada,"[(u'strand', 298)]",14,from all products,strand,0,strada
+strafford,"[(u'stratford', 76)]",3,from all products,stratford,0,strafford
+straitline,[],11,from all products,,0,straitline
+stripoping,"[(u'stripping', 52)]",9,from matched products,stripping,0,stripoping
+strippping,"[(u'ripping', 15), (u'strapping', 14), (u'stripping', 52), (u'striping', 27)]",2,from all products,stripping,0,strippping
+structor,"[(u'structo', 2)]",1,from matched products,structo,0,structor
+subpumps,[],12,from all products,,0,subpumps
+sunbrite,[],4,from all products,,0,sunbrite
+superba,"[(u'super', 771)]",12,from all products,super,0,superba
+supriva,[],9,from all products,,0,supriva
+surebond,"[(u'purebond', 205)]",14,from matched products,purebond,0,surebond
+suretest,[],4,from all products,,0,suretest
+svenja,[],11,from all products,,0,svenja
+swedged,"[(u'edged', 17), (u'wedge', 159)]",16,from all products,,0,swedged
+switchplate,[],11,from bigrams,switch plate,0,switchplate
+swu,[],14,from all products,,0,swu
+sylvester,"[(u'sylvestre', 4)]",3,from matched products,sylvestre,0,sylvester
+syston,[],7,from all products,,0,syston
+tagout,[],6,from all products,,0,tagout
+takles,"[(u'stakes', 135), (u'tankless', 412), (u'tables', 19)]",11,from all products,tankless,0,takles
+taladros,[],15,from all products,,0,taladros
+talstar,"[(u'talista', 47)]",13,from all products,talista,0,talstar
+tapecase,[],15,from bigrams,tape case,0,tapecase
+tarop,"[(u'tap', 278), (u'top', 6674), (u'teardrop', 29), (u'tarp', 253)]",1,from all products,tarp,0,tarop
+tbl,"[(u'table', 2050)]",9,from matched products,table,0,tbl
+tdj,[],3,from all products,,0,tdj
+tecsun,[],11,from all products,,0,tecsun
+tekquest,[],10,from all products,,0,tekquest
+tel,"[(u'trel', 33), (u'teal', 122), (u'steel', 16470), (u'towel', 916), (u'hotel', 27)]",11,from all products,,0,tel
+telemecanique,[],12,from all products,,0,telemecanique
+temp2,,3,added space before digit,temp 2,0,temp2
+temping,"[(u'tamping', 7)]",3,from matched products,tamping,0,temping
+tenex,"[(u'tenax', 50), (u'tee', 645), (u'tex', 67)]",13,from all products,tenax,0,tenex
+terminix,[],11,from all products,,0,terminix
+termiticide,[],1,from all products,,0,termiticide
+terremora,[],4,from all products,,0,terremora
+tgi,[],14,from all products,,0,tgi
+thck,"[(u'thick', 2645)]",12,from matched products,thick,0,thck
+ther,"[(u'the', 2858)]",11,from matched products,the,0,ther
+thermador,[],8,from all products,,0,thermador
+thermocoupler,"[(u'thermocouple', 14), (u'thermoclear', 29)]",1,from all products,thermocouple,0,thermocoupler
+thoro,"[(u'toro', 635), (u'thorton', 19), (u'throw', 69)]",3,from all products,toro,0,thoro
+thqb,[],18,from all products,,0,thqb
+thromastate,[],3,from all products,,0,thromastate
+thu,"[(u'thumb', 57), (u'thru', 83)]",7,from all products,thru,0,thu
+tighrner,"[(u'tightener', 5), (u'tightner', 1)]",5,from matched products,tightner,0,tighrner
+tilesaw,[],1,from bigrams,tile saw,0,tilesaw
+timmers,"[(u'timer', 560)]",14,from matched products,timer,0,timmers
+tji,[],17,from all products,,0,tji
+tle,"[(u'tile', 9893)]",2,from matched products,tile,0,tle
+toam,"[(u'foam', 853)]",2,from matched products,foam,0,toam
+tobogg,[],12,from all products,,0,tobogg
+toilet14769,,16,added space before digit,toilet 14769,0,toilet14769
+tol,"[(u'tool', 3547)]",1,from matched products,tool,0,tol
+tomostat,[],9,from all products,,0,tomostat
+tool00,,10,added space before digit,tool 00,0,tool00
+toolkit,[],1,from bigrams,tool kit,0,toolkit
+top5,,12,added space before digit,top 5,0,top5
+toplass,[],12,from all products,,0,toplass
+toprail,[],19,from bigrams,top rail,0,toprail
+topsealer,[],7,from all products,,0,topsealer
+tordon,"[(u'gordon', 39)]",21,from matched products,gordon,0,tordon
+toscane,"[(u'toscana', 11)]",15,from all products,toscana,0,toscane
+toulone,"[(u'toulon', 9)]",9,from matched products,toulon,0,toulone
+trane,"[(u'entrance', 137), (u'strainer', 306), (u'train', 35), (u'tan', 712), (u'stranded', 320), (u'triangle', 93), (u'range', 2874), (u'crane', 51), (u'transfer', 207)]",2,from all products,,0,trane
+trashcan,[],15,from bigrams,trash can,0,trashcan
+trcat,"[(u'truecoat', 12), (u'rca', 27), (u'cat', 168), (u'rat', 55)]",15,from all products,truecoat,0,trcat
+treillis,"[(u'trellis', 109)]",10,from matched products,trellis,0,treillis
+tresers,[],17,from all products,,0,tresers
+treshold,"[(u'threshold', 618)]",3,from matched products,threshold,0,treshold
+trigal,[],11,from all products,,0,trigal
+trimec,[],18,from all products,,0,trimec
+tros,"[(u'trs', 2)]",9,from matched products,trs,0,tros
+tupperware,[],5,from all products,,0,tupperware
+turbi,"[(u'turbine', 39)]",16,from matched products,turbine,0,turbi
+twp,[],7,from all products,,0,twp
+tychem,[],7,from all products,,0,tychem
+undercoater,"[(u'undercounter', 33)]",14,from all products,undercounter,0,undercoater
+underdeck,[],8,from bigrams,under deck,0,underdeck
+unhung,[],5,from all products,,0,unhung
+unistrut,"[(u'strut', 24)]",38,from matched products,strut,0,unistrut
+unsulation,"[(u'insulation', 884)]",13,from matched products,insulation,0,unsulation
+uplighting,"[(u'lighting', 5032)]",8,from matched products,lighting,0,uplighting
+uponor,[],3,from all products,,0,uponor
+urican,[],6,from all products,,0,urican
+urne,"[(u'urn', 75)]",7,from matched products,urn,0,urne
+utilitech,[],1,from all products,,0,utilitech
+vacum,"[(u'vacuum', 964)]",1,from matched products,vacuum,0,vacum
+vacume,"[(u'vacuum', 964)]",4,from matched products,vacuum,0,vacume
+valleriana,"[(u'valeriano', 5)]",5,from matched products,valeriano,0,valleriana
+valvoline,[],11,from all products,,0,valvoline
+van1724,,2,added space before digit,van 1724,0,van1724
+vdk,[],8,from all products,,0,vdk
+vegetale,"[(u'vegetable', 54), (u'vegetables', 70)]",10,from matched products,vegetable,0,vegetale
+venner,"[(u'veneer', 147)]",17,from matched products,veneer,0,venner
+veri,"[(u'ever', 28), (u'euri', 71), (u'vein', 46), (u'versi', 17), (u'very', 104), (u'vero', 56), (u'over', 865)]",9,from all products,versi,0,veri
+versabone,"[(u'versabond', 74)]",1,from matched products,versabond,0,versabone
+vetical,"[(u'vertical', 621)]",14,from matched products,vertical,0,vetical
+vft,[],12,from all products,,0,vft
+vig,"[(u'vigo', 387)]",2,from all products,vigo,0,vig
+vigaro,"[(u'vigoro', 335)]",8,from matched products,vigoro,0,vigaro
+vinal,"[(u'vinyl', 5592)]",8,from matched products,vinyl,0,vinal
+vintemp,"[(u'vinotemp', 23)]",10,from matched products,vinotemp,0,vintemp
+viny,"[(u'vinyl', 5592)]",1,from matched products,vinyl,0,viny
+virginai,"[(u'virgin', 11)]",2,from all products,virgin,0,virginai
+vtop,"[(u'top', 6674)]",2,from matched products,top,0,vtop
+waher,"[(u'wafer', 32), (u'washers', 139), (u'washer', 1726), (u'water', 5094), (u'waxer', 13), (u'weather', 717)]",2,from all products,washer,0,waher
+walkie,"[(u'walker', 15)]",19,from all products,walker,0,walkie
+wallbase,[],17,from bigrams,wall base,0,wallbase
+wallhugger,[],2,from bigrams,wall hugger,0,wallhugger
+wallplate,[],17,from bigrams,wall plate,0,wallplate
+wallprimer,[],1,from all products,,0,wallprimer
+walmound,"[(u'wallmount', 15)]",13,from matched products,wallmount,0,walmound
+walt,"[(u'dewalt', 2373)]",1,from matched products,dewalt,0,walt
+washlet,[],2,from all products,,0,washlet
+wastel,"[(u'waste', 334)]",12,from matched products,waste,0,wastel
+waterheater,[],20,from bigrams,water heater,0,waterheater
+waterpi,"[(u'waterpik', 74)]",13,from matched products,waterpik,0,waterpi
+waterpump,[],1,from bigrams,water pump,0,waterpump
+watt880,,1,added space before digit,watt 880,0,watt880
+wayfair,"[(u'mayfair', 15)]",12,from all products,mayfair,0,wayfair
+weatherhead,"[(u'weathershield', 470), (u'weathered', 266)]",4,from all products,weathered,0,weatherhead
+webmo,"[(u'wemo', 14)]",7,from matched products,wemo,0,webmo
+weedbgon,[],2,from all products,,0,weedbgon
+weedeater,[],31,from bigrams,weed eater,0,weedeater
+weedeaters,[],2,from all products,,0,weedeaters
+weedwacker,[],2,from all products,,0,weedwacker
+welland,[],1,from all products,,0,welland
+weman,"[(u'woman', 2)]",13,from matched products,woman,0,weman
+wer,"[(u'wafer', 32), (u'power', 2478), (u'newer', 11), (u'sewer', 44), (u'wiper', 13), (u'mower', 1351), (u'weber', 582), (u'wear', 25), (u'water', 5094), (u'tower', 259), (u'waxer', 13), (u'lower', 81)]",6,from all products,wear,0,wer
+wera,"[(u'wear', 25)]",18,from matched products,wear,0,wera
+wesleyspruce,[],4,from all products,,0,wesleyspruce
+westlock,"[(u'weslock', 30)]",8,from all products,weslock,0,westlock
+westmore,[],6,from all products,,0,westmore
+westpac,[],11,from all products,,0,westpac
+whearehoues,[],13,from all products,,0,whearehoues
+wheather,"[(u'heathered', 12), (u'heater', 3479), (u'weathered', 266), (u'heather', 37), (u'weather', 717)]",1,from all products,,0,wheather
+wheelb,"[(u'wheel', 768), (u'wheels', 211)]",11,from all products,wheel,0,wheelb
+wht,"[(u'white', 30578)]",1,from matched products,white,0,wht
+wiga,"[(u'wigan', 8)]",7,from matched products,wigan,0,wiga
+wilmarut,[],13,from all products,,0,wilmarut
+windos,"[(u'windows', 371)]",14,from all products,windows,0,windos
+windowtioners,[],15,from all products,,0,windowtioners
+wiremesh,[],15,from bigrams,wire mesh,0,wiremesh
+wirenuts,[],3,from all products,,0,wirenuts
+wirless,"[(u'wireless', 1001)]",5,from matched products,wireless,0,wirless
+woodflooring,[],17,from bigrams,wood flooring,0,woodflooring
+woodstoves,[],7,from bigrams,wood stoves,0,woodstoves
+worklite,"[(u'worklight', 16)]",12,from all products,worklight,0,worklite
+workpro,[],4,from all products,,0,workpro
+workstar,[],4,from all products,,0,workstar
+workx,"[(u'worx', 112)]",1,from matched products,worx,0,workx
+wtf,[],9,from all products,,0,wtf
+xbox,"[(u'box', 3425)]",15,from all products,box,0,xbox
+xrf,[],1,from all products,,0,xrf
+xscapes,"[(u'scapes', 84)]",3,from matched products,scapes,0,xscapes
+yardguard,[],17,from bigrams,yard guard,0,yardguard
+yardwaste,[],3,from bigrams,yard waste,0,yardwaste
+yel,"[(u'lyell', 14)]",9,from all products,lyell,0,yel
+yonkers,[],11,from all products,,0,yonkers
+zacatecas,[],11,from all products,,0,zacatecas
+zall,"[(u'sawzall', 108)]",10,from matched products,sawzall,0,zall
+zaw,[],2,from all products,,0,zaw
+zeroturn,[],15,from bigrams,zero turn,0,zeroturn
+zhi,[],10,from all products,,0,zhi
+zwave,"[(u'wave', 467)]",18,from matched products,wave,0,zwave
+zymes,[],1,from all products,,0,zymes
