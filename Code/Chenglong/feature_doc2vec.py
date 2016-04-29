@@ -39,7 +39,7 @@ class Doc2Vec_BaseEstimator(BaseEstimator):
     def _get_vdiff(self, sent1, sent2):
         vect1 = self._get_vector(sent1)
         vect2 = self._get_vector(sent2)
-        return dist_utils._diff(vect1, vect2)
+        return dist_utils._vdiff(vect1, vect2)
 
     def _get_rmse(self, sent1, sent2):
         vect1 = self._get_vector(sent1)

@@ -80,7 +80,7 @@ def _cosine_sim(vec1, vec2):
     return s
 
 
-def _diff(vec1, vec2):
+def _vdiff(vec1, vec2):
     return vec1 - vec2
 
 

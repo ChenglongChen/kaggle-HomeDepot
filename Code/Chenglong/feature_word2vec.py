@@ -72,7 +72,7 @@ class Word2Vec_BaseEstimator(BaseEstimator):
     def _get_centroid_vdiff(self, text1, text2):
         centroid1 = self._get_centroid_vector(text1)
         centroid2 = self._get_centroid_vector(text2)
-        return dist_utils._diff(centroid1, centroid2)
+        return dist_utils._vdiff(centroid1, centroid2)
 
     def _get_centroid_rmse(self, text1, text2):
         centroid1 = self._get_centroid_vector(text1)
