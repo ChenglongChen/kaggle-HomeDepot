@@ -97,8 +97,6 @@ COMMENT_OUT_FEATS = [
 "^DocId",
 
 # "DiceDistance",
-"ReverseLongestMatchSize",
-"ReverseLongestMatchRatio",
 "LongestMatchSize",
 
 "CharDistribution_Ratio",

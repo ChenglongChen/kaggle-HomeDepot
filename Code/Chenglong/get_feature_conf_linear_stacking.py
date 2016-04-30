@@ -90,8 +90,6 @@ COMMENT_OUT_FEATS = [
 "StatCoocNormTFIDF",
 
 # "DiceDistance",
-"ReverseLongestMatchSize",
-"ReverseLongestMatchRatio",
 "LongestMatchSize",
 
 "CharDistribution_Ratio",

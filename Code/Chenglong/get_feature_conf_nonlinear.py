@@ -101,8 +101,6 @@ COMMENT_OUT_FEATS = [
 
 
 # "DiceDistance",
-"ReverseLongestMatchSize",
-"ReverseLongestMatchRatio",
 "LongestMatchSize",
 
 "CharDistribution_Ratio",
