@@ -35,13 +35,14 @@ class BaseEstimator:
             # self.aggregator_prev is used to aggregate the inner list
             # This is used for 
             # 1. EditDistance_Ngram
-            # 2. Word2Vec_CosineSim
-            # 3. WordNet_Path_Similarity, WordNet_Lch_Similarity, WordNet_Wup_Similarity
+            # 2. CompressionDistance_Ngram
+            # 3. Word2Vec_CosineSim
+            # 4. WordNet_Path_Similarity, WordNet_Lch_Similarity, WordNet_Wup_Similarity
             # which are very time consuming to compute the inner list
             self.double_aggregation = True
 
     def _check_aggregation_mode(self, aggregation_mode):
-        valid_aggregation_modes = ["", "size", "prod", "sum", "mean", "std", "max", "min", "median"]
+        valid_aggregation_modes = ["", "size", "mean", "std", "max", "min", "median"]
         if isinstance(aggregation_mode, str):
             assert aggregation_mode.lower() in valid_aggregation_modes, "Wrong aggregation_mode: %s"%aggregation_mode
             aggregation_mode = [aggregation_mode.lower()]
@@ -50,26 +51,18 @@ class BaseEstimator:
                 assert m.lower() in valid_aggregation_modes, "Wrong aggregation_mode: %s"%m
             aggregation_mode = [m.lower() for m in aggregation_mode]
 
-        aggregator = []
-        for m in aggregation_mode:
-            if m == "":
-                aggregator.append(None)
-            else:
-                aggregator.append(getattr(np, m))
+        aggregator = [None if m == "" else getattr(np, m) for m in aggregation_mode]
 
         return aggregation_mode, aggregator
 
     def transform(self):
         # original score
-        score = []
-        for i in range(self.N):
-            s = self.transform_one(self.obs_corpus[i], self.target_corpus[i], self.id_list[i])
-            score.append(s)
+        score = list(map(self.transform_one, self.obs_corpus, self.target_corpus, self.id_list))
         # aggregation
-        if isinstance(s, list):
+        if isinstance(score[0], list):
             if self.double_aggregation:
                 # double aggregation
-                res = np.zeros((self.N, len(self.aggregator_prev)*len(self.aggregator)), dtype=float)
+                res = np.zeros((self.N, len(self.aggregator_prev) * len(self.aggregator)), dtype=float)
                 for m,aggregator_prev in enumerate(self.aggregator_prev):
                     for n,aggregator in enumerate(self.aggregator):
                         idx = m * len(self.aggregator) + n

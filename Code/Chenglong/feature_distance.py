@@ -74,7 +74,7 @@ class EditDistance(BaseEstimator):
 
 
 class EditDistance_Ngram(BaseEstimator):
-	"""Double aggregation features"""
+    """Double aggregation features"""
     def __init__(self, obs_corpus, target_corpus, ngram, aggregation_mode_prev="", aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode, None, aggregation_mode_prev)
         self.ngram = ngram
@@ -109,7 +109,7 @@ class EditDistance_Ngram(BaseEstimator):
 
 # ------------------ Compression Distance --------------------------------
 class CompressionDistance(BaseEstimator):
-	"""Very time consuming"""
+    """Very time consuming"""
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
@@ -118,6 +118,40 @@ class CompressionDistance(BaseEstimator):
 
     def transform_one(self, obs, target, id):
         return dist_utils._compression_dist(obs, target)
+
+
+class CompressionDistance_Ngram(BaseEstimator):
+    """Double aggregation features"""
+    def __init__(self, obs_corpus, target_corpus, ngram, aggregation_mode_prev="", aggregation_mode=""):
+        super().__init__(obs_corpus, target_corpus, aggregation_mode, None, aggregation_mode_prev)
+        self.ngram = ngram
+        self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
+
+    def _get_feat_name(self):
+        feat_name = []
+        for m1 in self.aggregation_mode_prev:
+            for m in self.aggregation_mode:
+                n = "CompressionDistance_%s_%s_%s"%(self.ngram_str, string.capwords(m1), string.capwords(m))
+                feat_name.append(n)
+        return feat_name
+
+    def transform_one(self, obs, target, id):
+        obs_tokens = nlp_utils._tokenize(obs, token_pattern)
+        target_tokens = nlp_utils._tokenize(target, token_pattern)
+        obs_ngrams = ngram_utils._ngrams(obs_tokens, self.ngram)
+        target_ngrams = ngram_utils._ngrams(target_tokens, self.ngram)
+        val_list = []
+        for w1 in obs_ngrams:
+            _val_list = []
+            for w2 in target_ngrams:
+                s = dist_utils._compression_dist(w1, w2)
+                _val_list.append(s)
+            if len(_val_list) == 0:
+                _val_list = [ config.MISSING_VALUE_NUMERIC ]
+            val_list.append( _val_list )
+        if len(val_list) == 0:
+            val_list = [ [config.MISSING_VALUE_NUMERIC] ]
+        return val_list
 
 
 # ---------------------------- Main --------------------------------------
@@ -154,7 +188,8 @@ def run_edit_distance():
     aggregation_mode = ["mean", "std", "max", "min", "median"]
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         param_list = []
-        PairwiseFeatureWrapper(EditDistance, dfAll, obs_fields, target_fields, param_list, config.FEAT_DIR, logger)
+        pf = PairwiseFeatureWrapper(EditDistance, dfAll, obs_fields, target_fields, param_list, config.FEAT_DIR, logger)
+        pf.go()
         for ngram in ngrams:
             param_list = [ngram, aggregation_mode_prev, aggregation_mode]
             pf = PairwiseFeatureWrapper(EditDistance_Ngram, dfAll, obs_fields, target_fields, param_list, config.FEAT_DIR, logger)
@@ -174,6 +209,10 @@ def run_compression_distance():
         param_list = []
         pf = PairwiseFeatureWrapper(CompressionDistance, dfAll, obs_fields, target_fields, param_list, config.FEAT_DIR, logger)
         pf.go()
+        for ngram in ngrams:
+            param_list = [ngram, aggregation_mode_prev, aggregation_mode]
+            pf = PairwiseFeatureWrapper(CompressionDistance_Ngram, dfAll, obs_fields, target_fields, param_list, config.FEAT_DIR, logger)
+            pf.go()
 
 
 def main(which):

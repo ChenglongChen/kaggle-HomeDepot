@@ -220,7 +220,7 @@ def main():
                                     corr = np_utils._corr(x[:TRAIN_SIZE,i], y_train)
                                     logger.info("%s (%dD): corr = %.6f"%(fname, dim, corr))
                         except:
-                            logger.info("Pass %s"%dist_name)
+                            logger.info("Skip %s"%dist_name)
                             pass
 
 

@@ -83,9 +83,9 @@ class Learner:
 
         # ensembler
         if self.learner_name == "reg_ensembler":
-            self.param_dict["learner_list"] = [l for l in self.param_dict["learner_list"]]
-            self.param_dict["param_list"] = [p for p in self.param_dict["param_list"]]
-            self.param_dict["weight_list"] = [w for w in self.param_dict["weight_list"]]
+            self.param_dict["learner_list"] = list(self.param_dict["learner_list"])
+            self.param_dict["param_list"] = list(self.param_dict["param_list"])
+            self.param_dict["weight_list"] = list(self.param_dict["weight_list"])
             for i in range(len(self.param_dict["learner_list"])):
                 learner_name = self.param_dict["learner_list"][i]
                 param_dict = self.param_dict["param_list"][i]

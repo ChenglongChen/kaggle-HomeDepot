@@ -351,7 +351,7 @@ class StackingCombiner:
                     feat_cnt += 1
                     self.logger.info("Combine {:>3}/{:>3} feat: {} ({}D)".format(
                         feat_cnt, len(self.feature_list), fname, dim))
-                    # load probability
+                    # load probability if any
                     try:
                         x = self.load_feature(feature_dir, "valid.proba."+fname, 
                                             columns=None, columns_pattern="proba")
