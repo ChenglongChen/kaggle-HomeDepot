@@ -39,6 +39,34 @@ class XGBRegressor:
 
     def __str__(self):
         return "XGBoostRegressor"
+
+    def __repr__(self):
+        return ("%s(booster=\'%s\', base_score=%f, colsample_bylevel=%f, "
+                    "colsample_bytree=%f, gamma=%f, learning_rate=%f, max_delta_step=%f, "
+                    "max_depth=%d, min_child_weight=%f, missing=\'%s\', n_estimators=%d, "
+                    "nthread=%d, objective=\'%s\', reg_alpha=%f, reg_lambda=%f, "
+                    "reg_lambda_bias=%f, seed=%d, silent=%d, subsample=%f)" % (
+                    self.__class__.__name__,
+                    self.param["booster"],
+                    self.base_score,
+                    self.param["colsample_bylevel"],
+                    self.param["colsample_bytree"],
+                    self.param["gamma"],
+                    self.param["eta"],
+                    self.param["max_delta_step"],
+                    self.param["max_depth"],
+                    self.param["min_child_weight"],
+                    str(self.missing),
+                    self.n_estimators,
+                    self.param["nthread"],
+                    self.param["objective"],
+                    self.param["alpha"],
+                    self.param["lambda"],
+                    self.param["lambda_bias"],
+                    self.param["seed"],
+                    self.param["silent"],
+                    self.param["subsample"],
+                ))
         
     def fit(self, X, y):
         data = xgb.DMatrix(X, label=y, missing=self.missing)
@@ -54,7 +82,7 @@ class XGBRegressor:
 
 
 class XGBClassifier:
-    def __init__(self, num_class, booster='gbtree', base_score=0, colsample_bylevel=1, 
+    def __init__(self, num_class=2, booster='gbtree', base_score=0, colsample_bylevel=1, 
                 colsample_bytree=1, gamma=0, learning_rate=0.1, max_delta_step=0,
                 max_depth=6, min_child_weight=1, missing=None, n_estimators=100, 
                 nthread=1, objective='multi:softprob', reg_alpha=1, reg_lambda=0, 
@@ -86,6 +114,35 @@ class XGBClassifier:
     def __str__(self):
         return "XGBClassifier"
         
+    def __repr__(self):
+        return ("%s(num_class=%d, booster=\'%s\', base_score=%f, colsample_bylevel=%f, "
+                    "colsample_bytree=%f, gamma=%f, learning_rate=%f, max_delta_step=%f, "
+                    "max_depth=%d, min_child_weight=%f, missing=\'%s\', n_estimators=%d, "
+                    "nthread=%d, objective=\'%s\', reg_alpha=%f, reg_lambda=%f, "
+                    "reg_lambda_bias=%f, seed=%d, silent=%d, subsample=%f)" % (
+                    self.__class__.__name__,
+                    self.num_class,
+                    self.param["booster"],
+                    self.base_score,
+                    self.param["colsample_bylevel"],
+                    self.param["colsample_bytree"],
+                    self.param["gamma"],
+                    self.param["eta"],
+                    self.param["max_delta_step"],
+                    self.param["max_depth"],
+                    self.param["min_child_weight"],
+                    str(self.missing),
+                    self.n_estimators,
+                    self.param["nthread"],
+                    self.param["objective"],
+                    self.param["alpha"],
+                    self.param["lambda"],
+                    self.param["lambda_bias"],
+                    self.param["seed"],
+                    self.param["silent"],
+                    self.param["subsample"],
+                ))
+
     def fit(self, X, y):
         data = xgb.DMatrix(X, label=y, missing=self.missing)
         data.set_base_margin(self.base_score*np.ones(X.shape[0] * self.num_class))

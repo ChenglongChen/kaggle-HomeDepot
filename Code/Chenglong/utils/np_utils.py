@@ -15,23 +15,23 @@ sys.path.append("..")
 import config
 
 
-def sigmoid(score):
+def _sigmoid(score):
     p = 1. / (1. + np.exp(-score))
     return p
 
 
-def logit(p):
+def _logit(p):
     return np.log(p/(1.-p))
 
 
-def softmax(score):
+def _softmax(score):
     score = np.asarray(score, dtype=float)
     score = np.exp(score - np.max(score))
     score /= np.sum(score, axis=1)[:,np.newaxis]
     return score
 
 
-def cast_proba_predict(proba):
+def _cast_proba_predict(proba):
     N = proba.shape[1]
     w = np.arange(1,N+1)
     pred = proba * w[np.newaxis,:]
@@ -39,14 +39,14 @@ def cast_proba_predict(proba):
     return pred
 
 
-def one_hot_label(label, n_classes):
+def _one_hot_label(label, n_classes):
     num = label.shape[0]
     tmp = np.zeros((num, n_classes), dtype=int)
     tmp[np.arange(num),label.astype(int)] = 1
     return tmp
 
 
-def majorityVoting(x, weight=None):
+def _majority_voting(x, weight=None):
     ## apply weight
     if weight is not None:
         assert len(weight) == len(x)
@@ -56,24 +56,24 @@ def majorityVoting(x, weight=None):
     return value
 
 
-def voter(x, weight=None):
+def _voter(x, weight=None):
     idx = np.isfinite(x)
     if sum(idx) == 0:
         value = config.MISSING_VALUE_NUMERIC
     else:
         if weight is not None:
-            value = majorityVoting(x[idx], weight[idx])
+            value = _majority_voting(x[idx], weight[idx])
         else:
-            value = majorityVoting(x[idx])
+            value = _majority_voting(x[idx])
     return value
 
 
-def arrayMajorityVoting(X, weight=None):
-    y = np.apply_along_axis(voter, axis=1, arr=X, weight=weight)
+def _array_majority_voting(X, weight=None):
+    y = np.apply_along_axis(_voter, axis=1, arr=X, weight=weight)
     return y
 
 
-def mean(x):
+def _mean(x):
     idx = np.isfinite(x)
     if sum(idx) == 0:
         value = float(config.MISSING_VALUE_NUMERIC) # cast it to float to accommodate the np.mean
@@ -82,14 +82,9 @@ def mean(x):
     return value
 
 
-def arrayMean(X):
-    y = np.apply_along_axis(mean, axis=1, arr=X)
+def _array_mean(X):
+    y = np.apply_along_axis(_mean, axis=1, arr=X)
     return y
-
-
-def _dim(x):
-    d = 1 if len(x.shape) == 1 else x.shape[1]
-    return d
 
 
 def _corr(x, y_train):
@@ -100,6 +95,16 @@ def _corr(x, y_train):
     else:
         corr = 1.
     return corr
+
+
+def _dim(x):
+    d = 1 if len(x.shape) == 1 else x.shape[1]
+    return d
+
+
+def _entropy(proba):
+    entropy = -np.sum(proba*np.log(proba))
+    return entropy
 
 
 def _try_divide(x, y, val=0.0):

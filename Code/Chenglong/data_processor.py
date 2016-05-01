@@ -63,6 +63,9 @@ class LowerUpperCaseSplitter(BaseReplacer):
     shadeMature height: 36 in. - 48 in.Mature width
     minutesCovers up to 120 sq. ft.Cleans up
     PUT one UnitConverter before LowerUpperCaseSplitter
+
+    Reference:
+    https://www.kaggle.com/c/home-depot-product-search-relevance/forums/t/18472/typos-in-the-product-descriptions
     """
     def __init__(self):
         self.pattern_replace_pair_list = [

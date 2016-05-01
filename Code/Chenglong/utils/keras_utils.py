@@ -30,6 +30,26 @@ class KerasDNNRegressor:
         self.scaler = None
         self.model = None
 
+    def __str__(self):
+        return "KerasDNNRegressor"
+
+    def __repr__(self):
+        return ("%s(input_dropout=%f, hidden_layers=%d, hidden_units=%d, "
+                    "hidden_activation=\'%s\', hidden_dropout=%f, batch_norm=\'%s\', "
+                    "optimizer=\'%s\', nb_epoch=%d, batch_size=%d)" % (
+                    self.__class__.__name__,
+                    self.input_dropout,
+                    self.hidden_layers,
+                    self.hidden_units,
+                    self.hidden_activation,
+                    self.hidden_dropout,
+                    str(self.batch_norm),
+                    self.optimizer,
+                    self.nb_epoch,
+                    self.batch_size,
+                ))
+
+
     def fit(self, X, y):
         ## scaler
         self.scaler = StandardScaler()

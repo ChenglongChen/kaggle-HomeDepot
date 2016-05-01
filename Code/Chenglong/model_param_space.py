@@ -129,9 +129,9 @@ param_space_reg_skl_lsvr = {
 ## support vector regression
 param_space_reg_skl_svr = {
     "normalize": hp.choice("normalize", [True]),
-    "C": hp.loguniform("C", np.log(1), np.log(100)),
+    "C": hp.loguniform("C", np.log(1), np.log(1)),
     "gamma": hp.loguniform("gamma", np.log(0.001), np.log(0.1)),
-    "degree": hp.quniform("degree", 1, 5, 1),
+    "degree": hp.quniform("degree", 1, 3, 1),
     "epsilon": hp.loguniform("epsilon", np.log(0.001), np.log(0.1)),    
     "kernel": hp.choice("kernel", ["rbf", "poly"])
 }
@@ -142,7 +142,7 @@ param_space_reg_skl_knn = {
     "n_neighbors": hp.quniform("n_neighbors", 1, 20, 1),
     "weights": hp.choice("weights", ["uniform", "distance"]),
     "leaf_size": hp.quniform("leaf_size", 10, 100, 10),
-    "metric": hp.choice("metric", ["cosine"]),
+    "metric": hp.choice("metric", ["cosine", "minkowski"][1:]),
 }
 
 ## extra trees regressor

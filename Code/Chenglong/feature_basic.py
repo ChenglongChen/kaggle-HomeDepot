@@ -149,8 +149,7 @@ class DocEntropy(BaseEstimator):
         counter = Counter(obs_tokens)
         count = np.asarray(list(counter.values()))
         proba = count/np.sum(count)
-        entropy = -np.sum(proba*np.log(proba))
-        return entropy
+        return np_utils._entropy(proba)
 
 
 class DigitCount(BaseEstimator):
