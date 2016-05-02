@@ -40,7 +40,7 @@ class IntersectCount_Ngram(BaseEstimator):
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         self.str_match_threshold = str_match_threshold
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "IntersectCount_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -65,7 +65,7 @@ class IntersectRatio_Ngram(BaseEstimator):
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         self.str_match_threshold = str_match_threshold
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "IntersectRatio_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -96,7 +96,7 @@ class CooccurrenceCount_Ngram(BaseEstimator):
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         self.str_match_threshold = str_match_threshold
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "CooccurrenceCount_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -119,7 +119,7 @@ class CooccurrenceRatio_Ngram(BaseEstimator):
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         self.str_match_threshold = str_match_threshold
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "CooccurrenceRatio_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):

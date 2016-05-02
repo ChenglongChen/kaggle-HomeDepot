@@ -25,7 +25,7 @@ class GroupDistanceStat(BaseEstimator):
         self.group_id_name = group_id_name
         self.group_dist_dict = self._get_group_dist_dict()
 
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "GroupDistanceStat_%s_%s_%s"%(
                 self.dist_name, self.group_id_name, string.capwords(self.aggregation_mode))

@@ -24,7 +24,7 @@ class QueryQuality(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "QueryQuality"
 
     def transform_one(self, obs, target, id):
@@ -35,7 +35,7 @@ class IsInGoogleDict(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "IsInGoogleDict"
 
     def transform_one(self, obs, target, id):

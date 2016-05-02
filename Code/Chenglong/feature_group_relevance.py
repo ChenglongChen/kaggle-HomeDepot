@@ -23,7 +23,7 @@ class GroupRelevance(BaseEstimator):
         super().__init__(obs_corpus, target_corpus, aggregation_mode, id_list)
         self.dfTrain = dfTrain[dfTrain["relevance"] != 0].copy()
 
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "GroupRelevance_%s"%string.capwords(self.aggregation_mode)
         elif isinstance(self.aggregation_mode, list):

@@ -13,10 +13,9 @@ import pandas as pd
 
 import config
 from config import TRAIN_SIZE
-from utils import dist_utils, ngram_utils, nlp_utils, pkl_utils
-from utils import logging_utils, time_utils
-from feature_group_relevance import GroupRelevance
-from feature_base import StandaloneFeatureWrapper, PairwiseFeatureWrapper
+from utils import dist_utils, ngram_utils, nlp_utils
+from utils import logging_utils, pkl_utils, time_utils
+from feature_base import BaseEstimator, StandaloneFeatureWrapper, PairwiseFeatureWrapper
 
 
 # tune the token pattern to get a better correlation with y_train
@@ -29,17 +28,18 @@ token_pattern = " " # just split the text into tokens
 
 # -------------------- Group by (obs, relevance) based distance features ----------------------------------- #
 # Something related to Query Expansion
-class GroupRelevance_Ngram_Jaccard(GroupRelevance):
+class GroupRelevance_Ngram_Jaccard(BaseEstimator):
     """Single aggregation features"""
     def __init__(self, obs_corpus, target_corpus, id_list, dfTrain, target_field, relevance, ngram, aggregation_mode=""):
-        super().__init__(obs_corpus, target_corpus, id_list, dfTrain, aggregation_mode)
+        super().__init__(obs_corpus, target_corpus, aggregation_mode, id_list)
+        self.dfTrain = dfTrain[dfTrain["relevance"] != 0].copy()
         self.target_field = target_field
         self.relevance = relevance
         self.relevance_str = self._relevance_to_str()
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "Group_%sRelevance_%s_Jaccard_%s"%(
                 self.relevance_str, self.ngram_str, string.capwords(self.aggregation_mode))

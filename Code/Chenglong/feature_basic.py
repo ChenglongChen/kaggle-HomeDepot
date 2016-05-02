@@ -32,7 +32,7 @@ class DocId(BaseEstimator):
         obs_set = set(obs_corpus)
         self.encoder = dict(zip(obs_set, range(len(obs_set))))
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DocId"
 
     def transform_one(self, obs, target, id):
@@ -44,7 +44,7 @@ class DocIdEcho(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DocIdEcho"
 
     def transform_one(self, obs, target, id):
@@ -56,7 +56,7 @@ class DocIdOneHot(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DocIdOneHot"
 
     def transform(self):
@@ -79,7 +79,7 @@ class ProductUidDummy1(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "ProductUidDummy1"
 
     def transform_one(self, obs, target, id):
@@ -91,7 +91,7 @@ class ProductUidDummy2(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "ProductUidDummy2"
 
     def transform_one(self, obs, target, id):
@@ -103,7 +103,7 @@ class ProductUidDummy3(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "ProductUidDummy3"
 
     def transform_one(self, obs, target, id):
@@ -115,7 +115,7 @@ class DocLen(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DocLen"
 
     def transform_one(self, obs, target, id):
@@ -129,7 +129,7 @@ class DocFreq(BaseEstimator):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         self.counter = Counter(obs_corpus)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DocFreq"
 
     def transform_one(self, obs, target, id):
@@ -141,7 +141,7 @@ class DocEntropy(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DocEntropy"
 
     def transform_one(self, obs, target, id):
@@ -157,7 +157,7 @@ class DigitCount(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DigitCount"
 
     def transform_one(self, obs, target, id):
@@ -168,7 +168,7 @@ class DigitRatio(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DigitRatio"
 
     def transform_one(self, obs, target, id):
@@ -182,7 +182,7 @@ class UniqueCount_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "UniqueCount_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -197,7 +197,7 @@ class UniqueRatio_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "UniqueRatio_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -212,7 +212,7 @@ class AttrCount(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrCount"
 
     def transform_one(self, obs, target, id):
@@ -225,7 +225,7 @@ class AttrBulletCount(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrBulletCount"
 
     def transform_one(self, obs, target, id):
@@ -242,7 +242,7 @@ class AttrBulletRatio(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrBulletRatio"
 
     def transform_one(self, obs, target, id):
@@ -259,7 +259,7 @@ class AttrNonBulletCount(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrNonBulletCount"
 
     def transform_one(self, obs, target, id):
@@ -276,7 +276,7 @@ class AttrNonBulletRatio(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrNonBulletRatio"
 
     def transform_one(self, obs, target, id):
@@ -293,7 +293,7 @@ class AttrHasProductHeight(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrHasProductHeight"
 
     def transform_one(self, obs, target, id):
@@ -309,7 +309,7 @@ class AttrHasProductWidth(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrHasProductWidth"
 
     def transform_one(self, obs, target, id):
@@ -325,7 +325,7 @@ class AttrHasProductLength(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrHasProductLength"
 
     def transform_one(self, obs, target, id):
@@ -341,7 +341,7 @@ class AttrHasProductDepth(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrHasProductDepth"
 
     def transform_one(self, obs, target, id):
@@ -357,7 +357,7 @@ class AttrHasIndoorOutdoor(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "AttrHasIndoorOutdoor"
 
     def transform_one(self, obs, target, id):

@@ -33,7 +33,7 @@ class JaccardCoef_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "JaccardCoef_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -50,7 +50,7 @@ class DiceDistance_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "DiceDistance_%s"%self.ngram_str
 
     def transform_one(self, obs, target, id):
@@ -66,7 +66,7 @@ class EditDistance(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
     
-    def _get_feat_name(self):
+    def __name__(self):
         return "EditDistance"
 
     def transform_one(self, obs, target, id):
@@ -80,7 +80,7 @@ class EditDistance_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         feat_name = []
         for m1 in self.aggregation_mode_prev:
             for m in self.aggregation_mode:
@@ -113,7 +113,7 @@ class CompressionDistance(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "CompressionDistance"
 
     def transform_one(self, obs, target, id):
@@ -127,7 +127,7 @@ class CompressionDistance_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         feat_name = []
         for m1 in self.aggregation_mode_prev:
             for m in self.aggregation_mode:

@@ -51,7 +51,7 @@ class Doc2Vec_Vector(Doc2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Doc2Vec_%s_D%d_Vector"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -62,7 +62,7 @@ class Doc2Vec_Vdiff(Doc2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Doc2Vec_%s_D%d_Vdiff"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -73,7 +73,7 @@ class Doc2Vec_CosineSim(Doc2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Doc2Vec_%s_D%d_CosineSim"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -84,7 +84,7 @@ class Doc2Vec_RMSE(Doc2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, doc2vec_model, sent_label, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Doc2Vec_%s_D%d_RMSE"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):

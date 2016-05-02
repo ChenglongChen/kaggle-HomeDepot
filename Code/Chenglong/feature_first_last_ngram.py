@@ -57,7 +57,7 @@ class FirstIntersectCount_Ngram(Count_Ngram_BaseEstimator):
         str_match_threshold=config.STR_MATCH_THRESHOLD):
         super().__init__(obs_corpus, target_corpus, ngram, 0, aggregation_mode, str_match_threshold)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "FirstIntersectCount_%s"%self.ngram_str
 
 
@@ -66,7 +66,7 @@ class LastIntersectCount_Ngram(Count_Ngram_BaseEstimator):
         str_match_threshold=config.STR_MATCH_THRESHOLD):
         super().__init__(obs_corpus, target_corpus, ngram, -1, aggregation_mode, str_match_threshold)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LastIntersectCount_%s"%self.ngram_str
 
 
@@ -88,7 +88,7 @@ class FirstIntersectRatio_Ngram(Ratio_Ngram_BaseEstimator):
         str_match_threshold=config.STR_MATCH_THRESHOLD):
         super().__init__(obs_corpus, target_corpus, ngram, 0, aggregation_mode, str_match_threshold)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "FirstIntersectRatio_%s"%self.ngram_str
 
 
@@ -97,7 +97,7 @@ class LastIntersectRatio_Ngram(Ratio_Ngram_BaseEstimator):
         str_match_threshold=config.STR_MATCH_THRESHOLD):
         super().__init__(obs_corpus, target_corpus, ngram, -1, aggregation_mode, str_match_threshold)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LastIntersectRatio_%s"%self.ngram_str
 
 
@@ -121,7 +121,7 @@ class FirstIntersectPosition_Ngram(Position_Ngram_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, ngram, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, ngram, 0, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "FirstIntersectPosition_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -136,7 +136,7 @@ class LastIntersectPosition_Ngram(Position_Ngram_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, ngram, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, ngram, -1, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "LastIntersectPosition_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -166,7 +166,7 @@ class FirstIntersectNormPosition_Ngram(NormPosition_Ngram_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, ngram, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, ngram, 0, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "FirstIntersectNormPosition_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -181,7 +181,7 @@ class LastIntersectNormPosition_Ngram(NormPosition_Ngram_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, ngram, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, ngram, -1, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "LastIntersectNormPosition_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))

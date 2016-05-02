@@ -109,7 +109,7 @@ class LSA_Word_Ngram(VectorSpace):
         self.svd_n_iter = svd_n_iter
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LSA%d_Word_%s"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -127,7 +127,7 @@ class LSA_Char_Ngram(VectorSpace):
         self.svd_n_iter = svd_n_iter
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LSA%d_Char_%s"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -150,7 +150,7 @@ class LSA_Word_Ngram_Cooc(VectorSpace):
         self.obs_ngram_str = ngram_utils._ngram_str_map[self.obs_ngram]
         self.target_ngram_str = ngram_utils._ngram_str_map[self.target_ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "LSA%d_Word_Obs_%s_Target_%s_Cooc"%(self.svd_dim, self.obs_ngram_str, self.target_ngram_str)
 
     def _get_cooc_terms(self, lst1, lst2, join_str):
@@ -187,7 +187,7 @@ class LSA_Word_Ngram_Pair(VectorSpace):
         self.svd_n_iter = svd_n_iter
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "LSA%d_Word_%s_Pair"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -208,7 +208,7 @@ class TSNE_LSA_Word_Ngram(LSA_Word_Ngram):
     def __init__(self, obs_corpus, place_holder, ngram=3, svd_dim=100, svd_n_iter=5):
         super().__init__(obs_corpus, None, ngram, svd_dim, svd_n_iter)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "TSNE_LSA%d_Word_%s"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -222,7 +222,7 @@ class TSNE_LSA_Char_Ngram(LSA_Char_Ngram):
     def __init__(self, obs_corpus, place_holder, ngram=5, svd_dim=100, svd_n_iter=5):
         super().__init__(obs_corpus, None, ngram, svd_dim, svd_n_iter)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "TSNE_LSA%d_Char_%s"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -236,7 +236,7 @@ class TSNE_LSA_Word_Ngram_Pair(LSA_Word_Ngram_Pair):
     def __init__(self, obs_corpus, target_corpus, ngram=2, svd_dim=100, svd_n_iter=5):
         super().__init__(obs_corpus, target_corpus, ngram, svd_dim, svd_n_iter)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "TSNE_LSA%d_Word_%s_Pair"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -254,7 +254,7 @@ class TFIDF_Word_Ngram_CosineSim(VectorSpace):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "TFIDF_Word_%s_CosineSim"%self.ngram_str
 
     def transform(self):        
@@ -281,7 +281,7 @@ class TFIDF_Char_Ngram_CosineSim(VectorSpace):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "TFIDF_Char_%s_CosineSim"%self.ngram_str
 
     def transform(self):
@@ -311,7 +311,7 @@ class LSA_Word_Ngram_CosineSim(VectorSpace):
         self.svd_n_iter = svd_n_iter
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "LSA%d_Word_%s_CosineSim"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -345,7 +345,7 @@ class LSA_Char_Ngram_CosineSim(VectorSpace):
         self.svd_n_iter = svd_n_iter
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LSA%d_Char_%s_CosineSim"%(self.svd_dim, self.ngram_str)
 
     def transform(self):
@@ -413,7 +413,7 @@ class CharDistribution_Ratio(CharDistribution):
         self.const_A = const_A
         self.const_B = const_B
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "CharDistribution_Ratio"
 
     def transform(self):
@@ -426,7 +426,7 @@ class CharDistribution_CosineSim(CharDistribution):
     def __init__(self, obs_corpus, target_corpus):
         super().__init__(obs_corpus, target_corpus)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "CharDistribution_CosineSim"
 
     def transform(self):
@@ -441,7 +441,7 @@ class CharDistribution_KL(CharDistribution):
     def __init__(self, obs_corpus, target_corpus):
         super().__init__(obs_corpus, target_corpus)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "CharDistribution_KL"
 
     def transform(self):

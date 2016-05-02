@@ -82,7 +82,7 @@ class WordNet_Similarity(BaseEstimator):
         else:
             raise(ValueError("Wrong similarity metric: %s, should be one of path/lch/wup."%self.metric))
             
-    def _get_feat_name(self):
+    def __name__(self):
         feat_name = []
         for m1 in self.aggregation_mode_prev:
             for m in self.aggregation_mode:

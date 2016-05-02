@@ -30,10 +30,9 @@ class BaseEstimator:
         self.aggregation_mode_prev, self.aggregator_prev = self._check_aggregation_mode(aggregation_mode_prev)
         self.double_aggregation = False
         if self.aggregator_prev != [None]:
-            # the output of transform_one is a list of list
-            # [[...], [...], [...]]
+            # the output of transform_one is a list of list, i.e., [[...], [...], [...]]
             # self.aggregator_prev is used to aggregate the inner list
-            # This is used for 
+            # This is used for the following features:
             # 1. EditDistance_Ngram
             # 2. CompressionDistance_Ngram
             # 3. Word2Vec_CosineSim
@@ -120,8 +119,8 @@ class StandaloneFeatureWrapper:
             obs_corpus = self.dfAll[obs_field].values
             ext = self.generator(obs_corpus, None, *self.param_list)
             x = ext.transform()
-            if isinstance(ext._get_feat_name(), list):
-                for i,feat_name in enumerate(ext._get_feat_name()):
+            if isinstance(ext.__name__(), list):
+                for i,feat_name in enumerate(ext.__name__()):
                     dim = 1
                     fname = "%s_%s_%dD"%(feat_name, obs_field, dim)
                     pkl_utils._save(os.path.join(self.feat_dir, fname+config.FEAT_FILE_SUFFIX), x[:,i])
@@ -129,7 +128,7 @@ class StandaloneFeatureWrapper:
                     self.logger.info("%s (%dD): corr = %.6f"%(fname, dim, corr))
             else:
                 dim = np_utils._dim(x)
-                fname = "%s_%s_%dD"%(ext._get_feat_name(), obs_field, dim)
+                fname = "%s_%s_%dD"%(ext.__name__(), obs_field, dim)
                 pkl_utils._save(os.path.join(self.feat_dir, fname+config.FEAT_FILE_SUFFIX), x)
                 if dim == 1:
                     corr = np_utils._corr(x[:TRAIN_SIZE], y_train)
@@ -167,8 +166,8 @@ class PairwiseFeatureWrapper:
                 target_corpus = self.dfAll[target_field].values
                 ext = self.generator(obs_corpus, target_corpus, *self.param_list)
                 x = ext.transform()
-                if isinstance(ext._get_feat_name(), list):
-                    for i,feat_name in enumerate(ext._get_feat_name()):
+                if isinstance(ext.__name__(), list):
+                    for i,feat_name in enumerate(ext.__name__()):
                         dim = 1
                         fname = "%s_%s_x_%s_%dD"%(feat_name, obs_field, target_field, dim)
                         pkl_utils._save(os.path.join(self.feat_dir, fname+config.FEAT_FILE_SUFFIX), x[:,i])
@@ -176,7 +175,7 @@ class PairwiseFeatureWrapper:
                         self.logger.info("%s (%dD): corr = %.6f"%(fname, dim, corr))
                 else:
                     dim = np_utils._dim(x)
-                    fname = "%s_%s_x_%s_%dD"%(ext._get_feat_name(), obs_field, target_field, dim)
+                    fname = "%s_%s_x_%s_%dD"%(ext.__name__(), obs_field, target_field, dim)
                     pkl_utils._save(os.path.join(self.feat_dir, fname+config.FEAT_FILE_SUFFIX), x)
                     if dim == 1:
                         corr = np_utils._corr(x[:TRAIN_SIZE], y_train)

@@ -89,7 +89,7 @@ class Word2Vec_Centroid_Vector(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_Centroid_Vector"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -100,7 +100,7 @@ class Word2Vec_Importance(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_Importance"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -111,7 +111,7 @@ class Word2Vec_N_Similarity(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_N_Similarity"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -122,7 +122,7 @@ class Word2Vec_N_Similarity_Imp(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
 
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_N_Similarity_Imp"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -133,7 +133,7 @@ class Word2Vec_Centroid_RMSE(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_Centroid_RMSE"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -144,7 +144,7 @@ class Word2Vec_Centroid_RMSE_IMP(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_Centroid_RMSE_IMP"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -155,7 +155,7 @@ class Word2Vec_Centroid_Vdiff(Word2Vec_BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "Word2Vec_%s_D%d_Centroid_Vdiff"%(self.model_prefix, self.vector_size)
 
     def transform_one(self, obs, target, id):
@@ -169,7 +169,7 @@ class Word2Vec_CosineSim(Word2Vec_BaseEstimator):
         super().__init__(obs_corpus, target_corpus, word2vec_model, model_prefix, 
             aggregation_mode, aggregation_mode_prev)
         
-    def _get_feat_name(self):
+    def __name__(self):
         feat_name = []
         for m1 in self.aggregation_mode_prev:
             for m in self.aggregation_mode:

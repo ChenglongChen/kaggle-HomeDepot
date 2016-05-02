@@ -40,7 +40,7 @@ class StatCoocTF_Ngram(BaseEstimator):
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         self.str_match_threshold = str_match_threshold
 
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "StatCoocTF_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -77,7 +77,7 @@ class StatCoocNormTF_Ngram(BaseEstimator):
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         self.str_match_threshold = str_match_threshold
 
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "StatCoocNormTF_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -115,7 +115,7 @@ class StatCoocTFIDF_Ngram(BaseEstimator):
         self.str_match_threshold = str_match_threshold
         self.df_dict = self._get_df_dict()
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "StatCoocTFIDF_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -166,7 +166,7 @@ class StatCoocNormTFIDF_Ngram(BaseEstimator):
         self.str_match_threshold = str_match_threshold
         self.df_dict = self._get_df_dict()
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "StatCoocNormTFIDF_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -220,7 +220,7 @@ class StatCoocBM25_Ngram(BaseEstimator):
         self.df_dict = self._get_df_dict()
         self.avg_ngram_doc_len = self._get_avg_ngram_doc_len()
 
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "StatCoocBM25_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))

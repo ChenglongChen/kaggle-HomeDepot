@@ -21,7 +21,7 @@ class MatchQueryCount(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "MatchQueryCount"
 
     def _str_whole_word(self, str1, str2, i_):
@@ -46,7 +46,7 @@ class MatchQueryRatio(MatchQueryCount):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "MatchQueryRatio"
 
     def transform_one(self, obs, target, id):
@@ -58,7 +58,7 @@ class LongestMatchSize(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LongestMatchSize"
 
     def transform_one(self, obs, target, id):
@@ -69,7 +69,7 @@ class LongestMatchRatio(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "LongestMatchRatio"
 
     def transform_one(self, obs, target, id):
@@ -81,7 +81,7 @@ class MatchAttrCount(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "MatchAttrCount"
 
     def _str_whole_word(self, str1, str2, i_):
@@ -112,7 +112,7 @@ class MatchAttrRatio(MatchQueryCount):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "MatchAttrRatio"
 
     def transform_one(self, obs, target, id):
@@ -125,7 +125,7 @@ class IsIndoorOutdoorMatch(BaseEstimator):
     def __init__(self, obs_corpus, target_corpus, aggregation_mode=""):
         super().__init__(obs_corpus, target_corpus, aggregation_mode)
         
-    def _get_feat_name(self):
+    def __name__(self):
         return "IsIndoorOutdoorMatch"
 
     def transform_one(self, obs, target, id):

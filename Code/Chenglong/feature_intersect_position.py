@@ -50,7 +50,7 @@ class IntersectPosition_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "IntersectPosition_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
@@ -75,7 +75,7 @@ class IntersectNormPosition_Ngram(BaseEstimator):
         self.ngram = ngram
         self.ngram_str = ngram_utils._ngram_str_map[self.ngram]
         
-    def _get_feat_name(self):
+    def __name__(self):
         if isinstance(self.aggregation_mode, str):
             feat_name = "IntersectNormPosition_%s_%s"%(
                 self.ngram_str, string.capwords(self.aggregation_mode))
