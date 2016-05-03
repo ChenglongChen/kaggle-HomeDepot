@@ -2,7 +2,9 @@
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
 @brief: extreme ensemble selection module
-
+@note: 
+		- support multiprocessing (set multiprocessing = True and multiprocessing_num_cores = #cores)
+		- support random weight in greedy forward model selection (set weight_opt_max_evals = 1)
 """
 
 """
@@ -497,14 +499,15 @@ def main(options):
     subm_prefix = "%s/test.pred.[%s]" % (subm_folder, options.outfile)
 
     # get model list
-    model_list = get_model_list(options.log_folder, options.size)
+    log_folder = "%s/level%d_models"%(config.LOG_DIR, options.level-1)
+    model_list = get_model_list(log_folder, options.size)
 
     # get instance splitter
-    if options.level not in [1, 2, 3]:
+    if options.level not in [2, 3]:
         inst_splitter = None
-    elif options.level == 1:
-        inst_splitter = splitter_level2
     elif options.level == 2:
+        inst_splitter = splitter_level2
+    elif options.level == 3:
         inst_splitter = splitter_level3
 
     ees = ExtremeEnsembleSelection(
@@ -532,9 +535,7 @@ def main(options):
 
 def parse_args(parser):
     parser.add_option("-l", "--level", type="int", dest="level", 
-        default=1, help="level of base models")
-    parser.add_option("-L", "--log_folder", type="string", dest="log_folder", 
-        default="%s/level1_models"%config.LOG_DIR, help="log folder of base models")
+        default=2, help="level of base models")
     parser.add_option("-s", "--size", type="int", dest="size", 
         default=10, help="size of each model")
     parser.add_option("-o", "--outfile", type="string", dest="outfile",
@@ -554,7 +555,7 @@ def parse_args(parser):
         dest="model_subsample_replacement", 
         default=True, help="model_subsample_replacement")
     parser.add_option("-e", "--epsilon", type="float", dest="epsilon", 
-        default=0.00001, help="epsilon")
+        default=0.0001, help="epsilon")
     parser.add_option("-w", "--weight_opt_max_evals", type="int", dest="weight_opt_max_evals", 
         default=5, help="weight_opt_max_evals")
     parser.add_option("-x", action="store_true", dest="enable_extreme", 

@@ -2,7 +2,7 @@
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
 @brief: generate all the data and features in one shot
-@note: if you don't have a multi-core computer, drop the " &" in the cmd
+@note: if you don't have access to multi-core computers, drop the " &" in the cmd
 
 """
 

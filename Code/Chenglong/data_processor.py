@@ -528,9 +528,10 @@ def main():
 
     ## clean using GoogleQuerySpellingChecker
     # MUST BE IN FRONT OF ALL THE PROCESSING
-    logger.info("Run GoogleQuerySpellingChecker at search_term")
-    checker = GoogleQuerySpellingChecker()
-    dfAll["search_term"] = dfAll["search_term"].apply(checker.correct)
+    if config.GOOGLE_CORRECTING_QUERY:
+        logger.info("Run GoogleQuerySpellingChecker at search_term")
+        checker = GoogleQuerySpellingChecker()
+        dfAll["search_term"] = dfAll["search_term"].apply(checker.correct)
 
 
     ## clean uisng a list of processors

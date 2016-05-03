@@ -10,11 +10,11 @@ import xgboost as xgb
 
 
 class XGBRegressor:
-    def __init__(self, booster='gbtree', base_score=0, colsample_bylevel=1, 
-                colsample_bytree=1, gamma=0, learning_rate=0.1, max_delta_step=0,
-                max_depth=6, min_child_weight=1, missing=None, n_estimators=100, 
-                nthread=1, objective='reg:linear', reg_alpha=1, reg_lambda=0, 
-                reg_lambda_bias=0, seed=0, silent=True, subsample=1):
+    def __init__(self, booster='gbtree', base_score=0., colsample_bylevel=1., 
+                colsample_bytree=1., gamma=0., learning_rate=0.1, max_delta_step=0.,
+                max_depth=6, min_child_weight=1., missing=None, n_estimators=100, 
+                nthread=1, objective='reg:linear', reg_alpha=1., reg_lambda=0., 
+                reg_lambda_bias=0., seed=0, silent=True, subsample=1.):
         self.param = {
             "objective": objective,
             "booster": booster,
@@ -82,11 +82,11 @@ class XGBRegressor:
 
 
 class XGBClassifier:
-    def __init__(self, num_class=2, booster='gbtree', base_score=0, colsample_bylevel=1, 
-                colsample_bytree=1, gamma=0, learning_rate=0.1, max_delta_step=0,
-                max_depth=6, min_child_weight=1, missing=None, n_estimators=100, 
-                nthread=1, objective='multi:softprob', reg_alpha=1, reg_lambda=0, 
-                reg_lambda_bias=0, seed=0, silent=True, subsample=1):
+    def __init__(self, num_class=2, booster='gbtree', base_score=0., colsample_bylevel=1., 
+                colsample_bytree=1., gamma=0., learning_rate=0.1, max_delta_step=0.,
+                max_depth=6, min_child_weight=1., missing=None, n_estimators=100, 
+                nthread=1, objective='multi:softprob', reg_alpha=1., reg_lambda=0., 
+                reg_lambda_bias=0., seed=0, silent=True, subsample=1.):
         self.param = {
             "objective": objective,
             "booster": booster,
@@ -163,11 +163,11 @@ class XGBClassifier:
 
 
 class HomedepotXGBClassifier(XGBClassifier):
-    def __init__(self, booster='gbtree', base_score=0, colsample_bylevel=1, 
-                colsample_bytree=1, gamma=0, learning_rate=0.1, max_delta_step=0,
-                max_depth=6, min_child_weight=1, missing=None, n_estimators=100, 
-                nthread=1, objective='multi:softprob', reg_alpha=1, reg_lambda=0, 
-                reg_lambda_bias=0, seed=0, silent=True, subsample=1):
+    def __init__(self, booster='gbtree', base_score=0., colsample_bylevel=1., 
+                colsample_bytree=1., gamma=0., learning_rate=0.1, max_delta_step=0.,
+                max_depth=6, min_child_weight=1., missing=None, n_estimators=100, 
+                nthread=1, objective='multi:softprob', reg_alpha=1., reg_lambda=0., 
+                reg_lambda_bias=0., seed=0, silent=True, subsample=1.):
         super().__init__(num_class=1, booster=booster, base_score=base_score, 
                         colsample_bylevel=colsample_bylevel, colsample_bytree=colsample_bytree, 
                         gamma=gamma, learning_rate=learning_rate, max_delta_step=max_delta_step,

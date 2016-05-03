@@ -104,6 +104,11 @@ N_FOLDS = 1
 # intersect count/match
 STR_MATCH_THRESHOLD = 0.85
 
+# correct query with google spelling check dict
+# turn this on/off to have two versions of features/models
+# which is useful for ensembling
+GOOGLE_CORRECTING_QUERY = True
+
 # auto correcting query (quite time consuming)
 AUTO_CORRECTING_QUERY = False
 
