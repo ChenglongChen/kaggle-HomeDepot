@@ -31,11 +31,11 @@ class KerasDNNRegressor:
         self.model = None
 
     def __str__(self):
-        return "KerasDNNRegressor"
+        return self.__repr__()
 
     def __repr__(self):
-        return ("%s(input_dropout=%f, hidden_layers=%d, hidden_units=%d, "
-                    "hidden_activation=\'%s\', hidden_dropout=%f, batch_norm=\'%s\', "
+        return ("%s(input_dropout=%f, hidden_layers=%d, hidden_units=%d, \n"
+                    "hidden_activation=\'%s\', hidden_dropout=%f, batch_norm=\'%s\', \n"
                     "optimizer=\'%s\', nb_epoch=%d, batch_size=%d)" % (
                     self.__class__.__name__,
                     self.input_dropout,

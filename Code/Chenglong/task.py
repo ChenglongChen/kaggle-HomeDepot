@@ -22,7 +22,7 @@ from hyperopt import fmin, tpe, hp, STATUS_OK, Trials, space_eval
 
 import config
 from utils import dist_utils, logging_utils, pkl_utils, time_utils
-from utils.ens_utils import Ensembler
+from utils.ens_utils import EnsembleRegressor
 from utils.xgb_utils import XGBRegressor, HomedepotXGBClassifier as XGBClassifier
 from utils.rgf_utils import RGFRegressor
 from utils.skl_utils import SVR, LinearSVR, KNNRegressor, AdaBoostRegressor, RandomRidge
@@ -81,18 +81,22 @@ class Learner:
         if self.learner_name == "reg_rgf":
             return RGFRegressor(**self.param_dict)
 
-        # ensembler
-        if self.learner_name == "reg_ensembler":
-            self.param_dict["learner_list"] = list(self.param_dict["learner_list"])
-            self.param_dict["param_list"] = list(self.param_dict["param_list"])
-            self.param_dict["weight_list"] = list(self.param_dict["weight_list"])
-            for i in range(len(self.param_dict["learner_list"])):
-                learner_name = self.param_dict["learner_list"][i]
-                param_dict = self.param_dict["param_list"][i]
-                learner = Learner(learner_name, param_dict)._get_learner()
-                self.param_dict["learner_list"][i] = learner
-            self.param_dict.pop("param_list")
-            return Ensembler(**self.param_dict)
+        # ensemble
+        if self.learner_name == "reg_ensemble":
+            learner_name_to_pop = []
+            for learner_name in self.param_dict["learner_dict"].keys():
+                p = self.param_dict["learner_dict"][learner_name]["param"]
+                l = Learner(learner_name, p)._get_learner()
+                if l is None:
+                    learner_name_to_pop.append(learner_name)
+                else:
+                    self.param_dict["learner_dict"][learner_name]["learner"] = l
+                    self.param_dict["learner_dict"][learner_name].pop("param")
+            for learner_name in learner_name_to_pop:
+                self.param_dict["learner_dict"].pop(learner_name)
+            return EnsembleRegressor(**self.param_dict)
+            
+        return None
 
     def fit(self, X, y):
         self.learner.fit(X, y)
@@ -205,6 +209,14 @@ class Task:
     def __str__(self):
         return "[Feat@%s]_[Learner@%s]%s"%(str(self.feature), str(self.learner), str(self.suffix))
 
+    def _print_param_dict(self, d, prefix="      "):
+        for k,v in sorted(d.items()):
+            if isinstance(v, dict):
+                self.logger.info("%s%s:" % (prefix,k))
+                self._print_param_dict(v, prefix*2)
+            else:
+                self.logger.info("%s%s: %s" % (prefix,k,v))
+
     def cv(self):
         start = time.time()
         if self.verbose:
@@ -212,8 +224,7 @@ class Task:
             self.logger.info("Task")
             self.logger.info("      %s" % str(self.__str__()))
             self.logger.info("Param")
-            for k,v in sorted(self.learner.param_dict.items()):
-                self.logger.info("      %s: %s" % (k,v))
+            self._print_param_dict(self.learner.param_dict)
             self.logger.info("Result")
             self.logger.info("      Run      RMSE        Shape")
     
@@ -358,11 +369,17 @@ class TaskOptimizer:
         learner = Learner(self.learner_name, param_dict)
         suffix = "_[Id@%s]"%str(self.trial_counter)
         if self.task_mode == "single":
-            task = Task(learner, self.feature, suffix, self.logger, self.verbose)
+            self.task = Task(learner, self.feature, suffix, self.logger, self.verbose)
         elif self.task_mode == "stacking":
-            task = StackingTask(learner, self.feature, suffix, self.logger, self.verbose, self.refit_once)
-        task.go()
-        ret = {"loss": task.rmse_cv_mean, "attachments": {"std": task.rmse_cv_std}, "status": STATUS_OK}
+            self.task = StackingTask(learner, self.feature, suffix, self.logger, self.verbose, self.refit_once)
+        self.task.go()
+        ret = {
+            "loss": self.task.rmse_cv_mean,
+            "attachments": {
+                "std": self.task.rmse_cv_std,
+            },
+            "status": STATUS_OK,
+        }
         return ret
 
     def run(self):
@@ -380,8 +397,7 @@ class TaskOptimizer:
         self.logger.info("      Mean: %.6f"%best_rmse_mean)
         self.logger.info("      std: %.6f"%best_rmse_std)
         self.logger.info("Best param")
-        for k,v in sorted(best_params.items()):
-            self.logger.info("      %s: %s" % (k,v))
+        self.task._print_param_dict(best_params)
         end = time.time()
         _sec = end - start
         _min = int(_sec/60.)

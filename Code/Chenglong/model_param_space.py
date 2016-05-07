@@ -217,35 +217,57 @@ param_space_reg_rgf = {
     "opt_stepsize": hp.quniform("opt_stepsize", 0.1, 1.0, 0.1)
 }
 
-# -------------------------------------- Ensembler ---------------------------------------------
-param_space_reg_ensembler = {
-    "learner_list": hp.choice("learner_list", [
-        [
-            "reg_skl_ridge", 
-            "reg_keras_dnn", 
-            "reg_xgb_tree", 
-            "reg_skl_etr", 
-            "reg_skl_rf",
-        ]
-    ]),
-    "param_list": hp.choice("param_list", [
-        [
-            param_space_reg_skl_ridge,
-            param_space_reg_keras_dnn,
-            param_space_reg_xgb_tree,
-            param_space_reg_skl_etr,
-            param_space_reg_skl_rf,
-        ]
-    ]),
-    "weight_list": hp.choice("weight_list", [
-        [
-            4., 
-            1., 
-            1., 
-            1., 
-            1.,
-        ]
-    ]),
+# -------------------------------------- Ensemble ---------------------------------------------
+# 1. The following learners are chosen to build ensemble for their fast learning speed.
+# 2. In our final submission, we used fix weights. 
+#    However, you can also try to optimize the ensemble weights in the meantime.
+param_space_reg_ensemble = {
+    # 1. fix weights (used in final submission)
+    "learner_dict": {
+        "reg_skl_ridge": {
+            "param": param_space_reg_skl_ridge,
+            "weight": 4.0,
+        },
+        "reg_keras_dnn": {
+            "param": param_space_reg_keras_dnn,
+            "weight": 1.0,
+        }, 
+        "reg_xgb_tree": {
+            "param": param_space_reg_xgb_tree,
+            "weight": 1.0,
+        }, 
+        "reg_skl_etr": {
+            "param": param_space_reg_skl_etr,
+            "weight": 1.0,
+        }, 
+        "reg_skl_rf": {
+            "param": param_space_reg_skl_rf,
+            "weight": 1.0,
+        }, 
+    },
+    # # 2. optimizing weights
+    # "learner_dict": {
+    #     "reg_skl_ridge": {
+    #         "param": param_space_reg_skl_ridge,
+    #         "weight": hp.quniform("reg_skl_ridge__weight", 1.0, 1.0, 0.1), # fix this one
+    #     },
+    #     "reg_keras_dnn": {
+    #         "param": param_space_reg_keras_dnn,
+    #         "weight": hp.quniform("reg_keras_dnn__weight", 0.0, 1.0, 0.1),
+    #     }, 
+    #     "reg_xgb_tree": {
+    #         "param": param_space_reg_xgb_tree,
+    #         "weight": hp.quniform("reg_xgb_tree__weight", 0.0, 1.0, 0.1),
+    #     }, 
+    #     "reg_skl_etr": {
+    #         "param": param_space_reg_skl_etr,
+    #         "weight": hp.quniform("reg_skl_etr__weight", 0.0, 1.0, 0.1),
+    #     }, 
+    #     "reg_skl_rf": {
+    #         "param": param_space_reg_skl_rf,
+    #         "weight": hp.quniform("reg_skl_rf__weight", 0.0, 1.0, 0.1),
+    #     }, 
+    # },
 }
 
 # -------------------------------------- All ---------------------------------------------
@@ -270,8 +292,8 @@ param_space_dict = {
     "reg_keras_dnn": param_space_reg_keras_dnn,
     # rgf
     "reg_rgf": param_space_reg_rgf,
-    # ensembler
-    "reg_ensembler": param_space_reg_ensembler,
+    # ensemble
+    "reg_ensemble": param_space_reg_ensemble,
 }
 
 int_params = [
@@ -286,6 +308,9 @@ int_params = set(int_params)
 
 class ModelParamSpace:
     def __init__(self, learner_name):
+        s = "Wrong learner_name, " + \
+            "see model_param_space.py for all available learners."
+        assert learner_name in param_space_dict, s
         self.learner_name = learner_name
 
     def _build_space(self):

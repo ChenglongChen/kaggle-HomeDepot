@@ -1,29 +1,33 @@
 # -*- coding: utf-8 -*-
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
-@brief: utils for ensembler models
+@brief: utils for EnsembleRegressor models
 
 """
 
 import numpy as np
 
 
-class Ensembler:
-    def __init__(self, learner_list, weight_list):
-        self.learner_list = learner_list
-        self.weight_list = weight_list
+class EnsembleRegressor:
+    def __init__(self, learner_dict):
+        self.learner_dict = learner_dict
 
     def __str__(self):
-        return "Ensembler"
+        return "EnsembleRegressor"
 
     def fit(self, X, y):
-        for i in range(len(self.learner_list)):
-            self.learner_list[i] = self.learner_list[i].fit(X, y)
+        for learner_name in self.learner_dict.keys():
+            l = self.learner_dict[learner_name]["learner"]
+            self.learner_dict[learner_name]["learner"] = l.fit(X, y)
         return self
 
     def predict(self, X):
         y_pred = np.zeros((X.shape[0]), dtype=float)
-        for i in range(len(self.learner_list)):
-            y_pred += self.weight_list[i] * self.learner_list[i].predict(X)
-        y_pred /= float(sum(self.weight_list))
+        w_sum = 0.
+        for learner_name in self.learner_dict.keys():
+            l = self.learner_dict[learner_name]["learner"]
+            w = self.learner_dict[learner_name]["weight"]
+            y_pred += w * l.predict(X)
+            w_sum += w
+        y_pred /= w_sum
         return y_pred

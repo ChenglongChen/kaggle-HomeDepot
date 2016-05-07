@@ -38,13 +38,13 @@ class XGBRegressor:
         self.base_score = base_score
 
     def __str__(self):
-        return "XGBoostRegressor"
+        return self.__repr__()
 
     def __repr__(self):
-        return ("%s(booster=\'%s\', base_score=%f, colsample_bylevel=%f, "
-                    "colsample_bytree=%f, gamma=%f, learning_rate=%f, max_delta_step=%f, "
-                    "max_depth=%d, min_child_weight=%f, missing=\'%s\', n_estimators=%d, "
-                    "nthread=%d, objective=\'%s\', reg_alpha=%f, reg_lambda=%f, "
+        return ("%s(booster=\'%s\', base_score=%f, colsample_bylevel=%f, \n"
+                    "colsample_bytree=%f, gamma=%f, learning_rate=%f, max_delta_step=%f, \n"
+                    "max_depth=%d, min_child_weight=%f, missing=\'%s\', n_estimators=%d, \n"
+                    "nthread=%d, objective=\'%s\', reg_alpha=%f, reg_lambda=%f, \n"
                     "reg_lambda_bias=%f, seed=%d, silent=%d, subsample=%f)" % (
                     self.__class__.__name__,
                     self.param["booster"],
@@ -112,13 +112,13 @@ class XGBClassifier:
         self.num_class = num_class
 
     def __str__(self):
-        return "XGBClassifier"
+        return self.__repr__()
         
     def __repr__(self):
-        return ("%s(num_class=%d, booster=\'%s\', base_score=%f, colsample_bylevel=%f, "
-                    "colsample_bytree=%f, gamma=%f, learning_rate=%f, max_delta_step=%f, "
-                    "max_depth=%d, min_child_weight=%f, missing=\'%s\', n_estimators=%d, "
-                    "nthread=%d, objective=\'%s\', reg_alpha=%f, reg_lambda=%f, "
+        return ("%s(num_class=%d, booster=\'%s\', base_score=%f, colsample_bylevel=%f, \n"
+                    "colsample_bytree=%f, gamma=%f, learning_rate=%f, max_delta_step=%f, \n"
+                    "max_depth=%d, min_child_weight=%f, missing=\'%s\', n_estimators=%d, \n"
+                    "nthread=%d, objective=\'%s\', reg_alpha=%f, reg_lambda=%f, \n"
                     "reg_lambda_bias=%f, seed=%d, silent=%d, subsample=%f)" % (
                     self.__class__.__name__,
                     self.num_class,
@@ -195,9 +195,6 @@ class HomedepotXGBClassifier(XGBClassifier):
         self.decoder = {v:k for k,v in self.encoder.items()}
         self.num_class = len(self.encoder.keys())
         self.param["num_class"] = self.num_class
-
-    def __str__(self):
-        return "XGBClassifier"
         
     def fit(self, X, y):
         # encode relevance to label
