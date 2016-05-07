@@ -45,7 +45,8 @@ We used the following thirdparty packages:
 #####1. Pre-trained Word2Vec Model
 We used pre-trained Word2Vec models listed in this [Github repo](https://github.com/3Top/word2vec-api). In specific:
 - [Google News](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/)
-- [Wikipedia+Gigaword 5](http://nlp.stanford.edu/data/glove.6B.zip)  
+- [Wikipedia+Gigaword 5](http://nlp.stanford.edu/data/glove.6B.zip)
+
 We used [glove-gensim](https://github.com/manasRK/glove-gensim) to convert GloVe vectors into Word2Vec format for easy usage with Gensim. After that, put all the models in the corresponding directory (see `config.py` for detail).
 
 #####2. Other
