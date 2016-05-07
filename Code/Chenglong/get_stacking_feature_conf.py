@@ -5,8 +5,8 @@
 
 """
 
-import re
 import os
+import re
 from optparse import OptionParser
 
 import pandas as pd
@@ -88,7 +88,7 @@ def _create_feature_conf(level, topN, outfile):
     for feature in feature_list:
         res += '"%s",\n'%feature
     res += "]\n"
-    with open(outfile, "w") as f:
+    with open(os.path.join(config.FEAT_CONF_DIR, outfile), "w") as f:
         f.write(res)
 
 

@@ -8,12 +8,12 @@
  - Public LB: **0.43819**
  - Private LB: **0.43704** (8th place)
 
-2. sub2: `test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensembler]_[Id@1].[Mean0.436064]_[Std0.001005].csv`
+2. sub2: `test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv`
  - reproduced best ensembled model from Chenglong
- - Public LB: **0.43648**
- - Private LB: **0.43405** (8th place)
+ - Public LB: **0.43582**
+ - Private LB: **0.43325** (4th place)
 
 3. sub3: `reproduced_blend_0.438_0.436CV.csv`
  - reproduced best blended model from 0.3 * sub1 + 0.7 * sub2
- - Public LB: **0.43509**
- - Private LB: **0.43302** (3rd place)
+ - Public LB: **0.43465**
+ - Private LB: **0.43248** (3rd place)

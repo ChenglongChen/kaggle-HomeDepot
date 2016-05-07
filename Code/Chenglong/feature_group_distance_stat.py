@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
-@brief: group based distance aggregated statistical features (not used)
+@brief: group based distance aggregated statistical features
+@note: such features are not used in final submission
 
 """
 
@@ -212,8 +213,8 @@ def main():
                             dist_list = pkl_utils._load(os.path.join(config.FEAT_DIR, dist_name+"_1D.pkl"))
                             ext = GroupDistanceStat(dist_list, group_id_list, dist_name, group_id_name, aggregation_mode)
                             x = ext.transform()
-                            if isinstance(ext._get_feat_name(), list):
-                                for i,feat_name in enumerate(ext._get_feat_name()):
+                            if isinstance(ext.__name__(), list):
+                                for i,feat_name in enumerate(ext.__name__()):
                                     dim = 1
                                     fname = "%s_%dD"%(feat_name, dim)
                                     pkl_utils._save(os.path.join(config.FEAT_DIR, fname+config.FEAT_FILE_SUFFIX), x[:,i])

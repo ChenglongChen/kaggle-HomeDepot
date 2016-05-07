@@ -420,14 +420,16 @@ def parse_args(parser):
 
 
 def main(options):
-    feature_conf = imp.load_source("", options.feature_conf+".py")
+    feature_conf = imp.load_source("", 
+        os.path.join(config.FEAT_CONF_DIR, options.feature_conf+".py"))
     if options.feature_level == 1:
         combiner = Combiner(feature_dict=feature_conf.feature_dict,
                             feature_name=options.feature_name,
                             feature_suffix=options.feature_suffix,
                             corr_threshold=options.corr_threshold)
     elif options.feature_level > 1:
-        feature_conf_meta = imp.load_source(options.feature_conf_meta, options.feature_conf_meta+".py")
+        feature_conf_meta = imp.load_source("", 
+            os.path.join(config.FEAT_CONF_DIR, options.feature_conf_meta+".py"))
         combiner = StackingCombiner(feature_list=feature_conf.feature_list,
                                     feature_name=options.feature_name,
                                     feature_suffix=options.feature_suffix,

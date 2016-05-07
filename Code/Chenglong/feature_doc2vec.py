@@ -131,7 +131,7 @@ def main():
         ]
         obs_fields_list = []
         target_fields_list = []
-        obs_fields_list.append( ["search_term", "search_term_alt"] )
+        obs_fields_list.append( ["search_term", "search_term_alt"][:1] )
         target_fields_list.append( ["product_title", "product_description", "product_attribute", "product_brand", "product_color"] )
         for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
             for generator in generators:

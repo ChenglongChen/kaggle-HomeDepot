@@ -77,8 +77,8 @@ def main():
         for j in range(i+1, len(query_suffix)):
             ext = QueryQuality(obs_corpus[i], obs_corpus[j])
             x = ext.transform()
-            dim = 1
-            fname = "%s_%s_x_%s_%dD"%(ext._get_feat_name(), query_suffix[i], query_suffix[j], dim)
+            dim = np_utils._dim(x)
+            fname = "%s_%s_x_%s_%dD"%(ext.__name__(), query_suffix[i], query_suffix[j], dim)
             pkl_utils._save(os.path.join(config.FEAT_DIR, fname+config.FEAT_FILE_SUFFIX), x)
             corr = np_utils._corr(x[:TRAIN_SIZE], y_train)
             logger.info("%s (%dD): corr = %.6f"%(fname, dim, corr))

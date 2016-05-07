@@ -1,7 +1,11 @@
-# !/data11/lornechen/anaconda3/bin/python
+# -*- coding: utf-8 -*-
+"""
+@author: Chenglong Chen <c.chenglong@gmail.com>
+@brief: script for testing 2nd & 3rd level model with reg_skl_ridge
+
+"""
 
 import os
-import sys
 from optparse import OptionParser
 
 from utils import time_utils
@@ -10,11 +14,11 @@ from utils import time_utils
 def parse_args(parser):
     parser.add_option("-l", "--level", default=2, 
         type="int", dest="level", help="level")
-    parser.add_option("-d", "--dim", default=5, 
+    parser.add_option("-d", "--dim", default=0, 
         type="int", dest="dim", help="LSA dim")
-    parser.add_option("-t", "--top", default=5, 
+    parser.add_option("-t", "--top", default=10, 
         type="int", dest="top", help="top N")
-    parser.add_option("-c", "--corr", default=0.2,
+    parser.add_option("-c", "--corr", default=1.0,
         type="float", dest="corr", help="corr")
     parser.add_option("-L", "--learner", default="reg_skl_ridge", 
         type="string", dest="learner", help="learner")

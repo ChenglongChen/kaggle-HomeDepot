@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
-@brief: group relevance based distance features (not used)
+@brief: group relevance based distance features
+@note: such features are not used in final submission
 
 """
 

@@ -281,7 +281,7 @@ def _create_feature_conf(lsa_columns, outfile):
             pass
     res += "}\n"
 
-    with open(outfile, "w") as f:
+    with open(os.path.join(config.FEAT_CONF_DIR, outfile), "w") as f:
         f.write(res)
 
 

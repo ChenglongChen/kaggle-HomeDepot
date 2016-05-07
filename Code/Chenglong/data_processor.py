@@ -543,12 +543,13 @@ def main():
     if config.TASK == "sample":
         print(dfAll[["product_attribute", "product_attribute_list"]])
     # query expansion
-    list_processor = ListProcessor(processors)
-    base_stopwords = set(list_processor.process(list(config.STOP_WORDS)))
-    qe = QueryExpansion(dfAll, ngram=3, stopwords_threshold=0.9, base_stopwords=base_stopwords)
-    dfAll["search_term_alt"] = qe.build()
-    if config.TASK == "sample":
-        print(dfAll[["search_term", "search_term_alt"]])
+    if config.QUERY_EXPANSION:
+        list_processor = ListProcessor(processors)
+        base_stopwords = set(list_processor.process(list(config.STOP_WORDS)))
+        qe = QueryExpansion(dfAll, ngram=3, stopwords_threshold=0.9, base_stopwords=base_stopwords)
+        dfAll["search_term_alt"] = qe.build()
+        if config.TASK == "sample":
+            print(dfAll[["search_term", "search_term_alt"]])
     # save data
     logger.info("Save to %s"%config.ALL_DATA_LEMMATIZED)
     columns_to_save = [col for col in dfAll.columns if col != "product_attribute_concat"]
@@ -559,8 +560,8 @@ def main():
     if config.AUTO_CORRECTING_QUERY:
         logger.info("Run AutoSpellingChecker at search_term")
         checker = AutoSpellingChecker(dfAll, exclude_stopwords=False, min_len=4)
-        dfAll['search_term_auto_corrected'] = list(dfAll["search_term"].apply(checker.correct))
-        columns_to_proc += ['search_term_auto_corrected']
+        dfAll["search_term_auto_corrected"] = list(dfAll["search_term"].apply(checker.correct))
+        columns_to_proc += ["search_term_auto_corrected"]
         if config.TASK == "sample":
             print(dfAll[["search_term", "search_term_auto_corrected"]])
         # save query_correction_map and spelling checker
@@ -579,12 +580,13 @@ def main():
     dfAll["product_attribute"] = dfAll["product_attribute_concat"].apply(_split_attr_to_text)
     dfAll["product_attribute_list"] = dfAll["product_attribute_concat"].apply(_split_attr_to_list)
     # query expansion
-    list_processor = ListProcessor(stemmers)
-    base_stopwords = set(list_processor.process(list(config.STOP_WORDS)))
-    qe = QueryExpansion(dfAll, ngram=3, stopwords_threshold=0.9, base_stopwords=base_stopwords)
-    dfAll["search_term_alt"] = qe.build()
-    if config.TASK == "sample":
-        print(dfAll[["search_term", "search_term_alt"]])
+    if config.QUERY_EXPANSION:
+        list_processor = ListProcessor(stemmers)
+        base_stopwords = set(list_processor.process(list(config.STOP_WORDS)))
+        qe = QueryExpansion(dfAll, ngram=3, stopwords_threshold=0.9, base_stopwords=base_stopwords)
+        dfAll["search_term_alt"] = qe.build()
+        if config.TASK == "sample":
+            print(dfAll[["search_term", "search_term_alt"]])
     # save data
     logger.info("Save to %s"%config.ALL_DATA_LEMMATIZED_STEMMED)
     columns_to_save = [col for col in dfAll.columns if col != "product_attribute_concat"]

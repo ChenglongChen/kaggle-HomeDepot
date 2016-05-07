@@ -30,7 +30,7 @@ skl_n_estimators_step = 10
 ## regression with linear booster
 param_space_reg_xgb_linear = {
     "booster": "gblinear",
-    "objective": 'reg:linear',
+    "objective": "reg:linear",
     "base_score": config.BASE_SCORE,
     "n_estimators" : hp.quniform("n_estimators", xgb_n_estimators_min, xgb_n_estimators_max, xgb_n_estimators_step),
     "learning_rate" : hp.qloguniform("learning_rate", np.log(0.002), np.log(0.1), 0.002),
@@ -44,7 +44,7 @@ param_space_reg_xgb_linear = {
 ## regression with tree booster
 param_space_reg_xgb_tree = {
     "booster": "gbtree",
-    "objective": 'reg:linear',
+    "objective": "reg:linear",
     "base_score": config.BASE_SCORE,
     "n_estimators" : hp.quniform("n_estimators", xgb_n_estimators_min, xgb_n_estimators_max, xgb_n_estimators_step),
     "learning_rate" : hp.qloguniform("learning_rate", np.log(0.002), np.log(0.1), 0.002),
@@ -56,7 +56,25 @@ param_space_reg_xgb_tree = {
     "subsample": hp.quniform("subsample", 0.1, 1, 0.05),
     "colsample_bytree": 1,
     "colsample_bylevel": hp.quniform("colsample_bylevel", 0.1, 1, 0.05),
-    "n_estimators" : hp.quniform("n_estimators", xgb_n_estimators_min, xgb_n_estimators_max, xgb_n_estimators_step),
+    "nthread": xgb_nthread,
+    "seed": xgb_random_seed,
+}
+
+## regression with tree booster (parm for best single model)
+param_space_reg_xgb_tree_best_single_model = {
+    "booster": "gbtree",
+    "objective": "reg:linear",
+    "base_score": config.BASE_SCORE,
+    "n_estimators" : 880,
+    "learning_rate" : 0.014,
+    "gamma": 0.0007375692431738125,
+    "reg_alpha" : 0.0024595063900801238,
+    "reg_lambda" : 0.0031003919409140915,
+    "min_child_weight": 96.14430369781684,
+    "max_depth": 7,
+    "subsample": 0.8500000000000001,
+    "colsample_bytree": 1,
+    "colsample_bylevel": 0.15000000000000002,
     "nthread": xgb_nthread,
     "seed": xgb_random_seed,
 }
@@ -64,7 +82,7 @@ param_space_reg_xgb_tree = {
 ## classification with tree booster
 param_space_clf_xgb_tree = {
     "booster": "gbtree",
-    "objective": 'multi:softprob',
+    "objective": "multi:softprob",
     "base_score": config.BASE_SCORE,
     "n_estimators" : hp.quniform("n_estimators", xgb_n_estimators_min, xgb_n_estimators_max, xgb_n_estimators_step),
     "learning_rate" : hp.qloguniform("learning_rate", np.log(0.002), np.log(0.1), 0.002),
@@ -76,7 +94,6 @@ param_space_clf_xgb_tree = {
     "subsample": hp.quniform("subsample", 0.1, 1, 0.05),
     "colsample_bytree": 1,
     "colsample_bylevel": hp.quniform("colsample_bylevel", 0.1, 1, 0.05),
-    "n_estimators" : hp.quniform("n_estimators", xgb_n_estimators_min, xgb_n_estimators_max, xgb_n_estimators_step),
     "nthread": xgb_nthread,
     "seed": xgb_random_seed,
 }
@@ -274,6 +291,7 @@ param_space_reg_ensemble = {
 param_space_dict = {
     # xgboost
     "reg_xgb_tree": param_space_reg_xgb_tree,
+    "reg_xgb_tree_best_single_model": param_space_reg_xgb_tree_best_single_model,
     "reg_xgb_linear": param_space_reg_xgb_linear,
     "clf_xgb_tree": param_space_clf_xgb_tree,
     # sklearn

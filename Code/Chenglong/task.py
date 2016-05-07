@@ -2,7 +2,7 @@
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
 @brief: definitions for
-        - learner
+        - learner & ensemble learner
         - feature & stacking feature
         - task & stacking task
         - task optimizer
@@ -22,7 +22,6 @@ from hyperopt import fmin, tpe, hp, STATUS_OK, Trials, space_eval
 
 import config
 from utils import dist_utils, logging_utils, pkl_utils, time_utils
-from utils.ens_utils import EnsembleRegressor
 from utils.xgb_utils import XGBRegressor, HomedepotXGBClassifier as XGBClassifier
 from utils.rgf_utils import RGFRegressor
 from utils.skl_utils import SVR, LinearSVR, KNNRegressor, AdaBoostRegressor, RandomRidge
@@ -44,7 +43,7 @@ class Learner:
 
     def _get_learner(self):
         # xgboost
-        if self.learner_name in ["reg_xgb_linear", "reg_xgb_tree"]:
+        if self.learner_name in ["reg_xgb_linear", "reg_xgb_tree", "reg_xgb_tree_best_single_model"]:
             return XGBRegressor(**self.param_dict)
         if self.learner_name in ["clf_xgb_linear", "clf_xgb_tree"]:
             return XGBClassifier(**self.param_dict)
@@ -80,21 +79,9 @@ class Learner:
         # rgf
         if self.learner_name == "reg_rgf":
             return RGFRegressor(**self.param_dict)
-
         # ensemble
         if self.learner_name == "reg_ensemble":
-            learner_name_to_pop = []
-            for learner_name in self.param_dict["learner_dict"].keys():
-                p = self.param_dict["learner_dict"][learner_name]["param"]
-                l = Learner(learner_name, p)._get_learner()
-                if l is None:
-                    learner_name_to_pop.append(learner_name)
-                else:
-                    self.param_dict["learner_dict"][learner_name]["learner"] = l
-                    self.param_dict["learner_dict"][learner_name].pop("param")
-            for learner_name in learner_name_to_pop:
-                self.param_dict["learner_dict"].pop(learner_name)
-            return EnsembleRegressor(**self.param_dict)
+            return EnsembleLearner(**self.param_dict)
             
         return None
 
@@ -106,6 +93,36 @@ class Learner:
         y_pred = self.learner.predict(X)
         # relevance is in [1,3]
         y_pred = np.clip(y_pred, 1., 3.)
+        return y_pred
+
+
+class EnsembleLearner:
+    def __init__(self, learner_dict):
+        self.learner_dict = learner_dict
+
+    def __str__(self):
+        return "EnsembleLearner"
+
+    def fit(self, X, y):
+        for learner_name in self.learner_dict.keys():
+            p = self.learner_dict[learner_name]["param"]
+            l = Learner(learner_name, p)._get_learner()
+            if l is not None:
+                self.learner_dict[learner_name]["learner"] = l.fit(X, y)
+            else:
+                self.learner_dict[learner_name]["learner"] = None
+        return self
+
+    def predict(self, X):
+        y_pred = np.zeros((X.shape[0]), dtype=float)
+        w_sum = 0.
+        for learner_name in self.learner_dict.keys():
+            l = self.learner_dict[learner_name]["learner"]
+            if l is not None:
+                w = self.learner_dict[learner_name]["weight"]
+                y_pred += w * l.predict(X)
+                w_sum += w
+        y_pred /= w_sum
         return y_pred
 
 
@@ -209,11 +226,11 @@ class Task:
     def __str__(self):
         return "[Feat@%s]_[Learner@%s]%s"%(str(self.feature), str(self.learner), str(self.suffix))
 
-    def _print_param_dict(self, d, prefix="      "):
+    def _print_param_dict(self, d, prefix="      ", incr_prefix="      "):
         for k,v in sorted(d.items()):
             if isinstance(v, dict):
                 self.logger.info("%s%s:" % (prefix,k))
-                self._print_param_dict(v, prefix*2)
+                self._print_param_dict(v, prefix+incr_prefix, incr_prefix)
             else:
                 self.logger.info("%s%s: %s" % (prefix,k,v))
 

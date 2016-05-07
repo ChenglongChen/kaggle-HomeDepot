@@ -460,8 +460,9 @@ def run_lsa_ngram():
 
     generators = [LSA_Word_Ngram, LSA_Char_Ngram]
     ngrams_list = [[1,2,3], [2,3,4,5]]
-    ngrams_list = [[1,2,3], [4]]
-    obs_fields = ["search_term", "search_term_alt", "search_term_auto_corrected", "product_title", "product_description"]
+    ngrams_list = [[3], [4]]
+    # obs_fields = ["search_term", "search_term_alt", "search_term_auto_corrected", "product_title", "product_description"]
+    obs_fields = ["search_term", "product_title", "product_description"]
     for generator,ngrams in zip(generators, ngrams_list):
         for ngram in ngrams:
             param_list = [ngram, config.SVD_DIM, config.SVD_N_ITER]
@@ -480,7 +481,7 @@ def run_lsa_ngram_cooc():
     target_ngrams = [1, 2]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
     target_fields_list.append( ["product_title", "product_description"] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for obs_ngram in obs_ngrams:
@@ -501,7 +502,7 @@ def run_lsa_ngram_pair():
     ngrams = [1, 2]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
     target_fields_list.append( ["product_title", "product_description"] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for ngram in ngrams:
@@ -520,8 +521,9 @@ def run_tsne_lsa_ngram():
 
     generators = [TSNE_LSA_Word_Ngram, TSNE_LSA_Char_Ngram]
     ngrams_list = [[1,2,3], [2,3,4,5]]
-    ngrams_list = [[1,2,3], [4]]
-    obs_fields = ["search_term", "search_term_alt", "search_term_auto_corrected", "product_title", "product_description"]
+    ngrams_list = [[3], [4]]
+    # obs_fields = ["search_term", "search_term_alt", "search_term_auto_corrected", "product_title", "product_description"]
+    obs_fields = ["search_term", "product_title", "product_description"]
     for generator,ngrams in zip(generators, ngrams_list):
         for ngram in ngrams:
             param_list = [ngram, config.SVD_DIM, config.SVD_N_ITER]
@@ -532,7 +534,7 @@ def run_tsne_lsa_ngram():
     ngrams = [1, 2]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
     target_fields_list.append( ["product_title", "product_description"] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for ngram in ngrams:
@@ -550,10 +552,10 @@ def run_lsa_ngram_cosinesim():
 
     generators = [LSA_Word_Ngram_CosineSim, LSA_Char_Ngram_CosineSim]
     ngrams_list = [[1,2,3], [2,3,4,5]]
-    ngrams_list = [[1,2,3], [4]]
+    ngrams_list = [[3], [4]]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
     target_fields_list.append( ["product_title", "product_description", "product_attribute"] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for generator,ngrams in zip(generators, ngrams_list):
@@ -571,10 +573,10 @@ def run_tfidf_ngram_cosinesim():
 
     generators = [TFIDF_Word_Ngram_CosineSim, TFIDF_Char_Ngram_CosineSim]
     ngrams_list = [[1,2,3], [2,3,4,5]]
-    ngrams_list = [[1,2,3], [4]]
+    ngrams_list = [[3], [4]]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
     target_fields_list.append( ["product_title", "product_description", "product_attribute"] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for generator,ngrams in zip(generators, ngrams_list):
@@ -593,7 +595,7 @@ def run_char_dist_sim():
     generators = [CharDistribution_Ratio, CharDistribution_CosineSim, CharDistribution_KL]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
     target_fields_list.append( ["product_title", "product_description", "product_attribute"] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for generator in generators:

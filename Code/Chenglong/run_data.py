@@ -2,14 +2,14 @@
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
 @brief: generate all the data and features in one shot
-@note: if you don't have access to multi-core computers, drop the " &" in the cmd
+@note: if you don't have access to multi-core computers, drop the "&" in the cmd
 
 """
 
 import os
 
 
-# generate split
+# generate split (or you can use mine in ./Data/split/)
 cmd = "python splitter.py"
 os.system(cmd)
 
@@ -76,11 +76,15 @@ os.system(cmd)
 
 
 # generate statistical cooccurrence (weighted) features
-cmd = "python feature_stat_cooc_tfidf.py tf,norm_tf &"
+cmd = "python feature_stat_cooc_tfidf.py tf &"
 os.system(cmd)
+# cmd = "python feature_stat_cooc_tfidf.py norm_tf &"
+# os.system(cmd)
 
-cmd = "python feature_stat_cooc_tfidf.py tfidf,norm_tfidf &"
+cmd = "python feature_stat_cooc_tfidf.py tfidf &"
 os.system(cmd)
+# cmd = "python feature_stat_cooc_tfidf.py norm_tfidf &"
+# os.system(cmd)
 
 cmd = "python feature_stat_cooc_tfidf.py bm25 &"
 os.system(cmd)

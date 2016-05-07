@@ -1,4 +1,9 @@
-# !/data11/lornechen/anaconda3/bin/python
+# -*- coding: utf-8 -*-
+"""
+@author: Chenglong Chen <c.chenglong@gmail.com>
+@brief: script for testing 1st level model with reg_xgb_tree
+
+"""
 
 import os
 import sys

@@ -2,6 +2,8 @@
 """
 @author: Chenglong Chen <c.chenglong@gmail.com>
 @brief: wordnet similarity based features (veeerrry time consuming)
+@note: in our final submission, we are only able to generate WordNet_Path_Similarity between
+       search_term and product_title in reasonable time.
 """
 
 """
@@ -145,15 +147,17 @@ def main():
     #### NOTE: use data BEFORE STEMMING
     dfAll = pkl_utils._load(config.ALL_DATA_LEMMATIZED)
 
+    # WordNet_Lch_Similarity and WordNet_Wup_Similarity are not used in final submission
     generators = [
         WordNet_Path_Similarity,
         WordNet_Lch_Similarity,
         WordNet_Wup_Similarity,
-    ]
+    ][:1]
     obs_fields_list = []
     target_fields_list = []
-    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
-    target_fields_list.append( ["product_title", "product_description", "product_attribute"] )
+    # only search_term and product_title are used in final submission
+    obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
+    target_fields_list.append( ["product_title", "product_description", "product_attribute"][:1] )
     # double aggregation
     aggregation_mode_prev = ["mean", "max", "min", "median"]
     aggregation_mode = ["mean", "std", "max", "min", "median"]

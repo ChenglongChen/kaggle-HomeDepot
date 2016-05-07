@@ -242,11 +242,12 @@ def main():
             Word2Vec_N_Similarity_Imp, 
             Word2Vec_Centroid_RMSE, 
             Word2Vec_Centroid_RMSE_IMP,
-            # Word2Vec_Centroid_Vdiff,
+            # # not used in final submission
+            # Word2Vec_Centroid_Vdiff, 
         ]
         obs_fields_list = []
         target_fields_list = []
-        obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"] )
+        obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
         target_fields_list.append( ["product_title", "product_description", "product_attribute", "product_brand", "product_color"] )
         for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
             for generator in generators:

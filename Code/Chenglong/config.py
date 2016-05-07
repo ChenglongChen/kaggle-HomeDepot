@@ -28,6 +28,7 @@ CLEAN_DATA_DIR = "%s/Clean"%DATA_DIR
 
 FEAT_DIR = "%s/Feat"%ROOT_DIR
 FEAT_FILE_SUFFIX = ".pkl"
+FEAT_CONF_DIR = "./conf"
 
 OUTPUT_DIR = "%s/Output"%ROOT_DIR
 SUBM_DIR = "%s/Subm"%OUTPUT_DIR
@@ -109,8 +110,11 @@ STR_MATCH_THRESHOLD = 0.85
 # which is useful for ensembling
 GOOGLE_CORRECTING_QUERY = True
 
-# auto correcting query (quite time consuming)
+# auto correcting query (quite time consuming; not used in final submission)
 AUTO_CORRECTING_QUERY = False
+
+# query expansion (not used in final submission)
+QUERY_EXPANSION = False
 
 # bm25
 BM25_K1 = 1.6
@@ -163,7 +167,7 @@ RGF_EXE = "%s/rgf1.2/bin/rgf%s"%(THIRDPARTY_DIR, RGF_EXTENSION)
 DIRS = []
 DIRS += [CLEAN_DATA_DIR]
 DIRS += [SPLIT_DIR]
-DIRS += [FEAT_DIR]
+DIRS += [FEAT_DIR, FEAT_CONF_DIR]
 DIRS += ["%s/All"%FEAT_DIR]
 DIRS += ["%s/Run%d"%(FEAT_DIR,i+1) for i in range(N_RUNS)]
 DIRS += ["%s/Combine"%FEAT_DIR]
