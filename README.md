@@ -35,7 +35,7 @@ The general idea is to include or exclude specific feautres via `regex` operatio
 - one can also specify the features that he want to **exclude** via the `COMMENT_OUT_FEATS` variable, desipte of its correlation with the target (`MANDATORY_FEATS` has higher priority than `COMMENT_OUT_FEATS`.)
 
 This approach is implemented as `get_feature_conf_*.py`. The output of this is a feature conf file. For example, after running the following command:  
-`python get_feature_conf_nonlinear.py -d 10 -o feature_conf_nonlinear_201605010058.py`
+`python get_feature_conf_nonlinear.py -d 10 -o feature_conf_nonlinear_201605010058.py`  
 we will get a new feature conf `./conf/feature_conf_nonlinear_201605010058.py` which contains a feature dictionary specifying the features to be included in the following step.
 
 One can play around with `MANDATORY_FEATS` and `COMMENT_OUT_FEATS` to generate different feature subset. We have included in `./conf` a few other feature confs from our final submission. Among them, `feature_conf_nonlinear_201604210409.py` is used for the best single model.
