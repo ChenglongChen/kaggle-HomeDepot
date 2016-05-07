@@ -56,10 +56,10 @@ During the competition, we have run various tasks to generate a diverse 1st leve
 After generating the `feature` `basic_nonlinear_201604210409` (see step 2 how to generate this), run the following command to generate the best single model:
 `python task.py -m single -f basic_nonlinear_201604210409 -l reg_xgb_tree_best_single_model -e 1`
 
-This should generate a submission with local CV RMSE around 0.438 ~ 0.439. (The best single model we have generated is `./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv`.)
+This should generate a submission with local CV RMSE around 0.438 ~ 0.439. (The best single model we have generated is [here](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv).
 
 #####3. Best Ensemble Model
 After you have built `some` 1st level models, run the folliwng command to generate the best ensemble model:
 `python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble`
 
-This should generate a submission with local CV RMSE around ~0.436. (The best ensemble model we have generated is `./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv`.)
+This should generate a submission with local CV RMSE around ~0.436. (The best ensemble model we have generated is [here](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv).
