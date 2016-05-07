@@ -31,17 +31,17 @@ In step 1, we have generated a few thousands of feaures. However, only part of t
 In our solution, feature selection is enabled via the following two successive steps.
 #####1. `regex` Style Manual Feature Selection
 The general idea is to include or exclude specific feautres via `regex` operations of the feature names. For example, 
-- one can specify the features that he want to include via the `MANDATORY_FEATS` variable, desipte of its correlation with the target 
-- one can also specify the features that he want to exclude via the `COMMENT_OUT_FEATS` variable, desipte of its correlation with the target (`MANDATORY_FEATS` has higher priority than `COMMENT_OUT_FEATS`.)
+- one can specify the features that he want to **include** via the `MANDATORY_FEATS` variable, desipte of its correlation with the target 
+- one can also specify the features that he want to **exclude** via the `COMMENT_OUT_FEATS` variable, desipte of its correlation with the target (`MANDATORY_FEATS` has higher priority than `COMMENT_OUT_FEATS`.)
 
-This approach is implemented as `get_feature_conf_*.py`. The output of this is a feature conf file. For example, after running the following command:
+This approach is implemented as `get_feature_conf_*.py`. The output of this is a feature conf file. For example, after running the following command:  
 `python get_feature_conf_nonlinear.py -d 10 -o feature_conf_nonlinear_201605010058.py`
 we will get a new feature conf `./conf/feature_conf_nonlinear_201605010058.py` which contains a feature dictionary specifying the features to be included in the following step.
 
 One can play around with `MANDATORY_FEATS` and `COMMENT_OUT_FEATS` to generate different feature subset. We have included in `./conf` a few other feature confs from our final submission. Among them, `feature_conf_nonlinear_201604210409.py` is used for the best single model.
 
 #####2. Correlation based Feature Selection
-With the above generated feature conf, you can combine all the features into a feature matrix via the following command:
+With the above generated feature conf, you can combine all the features into a feature matrix via the following command:  
 `python feature_combiner.py -l 1 -c feature_conf_nonlinear_201604210409 -n basic_nonlinear_201604210409 -t 0.05`
 
 The `-t 0.05` above is used to enable the correlation base feature selection. In this case, it means: drop any feature that has a correlation coef lower than `0.05` with the target relevance.
@@ -53,13 +53,13 @@ In our solution, a `task` is an object composite of a specific `feature` (e.g., 
 During the competition, we have run various tasks to generate a diverse 1st level model library. Please see `./Log/level1_models` for all the tasks we have included in our final submission.
 
 #####2. Best Single Model
-After generating the `feature` `basic_nonlinear_201604210409` (see step 2 how to generate this), run the following command to generate the best single model:
+After generating the `feature` `basic_nonlinear_201604210409` (see step 2 how to generate this), run the following command to generate the best single model:  
 `python task.py -m single -f basic_nonlinear_201604210409 -l reg_xgb_tree_best_single_model -e 1`
 
 This should generate a submission with local CV RMSE around 0.438 ~ 0.439. (The best single model we have generated is [here](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv).
 
 #####3. Best Ensemble Model
-After you have built `some` 1st level models, run the folliwng command to generate the best ensemble model:
+After you have built **some diverse** 1st level models, run the following command to generate the best ensemble model:  
 `python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble -o`
 
 This should generate a submission with local CV RMSE around ~0.436. (The best ensemble model we have generated is [here](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv).
