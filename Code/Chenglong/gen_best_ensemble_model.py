@@ -10,5 +10,5 @@
 import os
 
 
-cmd = "python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble"
+cmd = "python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble -o"
 os.system(cmd)

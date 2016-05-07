@@ -60,6 +60,6 @@ This should generate a submission with local CV RMSE around 0.438 ~ 0.439. (The 
 
 #####3. Best Ensemble Model
 After you have built `some` 1st level models, run the folliwng command to generate the best ensemble model:
-`python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble`
+`python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble -o`
 
 This should generate a submission with local CV RMSE around ~0.436. (The best ensemble model we have generated is [here](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv).
