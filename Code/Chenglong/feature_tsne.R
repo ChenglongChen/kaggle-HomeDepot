@@ -10,8 +10,8 @@ require(Rtsne)
 set.seed(2016)
 
 # path
-setwd("D:/Project/Kaggle/HomeDepot/Code/Chenglong")
-feat_dir <- "../../Feat"
+setwd(".")
+feat_dir <- "../../Feat/"
 
 # feature names
 fnames <- c(
@@ -29,8 +29,8 @@ dims <- 2
 # run
 for(fname in fnames) {
     # load lsa features
-    file <- paste(feat_dir, fname, ".csv", sep="")
-    X <- fread(file, data.table=F)
+    file_lsa <- paste(feat_dir, fname, ".csv", sep="")
+    X <- fread(file_lsa, data.table=F)
     X <- as.matrix(X)
     gc()
 
@@ -40,7 +40,7 @@ for(fname in fnames) {
 
     # save tsne features
     col.names <- paste("TSNE_", 1:ncol(tsne$Y), sep="")
-    file <- paste(feat_dir, "/TSNE_", fname, ".csv", sep="")
-    write.table(tsne$Y, file=file, sep=',', quote=FALSE, 
+    file_tsne <- paste(feat_dir, "/TSNE_", fname, ".csv", sep="")
+    write.table(tsne$Y, file=file_tsne, sep=',', quote=FALSE, 
                 row.names=FALSE, col.names=col.names)
 }

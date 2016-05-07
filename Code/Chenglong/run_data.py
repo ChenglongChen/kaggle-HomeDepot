@@ -90,11 +90,6 @@ cmd = "python feature_stat_cooc_tfidf.py bm25 &"
 os.system(cmd)
 
 
-# generate vector space features
-cmd = "python feature_vector_space.py &"
-os.system(cmd)
-
-
 # generate wordnet similarity features
 cmd = "python feature_wordnet_similarity.py &"
 os.system(cmd)
@@ -108,4 +103,18 @@ cmd = "python feature_word2vec.py &"
 os.system(cmd)
 
 cmd = "python feature_doc2vec.py &"
+os.system(cmd)
+
+
+# generate vector space features
+cmd = "python feature_vector_space.py"
+os.system(cmd)
+
+cmd = "python convert_pkl_lsa_to_csv_lsa.py"
+os.system(cmd)
+
+cmd = "Rscript feature_tsne.R"
+os.system(cmd)
+
+cmd = "python convert_csv_tsne_to_pkl_tsne.py"
 os.system(cmd)
