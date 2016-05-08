@@ -115,7 +115,8 @@ class LSA_Word_Ngram(VectorSpace):
     def transform(self):
         tfidf = self._init_word_ngram_tfidf(self.ngram)
         X = tfidf.fit_transform(self.obs_corpus)
-        svd = TruncatedSVD(n_components = self.svd_dim, n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
+        svd = TruncatedSVD(n_components = self.svd_dim, 
+                n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
         return svd.fit_transform(X)
 
 
@@ -133,14 +134,16 @@ class LSA_Char_Ngram(VectorSpace):
     def transform(self):
         tfidf = self._init_char_ngram_tfidf(self.ngram)
         X = tfidf.fit_transform(self.obs_corpus)
-        svd = TruncatedSVD(n_components=self.svd_dim, n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
+        svd = TruncatedSVD(n_components=self.svd_dim, 
+                n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
         return svd.fit_transform(X)
 
 
 # ------------------------ Cooccurrence LSA -------------------------------
 # 1st in CrowdFlower
 class LSA_Word_Ngram_Cooc(VectorSpace):
-    def __init__(self, obs_corpus, target_corpus, obs_ngram=1, target_ngram=1, svd_dim=100, svd_n_iter=5):
+    def __init__(self, obs_corpus, target_corpus, 
+            obs_ngram=1, target_ngram=1, svd_dim=100, svd_n_iter=5):
         self.obs_corpus = obs_corpus
         self.target_corpus = target_corpus
         self.obs_ngram = obs_ngram
@@ -151,7 +154,8 @@ class LSA_Word_Ngram_Cooc(VectorSpace):
         self.target_ngram_str = ngram_utils._ngram_str_map[self.target_ngram]
 
     def __name__(self):
-        return "LSA%d_Word_Obs_%s_Target_%s_Cooc"%(self.svd_dim, self.obs_ngram_str, self.target_ngram_str)
+        return "LSA%d_Word_Obs_%s_Target_%s_Cooc"%(
+            self.svd_dim, self.obs_ngram_str, self.target_ngram_str)
 
     def _get_cooc_terms(self, lst1, lst2, join_str):
         out = [""] * len(lst1) * len(lst2)
@@ -173,7 +177,8 @@ class LSA_Word_Ngram_Cooc(VectorSpace):
         tfidf = self._init_word_ngram_tfidf(ngram=1)
         X = tfidf.fit_transform(cooc_terms)
         ## svd
-        svd = TruncatedSVD(n_components=self.svd_dim, n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
+        svd = TruncatedSVD(n_components=self.svd_dim, 
+                n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
         return svd.fit_transform(X)
 
 
@@ -197,7 +202,8 @@ class LSA_Word_Ngram_Pair(VectorSpace):
         X_target = tfidf.fit_transform(self.target_corpus)
         X_tfidf = scipy.sparse.hstack([X_obs, X_target]).tocsr()
         ## svd
-        svd = TruncatedSVD(n_components=self.svd_dim, n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
+        svd = TruncatedSVD(n_components=self.svd_dim, 
+                n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
         X_svd = svd.fit_transform(X_tfidf)
         return X_svd
 
@@ -326,7 +332,8 @@ class LSA_Word_Ngram_CosineSim(VectorSpace):
         tfidf = self._init_word_ngram_tfidf(self.ngram, vocabulary)
         X_target = tfidf.fit_transform(self.target_corpus)
         ## svd
-        svd = TruncatedSVD(n_components = self.svd_dim, n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
+        svd = TruncatedSVD(n_components = self.svd_dim, 
+                n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
         svd.fit(scipy.sparse.vstack((X_obs, X_target)))
         X_obs = svd.transform(X_obs)
         X_target = svd.transform(X_target)
@@ -360,7 +367,8 @@ class LSA_Char_Ngram_CosineSim(VectorSpace):
         tfidf = self._init_char_ngram_tfidf(self.ngram, vocabulary)
         X_target = tfidf.fit_transform(self.target_corpus)
         ## svd
-        svd = TruncatedSVD(n_components=self.svd_dim, n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
+        svd = TruncatedSVD(n_components=self.svd_dim, 
+                n_iter=self.svd_n_iter, random_state=config.RANDOM_SEED)
         svd.fit(scipy.sparse.vstack((X_obs, X_target)))
         X_obs = svd.transform(X_obs)
         X_target = svd.transform(X_target)
@@ -482,7 +490,7 @@ def run_lsa_ngram_cooc():
     obs_fields_list = []
     target_fields_list = []
     obs_fields_list.append( ["search_term", "search_term_alt", "search_term_auto_corrected"][:1] )
-    target_fields_list.append( ["product_title", "product_description"] )
+    target_fields_list.append( ["product_title", "product_description"][:1] )
     for obs_fields, target_fields in zip(obs_fields_list, target_fields_list):
         for obs_ngram in obs_ngrams:
             for target_ngram in target_ngrams:

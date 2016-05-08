@@ -145,7 +145,7 @@ def main():
         IntersectCount_Ngram, 
         IntersectRatio_Ngram, 
         CooccurrenceCount_Ngram, 
-        CooccurrenceRatio_Ngram,
+        CooccurrenceRatio_Ngram, 
     ]
     obs_fields_list = []
     target_fields_list = []

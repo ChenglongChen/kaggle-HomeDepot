@@ -9,6 +9,9 @@ import numpy as np
 import pandas as pd
 import sklearn.cross_validation
 from sklearn.cross_validation import ShuffleSplit, _validate_shuffle_split
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2
+plt.rcParams["figure.figsize"] = [5, 5]
 
 import config
 from utils import pkl_utils
@@ -32,25 +35,26 @@ class StratifiedShuffleSplit(sklearn.cross_validation.StratifiedShuffleSplit):
 ## advanced splitter
 class HomedepotSplitter:
     def __init__(self, dfTrain, dfTest, n_iter=5, random_state=config.RANDOM_SEED,
-                    verbose=False, split_param=[0.5, 0.25, 0.5]):
+                    verbose=False, plot=False, split_param=[0.5, 0.25, 0.5]):
         self.dfTrain = dfTrain
         self.dfTest = dfTest
         self.n_iter = n_iter
         self.random_state = random_state
         self.verbose = verbose
+        self.plot = plot
         self.split_param = split_param
 
     def __str__(self):
         return "HomedepotSplitter"
 
-    def _check_split(self, dfTrain, dfTest, col, verbose=True):
-        if verbose:
+    def _check_split(self, dfTrain, dfTest, col, suffix="", plot=""):
+        if self.verbose:
             print("-"*50)
         num_train = dfTrain.shape[0]
         num_test = dfTest.shape[0]
         ratio_train = num_train/(num_train+num_test)
         ratio_test = num_test/(num_train+num_test)
-        if verbose:
+        if self.verbose:
             print("Sample Stats: %.2f (train) | %.2f (test)" % (ratio_train, ratio_test))
         
         puid_train = set(np.unique(dfTrain[col]))
@@ -62,9 +66,21 @@ class HomedepotSplitter:
         ratio_intersect = len(puid_intersect) / len(puid_total)
         ratio_test = ((len(puid_test) - len(puid_intersect)) / len(puid_total))
         
-        if verbose:
+        if self.verbose:
             print("%s Stats: %.2f (train) | %.2f (train & test) | %.2f (test)" % (
                 col, ratio_train, ratio_intersect, ratio_test))
+
+        if (plot == "" and self.plot) or plot:
+            plt.figure()
+            if suffix == "actual":
+                venn2([puid_train, puid_test], ("train", "test"))
+            else:
+                venn2([puid_train, puid_test], ("train", "valid"))
+            # plt.title("%s %s"%(suffix, col))
+            fig_file = "%s/%s_%s.pdf"%(config.FIG_DIR, suffix, col)
+            plt.savefig(fig_file)
+            plt.clf()
+
         ## SORT it for reproducibility !!!
         puid_train = sorted(list(puid_train))
         return puid_train
@@ -77,8 +93,8 @@ class HomedepotSplitter:
         if self.verbose:
             print("*"*50)
             print("Original Train and Test Split")
-        puid_train = self._check_split(self.dfTrain, self.dfTest, "product_uid", self.verbose)
-        term_train = self._check_split(self.dfTrain, self.dfTest, "search_term", self.verbose)
+        puid_train = self._check_split(self.dfTrain, self.dfTest, "product_uid", "actual")
+        term_train = self._check_split(self.dfTrain, self.dfTest, "search_term", "actual")
 
         ## naive split
         if self.verbose:
@@ -88,8 +104,8 @@ class HomedepotSplitter:
         for trainInd, validInd in rs:
             dfTrain2 = self.dfTrain.iloc[trainInd].copy()
             dfValid = self.dfTrain.iloc[validInd].copy()
-            self._check_split(dfTrain2, dfValid, "product_uid", self.verbose)
-            self._check_split(dfTrain2, dfValid, "search_term", self.verbose)
+            self._check_split(dfTrain2, dfValid, "product_uid", "naive")
+            self._check_split(dfTrain2, dfValid, "search_term", "naive")
             
         ## split on product_uid & search_term
         if self.verbose:
@@ -123,8 +139,12 @@ class HomedepotSplitter:
             if self.verbose:
                 dfTrain2 = self.dfTrain.iloc[trainInd].copy()
                 dfValid = self.dfTrain.iloc[validInd].copy()
-                self._check_split(dfTrain2, dfValid, "product_uid", self.verbose)
-                self._check_split(dfTrain2, dfValid, "search_term", self.verbose)
+                if run == 0:
+                    plot = self.plot
+                else:
+                    plot = False
+                self._check_split(dfTrain2, dfValid, "product_uid", "proposed", plot)
+                self._check_split(dfTrain2, dfValid, "search_term", "proposed", plot)
             
             self.splits[run] = trainInd, validInd
             
@@ -154,6 +174,7 @@ def main():
                                 n_iter=config.N_RUNS, 
                                 random_state=config.RANDOM_SEED, 
                                 verbose=True,
+                                plot=True,
                                 # tune these params to get a close distribution
                                 split_param=[0.5, 0.25, 0.5],
                                 )

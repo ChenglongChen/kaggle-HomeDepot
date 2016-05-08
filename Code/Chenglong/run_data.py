@@ -91,6 +91,7 @@ os.system(cmd)
 
 
 # generate wordnet similarity features
+# most time consuming part ~24 hrs
 cmd = "python feature_wordnet_similarity.py &"
 os.system(cmd)
 
@@ -107,6 +108,7 @@ os.system(cmd)
 
 
 # generate vector space features
+# most memory consuming part > 16GB
 cmd = "python feature_vector_space.py"
 os.system(cmd)
 

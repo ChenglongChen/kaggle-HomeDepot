@@ -271,22 +271,21 @@ class StatCoocBM25_Ngram(BaseEstimator):
 
 # ---------------------------- Main --------------------------------------
 def main(which):
-    logname = "generate_feature_stat_cooc_tfidf_%s.log"%time_utils._timestamp()
+    logname = "generate_feature_stat_cooc_tfidf_%s_%s.log"%(which, time_utils._timestamp())
     logger = logging_utils._get_logger(config.LOG_DIR, logname)
     dfAll = pkl_utils._load(config.ALL_DATA_LEMMATIZED_STEMMED)
 
     generators = []
-    for w in which.split(","):
-        if w == "tf":
-            generators.append( StatCoocTF_Ngram )
-        elif w == "norm_tf":
-            generators.append( StatCoocNormTF_Ngram )
-        elif w == "tfidf":
-            generators.append( StatCoocTFIDF_Ngram )
-        elif w == "norm_tfidf":
-            generators.append( StatCoocNormTFIDF_Ngram )
-        elif w == "bm25":
-            generators.append( StatCoocBM25_Ngram )
+    if which == "tf":
+        generators.append( StatCoocTF_Ngram )
+    elif which == "norm_tf":
+        generators.append( StatCoocNormTF_Ngram )
+    elif which == "tfidf":
+        generators.append( StatCoocTFIDF_Ngram )
+    elif which == "norm_tfidf":
+        generators.append( StatCoocNormTFIDF_Ngram )
+    elif which == "bm25":
+        generators.append( StatCoocBM25_Ngram )
 
 
     obs_fields_list = []

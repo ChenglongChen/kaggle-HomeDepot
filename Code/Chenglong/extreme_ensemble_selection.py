@@ -3,8 +3,8 @@
 @author: Chenglong Chen <c.chenglong@gmail.com>
 @brief: extreme ensemble selection module
 @note: 
-		- support multiprocessing (set multiprocessing = True and multiprocessing_num_cores = #cores)
-		- support random weight in greedy forward model selection (set weight_opt_max_evals = 1)
+        - support multiprocessing (set multiprocessing = True and multiprocessing_num_cores = #cores)
+        - support random weight in greedy forward model selection (set weight_opt_max_evals = 1)
 """
 
 """
@@ -394,7 +394,7 @@ class ExtremeEnsembleSelection:
                     start = time.time()
                     for model,(_,_) in this_sorted_models:
                         best_trial_rmse_mean, best_trial_rmse_std, model, this_w = \
-                        	self._find_optim_weight_scipy(
+                            self._find_optim_weight_scipy(
                             p_ens_list_valid_tmp, pred_list_valid, Y_list_valid, numBSTMatrix, 
                             bst_inst_idx, w_ens, model_index_dict, model)
                         if best_trial_rmse_mean < best_rmse:

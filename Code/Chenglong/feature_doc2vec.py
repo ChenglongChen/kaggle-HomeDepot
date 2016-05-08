@@ -127,7 +127,7 @@ def main():
         generators = [
             Doc2Vec_CosineSim, 
             Doc2Vec_RMSE, 
-            Doc2Vec_Vdiff,
+            # Doc2Vec_Vdiff, 
         ]
         obs_fields_list = []
         target_fields_list = []

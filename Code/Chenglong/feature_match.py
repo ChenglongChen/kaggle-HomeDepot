@@ -26,16 +26,17 @@ class MatchQueryCount(BaseEstimator):
 
     def _str_whole_word(self, str1, str2, i_):
         cnt = 0
-        try:
-            while i_ < len(str2):
-                i_ = str2.find(str1, i_)
-                if i_ == -1:
-                    return cnt
-                else:
-                    cnt += 1
-                    i_ += len(str1)
-        except:
-            pass
+        if len(str1) > 0 and len(str2) > 0:
+            try:
+                while i_ < len(str2):
+                    i_ = str2.find(str1, i_)
+                    if i_ == -1:
+                        return cnt
+                    else:
+                        cnt += 1
+                        i_ += len(str1)
+            except:
+                pass
         return cnt
 
     def transform_one(self, obs, target, id):
@@ -86,16 +87,17 @@ class MatchAttrCount(BaseEstimator):
 
     def _str_whole_word(self, str1, str2, i_):
         cnt = 0
-        try:
-            while i_ < len(str2):
-                i_ = str2.find(str1, i_)
-                if i_ == -1:
-                    return cnt
-                else:
-                    cnt += 1
-                    i_ += len(str1)
-        except:
-            pass
+        if len(str1) > 0 and len(str2) > 0:
+            try:
+                while i_ < len(str2):
+                    i_ = str2.find(str1, i_)
+                    if i_ == -1:
+                        return cnt
+                    else:
+                        cnt += 1
+                        i_ += len(str1)
+            except:
+                pass
         return cnt
 
     def transform_one(self, obs, target, id):
@@ -158,8 +160,8 @@ def main():
     generators = [
         MatchQueryCount, 
         MatchQueryRatio, 
-        LongestMatchSize,
-        LongestMatchRatio
+        LongestMatchSize, 
+        LongestMatchRatio, 
     ]
     obs_fields_list = []
     target_fields_list = []
