@@ -76,7 +76,6 @@ class HomedepotSplitter:
                 venn2([puid_train, puid_test], ("train", "test"))
             else:
                 venn2([puid_train, puid_test], ("train", "valid"))
-            # plt.title("%s %s"%(suffix, col))
             fig_file = "%s/%s_%s.pdf"%(config.FIG_DIR, suffix, col)
             plt.savefig(fig_file)
             plt.clf()
