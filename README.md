@@ -3,11 +3,11 @@ Turing Test's Solution for Home Depot Product Search Relevance Competition on Ka
 
 ## Submission
 | Submission | CV RMSE | Public LB RMSE | Private LB RMSE | Position |
-| :---: | :-------: | :--------------: | :---------------: | :------------------: |
-| [Best Single Model from Chenglong](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv) | 0.43832 | 0.43996 | 0.43811 | 9 |
-| [Best Ensemble Model from Igor and Kostia](./Output/Subm/submission_kostia + igor final_ensemble (1 to 3 weights).csv) | - | 0.43819 | 0.43704 | 8 |
-| [Best Ensemble Model from Chenglong](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv) | 0.43609 | 0.43582 | 0.43325 | 4 |
-| [Best Final Ensemble Model](./Output/Subm/reproduced_blend_0.438_0.436CV.csv) | - | 0.43465 | 0.43248 | 3 |
+| ---: | :-------: | :--------------: | :---------------: | :------------------: |
+| [Best Single Model from Chenglong](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv) | 0.43832 | 0.43996 | 0.43811 | **9** |
+| [Best Ensemble Model from Igor and Kostia](./Output/Subm/submission_kostia + igor final_ensemble (1 to 3 weights).csv) | - | 0.43819 | 0.43704 | **8** |
+| [Best Ensemble Model from Chenglong](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv) | 0.43609 | 0.43582 | 0.43325 | **4** |
+| [Best Final Ensemble Model](./Output/Subm/reproduced_blend_0.438_0.436CV.csv) | - | 0.43465 | 0.43248 | **3** |
 
 ## FlowChart
 
