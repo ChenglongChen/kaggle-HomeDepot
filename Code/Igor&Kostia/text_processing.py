@@ -11,6 +11,7 @@ Author: Igor Buinyi
 Team: Turing test
 """
 
+from config_IgorKostia import *
 
 import numpy as np
 import pandas as pd
@@ -42,12 +43,12 @@ t1 = time()
 ############################################
 
 ### load train and test ###################
-df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
-df_test = pd.read_csv('data/test.csv', encoding="ISO-8859-1")
+df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
+df_test = pd.read_csv(DATA_DIR+'/test.csv', encoding="ISO-8859-1")
 df_all = pd.concat((df_train, df_test), axis=0, ignore_index=True)
 
 ### load product attributes ###############
-df_attr = pd.read_csv('data/attributes.csv', encoding="ISO-8859-1")
+df_attr = pd.read_csv(DATA_DIR+'/attributes.csv', encoding="ISO-8859-1")
 
 print 'loading time:',round((time()-t0)/60,1) ,'minutes\n'
 t0 = time()
@@ -263,7 +264,7 @@ for word in my_dict.keys():
 
 ### save dictionary
 corrections_df=pd.DataFrame(errors_dict).transpose()
-corrections_df.to_csv("processing_text/automatically_generated_word_corrections.csv")
+corrections_df.to_csv(PROCESSINGTEXT_DIR+"/automatically_generated_word_corrections.csv")
 
 print 'building spell checker time:',round((time()-t0)/60,1) ,'minutes\n'
 
@@ -280,7 +281,7 @@ for word in errors_dict.keys():
 
 """
 spell_check_dict={}
-with open('processing_text/automatically_generated_word_corrections.csv') as csvfile:
+with open(PROCESSINGTEXT_DIR+'/automatically_generated_word_corrections.csv') as csvfile:
      reader = csv.DictReader(csvfile)
      for row in reader:
          if row['suggestion']!="":
@@ -513,13 +514,13 @@ for key in del_list:
 
 # save to file
 brand_df=pd.DataFrame(brand_dict).transpose()
-brand_df.to_csv("processing_text/brand_statistics.csv")
+brand_df.to_csv(PROCESSINGTEXT_DIR+"/brand_statistics.csv")
 
 
 """
 brand_dict={}
 import csv
-with open('processing_text/brand_statistics.csv') as csvfile:
+with open(PROCESSINGTEXT_DIR+'/brand_statistics.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         brand_dict[row['name']]={'cnt_attribute': int(row['cnt_attribute']), 'cnt_query': int(row['cnt_query']), 
@@ -608,7 +609,7 @@ material_dict=get_attribute_dict(list_materials,str_query=str_query)
 
 ### create dataframe and save to file
 material_df=pd.DataFrame(material_dict).transpose()
-material_df.to_csv("processing_text/material_statistics.csv")
+material_df.to_csv(PROCESSINGTEXT_DIR+"/material_statistics.csv")
 
 
 ### For further processing keep only materials that appear 
@@ -751,8 +752,9 @@ for i in range(0,len(df_attr['product_uid'])):
         print "Read",i,"out of", len(df_attr['product_uid']), "rows in attributes.csv in", round((time()-t0)/60,1) ,'minutes'
     if df_attr['name'][i][0:6]=="Bullet":
         dict_attr[int(df_attr['product_uid'][i])]['attribute_bullets'].append(df_attr['value'][i])
-            
-del(dict_attr[0])
+
+if 0 in dict_attr.keys():
+    del(dict_attr[0])
                         
 for item in dict_attr.keys():
     if len(dict_attr[item]['attribute_bullets'])>0:
@@ -806,7 +808,7 @@ t0 = time()
 ##### PROCESS PRODUCT DESCRIPTIONS ##############################
 #################################################################
 
-df_pro_desc = pd.read_csv('data/product_descriptions.csv')
+df_pro_desc = pd.read_csv(DATA_DIR+'/product_descriptions.csv')
 
 
 ### Parsing
@@ -1240,10 +1242,10 @@ t0 = time()
 
 ### Save everything into files
 df_all['product_title']= df_all['product_title'].map(lambda x: x.encode('utf-8'))
-df_all.to_csv("processing_text/df_train_and_test_processed.csv", index=False)
+df_all.to_csv(PROCESSINGTEXT_DIR+"/df_train_and_test_processed.csv", index=False)
 
-df_attr_bullets.to_csv("processing_text/df_attribute_bullets_processed.csv", index=False)
-df_pro_desc.to_csv("processing_text/df_product_descriptions_processed.csv", index=False)
+df_attr_bullets.to_csv(PROCESSINGTEXT_DIR+"/df_attribute_bullets_processed.csv", index=False)
+df_pro_desc.to_csv(PROCESSINGTEXT_DIR+"/df_product_descriptions_processed.csv", index=False)
 
 
 print 'TOTAL PROCESSING TIME:',round((time()-t1)/60,1) ,'minutes\n'

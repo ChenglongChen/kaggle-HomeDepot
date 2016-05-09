@@ -6,6 +6,8 @@ Author: Kostia Omelianchuk
 Team: Turing test
 """
 
+from config_IgorKostia import *
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
@@ -18,16 +20,16 @@ import os
 import math as m
 
 
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
+
 #loading data
-df_all=pd.read_csv("processing_text/df_train_and_test_processed.csv", encoding="ISO-8859-1")
-df_all1=pd.read_csv("processing_text/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
+df_all=pd.read_csv(PROCESSINGTEXT_DIR+"/df_train_and_test_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
-df_all1=pd.read_csv("processing_text/df_attribute_bullets_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_attribute_bullets_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
-df_attr = pd.read_csv('processing_text/df_attributes_kostia.csv', encoding="ISO-8859-1")
+df_attr = pd.read_csv(PROCESSINGTEXT_DIR+'/df_attributes_kostia.csv', encoding="ISO-8859-1")
 df_all = pd.merge(df_all, df_attr, how='left', on='product_uid')
 
 
@@ -224,7 +226,7 @@ for i in range(0,5):
 st_names=list(df_all.keys()[len_of_features:])
 st_names.append("id")
 b=df_all[st_names]
-b.to_csv("features/dld_features.csv", index=False)
+b.to_csv(FEATURES_DIR+"/dld_features.csv", index=False)
 
 
 

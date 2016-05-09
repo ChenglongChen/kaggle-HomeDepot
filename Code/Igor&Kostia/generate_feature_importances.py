@@ -8,6 +8,7 @@ Author: Igor Buinyi
 Team: Turing test
 """
 
+from config_IgorKostia import *
 
 import numpy as np
 import pandas as pd
@@ -16,23 +17,24 @@ from time import time
 
 
 # get num_tain
-df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
+df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
 num_train = df_train.shape[0] #number of observations
 
 # load features
-df_all = pd.read_csv('features/df_basic_features.csv', encoding="utf-8")
-df_dist = pd.read_csv('features/df_dist_new.csv', encoding="utf-8")
-df_st_tfidf= pd.read_csv('features/df_st_tfidf.csv', encoding="utf-8")
-df_st_tfidf = df_st_tfidf.drop(['Unnamed: 0'],axis=1)
-df_tfidf_intersect = pd.read_csv('features/df_tfidf_intersept_new.csv', encoding="utf-8")
-df_word2vec = pd.read_csv('features/df_word2vec_new.csv', encoding="utf-8")
-df_dld = pd.read_csv('features/dld_features.csv', encoding="utf-8")
+df_all = pd.read_csv(FEATURES_DIR+'/df_basic_features.csv', encoding="utf-8")
+df_dist = pd.read_csv(FEATURES_DIR+'/df_dist_new.csv', encoding="utf-8")
+df_st_tfidf= pd.read_csv(FEATURES_DIR+'/df_st_tfidf.csv', encoding="utf-8")
+if 'Unnamed: 0' in df_st_tfidf.keys():
+    df_st_tfidf = df_st_tfidf.drop(['Unnamed: 0'],axis=1)
+df_tfidf_intersect = pd.read_csv(FEATURES_DIR+'/df_tfidf_intersept_new.csv', encoding="utf-8")
+df_word2vec = pd.read_csv(FEATURES_DIR+'/df_word2vec_new.csv', encoding="utf-8")
+df_dld = pd.read_csv(FEATURES_DIR+'/dld_features.csv', encoding="utf-8")
 
 """
 the following features and files were added later
 so this is the adjustment in order to reproduce the same results
 """
-df_above15 = pd.read_csv('features/df_feature_above15_ext.csv', encoding="utf-8")
+df_above15 = pd.read_csv(FEATURES_DIR+'/df_feature_above15_ext.csv', encoding="utf-8")
 df_above15 = df_above15[['id','above15_dummy_frequency_of_beforethekey_thekey']]
 df_all = pd.merge(df_all, df_above15, how='left', on='id')
 
@@ -85,9 +87,9 @@ y_pred[y_pred<1.]=1.
 y_pred[y_pred>3.]=3.
 
 
-pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv('models/submission_benchmark_without_dummies.csv',index=False)
+pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv(MODELS_DIR+'/submission_benchmark_without_dummies.csv',index=False)
 sorted_idx = np.argsort(clf.feature_importances_)
-pd.DataFrame({"name":df_all.keys().drop(['id','relevance'])[sorted_idx], "importance": clf.feature_importances_[sorted_idx]}).to_csv('models/feature_importances_benchmark_without_dummies.csv',index=False)
+pd.DataFrame({"name":df_all.keys().drop(['id','relevance'])[sorted_idx], "importance": clf.feature_importances_[sorted_idx]}).to_csv(MODELS_DIR+'/feature_importances_benchmark_without_dummies.csv',index=False)
 
 print "file saved"
 print 'modelling time:',round((time()-t0)/60,1) ,'minutes\n'
@@ -95,7 +97,7 @@ t0 = time()
 
 
 #### load feature importances from file
-df_importance = pd.read_csv('models/feature_importances_benchmark_without_dummies.csv', encoding="utf-8")
+df_importance = pd.read_csv(MODELS_DIR+'/feature_importances_benchmark_without_dummies.csv', encoding="utf-8")
 df_importance=df_importance.sort_values(['importance'],ascending=[0])
 df_importance['cumulative']=df_importance['importance'].map(lambda x: sum(df_importance['importance'][df_importance['importance']>=x]))
 var_list=list(df_importance['name'][df_importance['cumulative']<0.990])
@@ -106,8 +108,8 @@ df_all=df_all[['id','relevance']+var_list[0:40]]
 
 
 # load dummies
-df_bm_dummy = pd.read_csv('features/df_brand_material_dummies.csv', encoding="utf-8")
-df_thekey_dummy = pd.read_csv('features/df_thekey_dummies.csv', encoding="utf-8")
+df_bm_dummy = pd.read_csv(FEATURES_DIR+'/df_brand_material_dummies.csv', encoding="utf-8")
+df_thekey_dummy = pd.read_csv(FEATURES_DIR+'/df_thekey_dummies.csv', encoding="utf-8")
 df_all = pd.merge(df_all, df_bm_dummy, how='left', on='id')
 df_all = pd.merge(df_all, df_thekey_dummy, how='left', on='id')
 
@@ -134,9 +136,9 @@ y_pred[y_pred<1.]=1.
 y_pred[y_pred>3.]=3.
 
 
-pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv('models/submission_benchmark_top40_and_dummies.csv',index=False)
+pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv(MODELS_DIR+'/submission_benchmark_top40_and_dummies.csv',index=False)
 sorted_idx = np.argsort(clf.feature_importances_)
-pd.DataFrame({"name":df_all.keys().drop(['id','relevance'])[sorted_idx], "importance": clf.feature_importances_[sorted_idx]}).to_csv('models/feature_importances_benchmark_top40_and_dummies.csv',index=False)
+pd.DataFrame({"name":df_all.keys().drop(['id','relevance'])[sorted_idx], "importance": clf.feature_importances_[sorted_idx]}).to_csv(MODELS_DIR+'/feature_importances_benchmark_top40_and_dummies.csv',index=False)
 
 print "file saved"
 print 'modelling time:',round((time()-t0)/60,1) ,'minutes\n'

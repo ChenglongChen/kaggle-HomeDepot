@@ -7,28 +7,26 @@ Author: Igor Buinyi
 Team: Turing test
 """
 
+from config_IgorKostia import *
+
 import numpy as np
 import pandas as pd
-from sklearn.tree import DecisionTreeRegressor,ExtraTreeRegressor
 from sklearn.svm import SVR
-import xgboost as xgb
-from sklearn.ensemble import RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor, AdaBoostRegressor
-from sklearn.ensemble import ExtraTreesRegressor
 from time import time
 import re
 import os
 from scipy.stats import pearsonr
 
 
-df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
-df_test = pd.read_csv('data/test.csv', encoding="ISO-8859-1")
+df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
+df_test = pd.read_csv(DATA_DIR+'/test.csv', encoding="ISO-8859-1")
 num_train = df_train.shape[0] #number of observations
 num_test = df_test.shape[0] #number of observations
 
 
 
 
-dir_name="models_ensemble"
+dir_name=MODELSENSEMBLE_DIR
 
 
 files = [f for f in os.listdir(dir_name) if os.path.isfile(os.path.join(dir_name, f))]
@@ -75,6 +73,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
 import statsmodels.api as sm
 
+
+
+n=len(df_all_validation['actual'])/2
 
 for model in models:
     print "%s\t1st split: %.5f, 2nd split: %.5f, total: %.5f" % (model, \
@@ -152,7 +153,7 @@ pred1[pred1>3.]=3.
 
 #generate final ensemble from Igor
 id_test= df_all_submission['id']
-pd.DataFrame({"id": id_test, "relevance": pred1}).to_csv('submission_2016-04-23_ensemble_8models_Igor_final.csv',index=False)
+pd.DataFrame({"id": id_test, "relevance": pred1}).to_csv(MODELS_DIR+'/submission_2016-04-23_ensemble_8models_Igor_final.csv',index=False)
 
 
 

@@ -5,6 +5,9 @@ Competition: HomeDepot Search Relevance
 Author: Kostia Omelianchuk
 Team: Turing test
 """
+
+from config_IgorKostia import *
+
 import os
 import pandas as pd
 import xgboost as xgb 
@@ -35,42 +38,42 @@ drop_list= []
 
 
 #loading models
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
+
 
 #9 model
-train_f_1000 = pd.read_csv('saved_models/train_first_1000.csv', encoding="utf-8")
-train_s_1000 = pd.read_csv('saved_models/train_second_1000.csv', encoding="utf-8")
-train_f_1001 = pd.read_csv('saved_models/train_first_1001.csv', encoding="utf-8")
+train_f_1000 = pd.read_csv(MODELS_DIR+'/train_first_1000.csv', encoding="utf-8")
+train_s_1000 = pd.read_csv(MODELS_DIR+'/train_second_1000.csv', encoding="utf-8")
+train_f_1001 = pd.read_csv(MODELS_DIR+'/train_first_1001.csv', encoding="utf-8")
 
-train_f_2000 = pd.read_csv('saved_models/train_first_2000.csv', encoding="utf-8")
-train_s_2000 = pd.read_csv('saved_models/train_second_2000.csv', encoding="utf-8")
-
-
+train_f_2000 = pd.read_csv(MODELS_DIR+'/train_first_2000.csv', encoding="utf-8")
+train_s_2000 = pd.read_csv(MODELS_DIR+'/train_second_2000.csv', encoding="utf-8")
 
 
-test_f_1000 = pd.read_csv('saved_models/test_first_1000.csv', encoding="utf-8")
-test_s_1000 = pd.read_csv('saved_models/test_second_1000.csv', encoding="utf-8")
-test_f_1001 = pd.read_csv('saved_models/test_first_1001.csv', encoding="utf-8")
 
-test_f_2000 = pd.read_csv('saved_models/test_first_2000.csv', encoding="utf-8")
-test_s_2000 = pd.read_csv('saved_models/test_second_2000.csv', encoding="utf-8")
+
+test_f_1000 = pd.read_csv(MODELS_DIR+'/test_first_1000.csv', encoding="utf-8")
+test_s_1000 = pd.read_csv(MODELS_DIR+'/test_second_1000.csv', encoding="utf-8")
+test_f_1001 = pd.read_csv(MODELS_DIR+'/test_first_1001.csv', encoding="utf-8")
+
+test_f_2000 = pd.read_csv(MODELS_DIR+'/test_first_2000.csv', encoding="utf-8")
+test_s_2000 = pd.read_csv(MODELS_DIR+'/test_second_2000.csv', encoding="utf-8")
 
 #6 model
-train_f_3000 = pd.read_csv('saved_models/train_first_3000.csv', encoding="utf-8")
-train_s_3000 = pd.read_csv('saved_models/train_second_3000.csv', encoding="utf-8")
+train_f_3000 = pd.read_csv(MODELS_DIR+'/train_first_3000.csv', encoding="utf-8")
+train_s_3000 = pd.read_csv(MODELS_DIR+'/train_second_3000.csv', encoding="utf-8")
 
-test_f_3000 = pd.read_csv('saved_models/test_first_3000.csv', encoding="utf-8")
-test_s_3000 = pd.read_csv('saved_models/test_second_3000.csv', encoding="utf-8")
+test_f_3000 = pd.read_csv(MODELS_DIR+'/test_first_3000.csv', encoding="utf-8")
+test_s_3000 = pd.read_csv(MODELS_DIR+'/test_second_3000.csv', encoding="utf-8")
 
 #6 model only kostia features
-train_f_3010 = pd.read_csv('saved_models/train_first_3010.csv', encoding="utf-8")
-test_f_3010 = pd.read_csv('saved_models/test_first_3010.csv', encoding="utf-8")
+train_f_3010 = pd.read_csv(MODELS_DIR+'/train_first_3010.csv', encoding="utf-8")
+test_f_3010 = pd.read_csv(MODELS_DIR+'/test_first_3010.csv', encoding="utf-8")
 
 #6 model (4SVR + 2xgb) on corelated fetures
-train_f_3020 = pd.read_csv('saved_models/train_first_3020.csv', encoding="utf-8")
-test_f_3020 = pd.read_csv('saved_models/test_first_3020.csv', encoding="utf-8")
+train_f_3020 = pd.read_csv(MODELS_DIR+'/train_first_3020.csv', encoding="utf-8")
+test_f_3020 = pd.read_csv(MODELS_DIR+'/test_first_3020.csv', encoding="utf-8")
 
-#y = pd.read_csv('ensemble/y.csv', encoding="utf-8")
+
 
 train=pd.DataFrame()
 test=pd.DataFrame()
@@ -80,14 +83,14 @@ test = pd.concat([test_f_1000, test_s_1000, test_f_1001, test_f_2000, test_s_200
 
 
 #adding_some_metafeatures
-df_all = pd.read_csv('features/df_basic_features.csv', encoding="utf-8")
+df_all = pd.read_csv(FEATURES_DIR+'/df_basic_features.csv', encoding="utf-8")
 
 t1=df_all['id'].map(lambda x: int(x<163800))
 t2=df_all['id'].map(lambda x: int(x>206650))
 t3=df_all['id'].map(lambda x: int(x<163800) or int(x>221473))
 
-df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
-df_test = pd.read_csv('data/test.csv', encoding="ISO-8859-1")
+df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
+df_test = pd.read_csv(DATA_DIR+'/test.csv', encoding="ISO-8859-1")
 
 num_train = df_train.shape[0]
 y = df_all["relevance"][:num_train]
@@ -238,10 +241,9 @@ pred1[pred1<1.]=1.
 pred1[pred1>3.]=3.
 
 
-#pd.DataFrame(pred1).to_csv("submissions_ensemble_linear_11_models(+correct_dummy)_from_69_models_23_04_2016.csv",index=False)
  
 #saved_results
-pd.DataFrame({"id": id_test, "relevance": pred1}).to_csv("submission_ensemble_Kostia.csv",index=False)
+pd.DataFrame({"id": id_test, "relevance": pred1}).to_csv(MODELS_DIR+"/submissions_ensemble_n_models_from_m_11_04_2016.csv",index=False)
    
 
 #X_new=train_fin

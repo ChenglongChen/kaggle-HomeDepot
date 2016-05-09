@@ -12,57 +12,37 @@ Author: Igor Buinyi
 Team: Turing test
 """
 
-import numpy as np
-import pandas as pd
-from sklearn.ensemble import RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
-from nltk.stem.snowball import SnowballStemmer
-import nltk
-from time import time
-import re
-import csv
 import os
-from nltk.corpus import wordnet as wn
-from nltk.corpus import stopwords
-stoplist = stopwords.words('english')
-stoplist.append('till')
-stoplist_wo_can=stoplist[:]
-stoplist_wo_can.remove('can')
+os.chdir("g:/kaggle/latex/py")
 
-
-os.chdir("D:/HomeDepot/")
 
 from homedepot_functions import *
 from google_dict import *
 
-t0 = time()
-t1 = time()
-
-if not os.path.exists("processing_text"):
-    os.mkdir("processing_text")
-if not os.path.exists("features"):
-    os.mkdir("features")
-if not os.path.exists("models"):
-    os.mkdir("models")
-if not os.path.exists("models_ensemble"):
-    os.mkdir("models_ensemble")
-
 
 ### text preprocessing    
 from text_processing import *
-from text_processing_wo_google import *
 
 
 ### feature generation
 # features from Igor
 from feature_extraction1 import *
-from feature_extraction1_wo_google import *
 
 # features from Kostia
 from grams_and_terms_features import * 
 from dld_features import * 
 from tfidf_by_st_features import * 
 from word2vec import * 
+
+"""
+Preprocessing without Google dictionary adds some variance to our ensemble.
+The following 3 steps step can be omitted without major reduction in model performance.
+"""
+from text_processing_wo_google import *
+from feature_extraction1_wo_google import *  
 from word2vec_without_google_dict import *
+
+
 
 
 ### Modelling from Igor
@@ -73,8 +53,17 @@ from generate_ensemble_output_from_models import *
 ### End of modelling from Igor
 
 
+
+
 #####################################
-# Modelling from Kostia
+# START of modelling from Kostia
+#Sat, 23 Apr 2016 11:30:30
+#Igor's best 0.43854 + kostia best 0.44022 (weights 3 to 1)
+#Edit description	submission_kostia + igor final_ensemble (1 to 3 weights).csv	0.43819	0.43704	
+#Sat, 23 Apr 2016 11:18:28
+#igor: final ensemble version (CV 0.43557) 8 models including xgboost w/o google dict
+#Edit description	submission_2016-04-23_ensemble_8models_Igor_final.csv	0.43854	0.43723
+
 """
 Ensemble generation was done by a different method.
 This step is included in order to reproduce our submissions.
@@ -82,7 +71,10 @@ However, this such modelling might be considered as redundant
 as score improvement is small and such an improvement might be achived within the files
 prepared by Igor if the proper feature lists are selected for the models.
 """
-### modelling was done by the following script which selects random feature subsets
+
+"""
+modelling was done by the following script which selects random feature subsets
+"""
 # from ensemble_script_random_version import *
 ### if the previous script is run, some filenames with model names have to be changed manually
 ### (The algorithm picks random numbers and then saves files with those number. 
@@ -94,7 +86,7 @@ from ensemble_script_imitation_version import *
 
 ### Selecting models for ensembling
 from model_selecting import *
-### End of modelling from Kostia
+### END of modelling from Kostia
 #########################################
 
 

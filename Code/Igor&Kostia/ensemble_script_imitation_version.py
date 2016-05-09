@@ -5,6 +5,10 @@ Competition: HomeDepot Search Relevance
 Author: Kostia Omelianchuk
 Team: Turing test
 """
+
+from config_IgorKostia import *
+
+
 import os
 import pandas as pd
 import xgboost as xgb 
@@ -35,21 +39,21 @@ drop_list= []
 
 
 
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
 
 
 
 
-df_all = pd.read_csv('features/df_basic_features.csv', encoding="utf-8")
-df_all1 = pd.read_csv('features/df_thekey_dummies.csv', encoding="utf-8")
-df_all2 = pd.read_csv('features/df_brand_material_dummies.csv', encoding="utf-8")
 
-df_dld = pd.read_csv('data/dld_features.csv', encoding="utf-8")
-df_tfidf_st = pd.read_csv('features/df_st_tfidf.csv', encoding="utf-8")
-df_word2vec = pd.read_csv('features/df_word2vec_new.csv', encoding="utf-8")
-df_dist_new = pd.read_csv('features/df_dist_new.csv', encoding="utf-8")
-df_tfidf_intersept_new = pd.read_csv('features/df_tfidf_intersept_new.csv', encoding="utf-8")
+df_all = pd.read_csv(FEATURES_DIR+'/df_basic_features.csv', encoding="utf-8")
+df_all1 = pd.read_csv(FEATURES_DIR+'/df_thekey_dummies.csv', encoding="utf-8")
+df_all2 = pd.read_csv(FEATURES_DIR+'/df_brand_material_dummies.csv', encoding="utf-8")
 
+df_dld = pd.read_csv(FEATURES_DIR+'/dld_features.csv', encoding="utf-8")
+df_tfidf_st = pd.read_csv(FEATURES_DIR+'/df_st_tfidf.csv', encoding="utf-8")
+df_word2vec = pd.read_csv(FEATURES_DIR+'/df_word2vec_new.csv', encoding="utf-8")
+df_dist_new = pd.read_csv(FEATURES_DIR+'/df_dist_new.csv', encoding="utf-8")
+df_tfidf_intersept_new = pd.read_csv(FEATURES_DIR+'/df_tfidf_intersept_new.csv', encoding="utf-8")
+df_above15_ext = pd.read_csv(FEATURES_DIR+'/df_feature_above15_ext.csv', encoding="utf-8")
 
 
 df_all = pd.merge(df_all, df_dld, how='left', on='id')
@@ -59,7 +63,7 @@ df_all = pd.merge(df_all, df_dist_new, how='left', on='id')
 df_all = pd.merge(df_all, df_tfidf_intersept_new, how='left', on='id')
 df_all = pd.merge(df_all, df_all1, how='left', on='id')
 df_all = pd.merge(df_all, df_all2, how='left', on='id')
-
+df_all = pd.merge(df_all, df_above15_ext, how='left', on='id')
 all_features=df_all
 
 
@@ -183,7 +187,7 @@ name_list=list(["first_1000","second_1000", "first_1001","first_2000" ,"second_2
 model_list=list([0,0,0,0,0,1,1,1,2])
 iteration=0
 for feature_set in feature_list:
-    feat=pd.read_csv('saved_models/'+feature_set+'.csv', encoding="utf-8")
+    feat=pd.read_csv(FEATURESETS_DIR+'/'+feature_set+'.csv', encoding="utf-8")
     
     
     df_all=all_features[feat['feature_name'][:]]
@@ -191,8 +195,8 @@ for feature_set in feature_list:
     df_all["relevance"]=all_features["relevance"]
     
     
-    df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
-    df_test = pd.read_csv('data/test.csv', encoding="ISO-8859-1")
+    df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
+    df_test = pd.read_csv(DATA_DIR+'/test.csv', encoding="ISO-8859-1")
     
     num_train = df_train.shape[0]
     
@@ -217,9 +221,9 @@ for feature_set in feature_list:
     X2 = X[num_train:]
 
 
-
+    print iteration
     bclf=LinearRegression()
     pred, bx_test, bx_train, by_train = run(X1,Y1, X2,bclf, model_list[iteration])
-    pd.DataFrame(bx_train).to_csv("saved_models/train_"+str(name_list[iteration])+".csv",index=False) 
-    pd.DataFrame(bx_test).to_csv("saved_models/test_"+str(name_list[iteration])+".csv",index=False)
+    pd.DataFrame(bx_train).to_csv(MODELS_DIR+"/train_"+str(name_list[iteration])+".csv",index=False) 
+    pd.DataFrame(bx_test).to_csv(MODELS_DIR+"/test_"+str(name_list[iteration])+".csv",index=False)
     iteration=iteration+1
