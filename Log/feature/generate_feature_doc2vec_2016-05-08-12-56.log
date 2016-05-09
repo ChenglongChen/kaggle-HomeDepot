@@ -1,0 +1,17 @@
+[2016-05-08 12:56:52,428] INFO: loading Doc2Vec object from ../../Data/doc2vec/Homedepot-doc2vec-D100-min_count3.model
+[2016-05-08 12:57:02,221] INFO: loading docvecs recursively from ../../Data/doc2vec/Homedepot-doc2vec-D100-min_count3.model.docvecs.* with mmap=None
+[2016-05-08 12:57:02,235] INFO: loading doctag_syn0 from ../../Data/doc2vec/Homedepot-doc2vec-D100-min_count3.model.docvecs.doctag_syn0.npy with mmap=None
+[2016-05-08 12:57:02,377] INFO: loading syn0 from ../../Data/doc2vec/Homedepot-doc2vec-D100-min_count3.model.syn0.npy with mmap=None
+[2016-05-08 12:57:02,438] INFO: loading syn1 from ../../Data/doc2vec/Homedepot-doc2vec-D100-min_count3.model.syn1.npy with mmap=None
+[2016-05-08 12:57:02,498] INFO: setting ignored attribute syn0norm to None
+[2016-05-08 12:57:02,499] INFO: setting ignored attribute cum_table to None
+[2016-05-08 12:59:10,467] INFO: Doc2Vec_Homedepot_D100_CosineSim_search_term_x_product_title_1D (1D): corr = 0.315041
+[2016-05-08 13:00:31,971] INFO: Doc2Vec_Homedepot_D100_CosineSim_search_term_x_product_description_1D (1D): corr = 0.238963
+[2016-05-08 13:01:48,488] INFO: Doc2Vec_Homedepot_D100_CosineSim_search_term_x_product_attribute_1D (1D): corr = 0.065506
+[2016-05-08 13:03:03,277] INFO: Doc2Vec_Homedepot_D100_CosineSim_search_term_x_product_brand_1D (1D): corr = 0.052180
+[2016-05-08 13:04:20,041] INFO: Doc2Vec_Homedepot_D100_CosineSim_search_term_x_product_color_1D (1D): corr = 0.004814
+[2016-05-08 13:04:32,482] INFO: Doc2Vec_Homedepot_D100_RMSE_search_term_x_product_title_1D (1D): corr = -0.237534
+[2016-05-08 13:04:45,344] INFO: Doc2Vec_Homedepot_D100_RMSE_search_term_x_product_description_1D (1D): corr = -0.189458
+[2016-05-08 13:04:58,122] INFO: Doc2Vec_Homedepot_D100_RMSE_search_term_x_product_attribute_1D (1D): corr = 0.131127
+[2016-05-08 13:05:10,420] INFO: Doc2Vec_Homedepot_D100_RMSE_search_term_x_product_brand_1D (1D): corr = 0.131438
+[2016-05-08 13:05:22,656] INFO: Doc2Vec_Homedepot_D100_RMSE_search_term_x_product_color_1D (1D): corr = 0.043696

@@ -1,0 +1,6 @@
+[2016-05-08 13:40:32,505] INFO: LSA100_Word_Trigram_CosineSim_search_term_x_product_title_1D (1D): corr = 0.233220
+[2016-05-08 13:49:21,913] INFO: LSA100_Word_Trigram_CosineSim_search_term_x_product_description_1D (1D): corr = 0.165219
+[2016-05-08 13:56:26,644] INFO: LSA100_Word_Trigram_CosineSim_search_term_x_product_attribute_1D (1D): corr = 0.019628
+[2016-05-08 13:59:17,295] INFO: LSA100_Char_Fourgram_CosineSim_search_term_x_product_title_1D (1D): corr = 0.281925
+[2016-05-08 14:20:33,890] INFO: LSA100_Char_Fourgram_CosineSim_search_term_x_product_description_1D (1D): corr = 0.152655
+[2016-05-08 14:38:10,383] INFO: LSA100_Char_Fourgram_CosineSim_search_term_x_product_attribute_1D (1D): corr = -0.041331

@@ -1,0 +1,6 @@
+[2016-05-08 12:17:14,100] INFO: TFIDF_Word_Trigram_CosineSim_search_term_x_product_title_1D (1D): corr = 0.303002
+[2016-05-08 12:48:05,438] INFO: TFIDF_Word_Trigram_CosineSim_search_term_x_product_description_1D (1D): corr = 0.257729
+[2016-05-08 13:03:57,970] INFO: TFIDF_Word_Trigram_CosineSim_search_term_x_product_attribute_1D (1D): corr = 0.112431
+[2016-05-08 13:07:26,447] INFO: TFIDF_Char_Fourgram_CosineSim_search_term_x_product_title_1D (1D): corr = 0.372841
+[2016-05-08 13:24:13,093] INFO: TFIDF_Char_Fourgram_CosineSim_search_term_x_product_description_1D (1D): corr = 0.274988
+[2016-05-08 13:38:43,647] INFO: TFIDF_Char_Fourgram_CosineSim_search_term_x_product_attribute_1D (1D): corr = 0.069589

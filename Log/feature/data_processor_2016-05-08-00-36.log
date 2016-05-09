@@ -1,0 +1,3 @@
+[2016-05-08 00:48:55,265] INFO: Run GoogleQuerySpellingChecker at search_term
+[2016-05-08 01:29:06,789] INFO: Save to ../../Data/Clean/all.lemmatized.csv.pkl
+[2016-05-08 01:43:43,971] INFO: Save to ../../Data/Clean/all.lemmatized.stemmed.csv.pkl

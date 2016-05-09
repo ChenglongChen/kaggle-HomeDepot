@@ -1,0 +1,7 @@
+[2016-05-08 13:06:07,296] INFO: QueryQuality_raw_x_lemmatized_1D (1D): corr = -0.011984
+[2016-05-08 13:06:08,419] INFO: QueryQuality_raw_x_product_name_1D (1D): corr = -0.094242
+[2016-05-08 13:06:09,308] INFO: QueryQuality_raw_x_stemmed_1D (1D): corr = -0.017614
+[2016-05-08 13:06:10,263] INFO: QueryQuality_lemmatized_x_product_name_1D (1D): corr = -0.108217
+[2016-05-08 13:06:11,274] INFO: QueryQuality_lemmatized_x_stemmed_1D (1D): corr = -0.016097
+[2016-05-08 13:06:11,889] INFO: QueryQuality_product_name_x_stemmed_1D (1D): corr = -0.107457
+[2016-05-08 13:06:12,699] INFO: IsInGoogleDict_search_term_1D (1D): corr = -0.068113

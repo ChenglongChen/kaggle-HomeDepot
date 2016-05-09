@@ -1,0 +1,6 @@
+[2016-05-08 12:05:53,743] INFO: CharDistribution_CosineSim_search_term_x_product_title_1D (1D): corr = 0.221607
+[2016-05-08 12:07:43,389] INFO: CharDistribution_CosineSim_search_term_x_product_description_1D (1D): corr = 0.072751
+[2016-05-08 12:09:21,822] INFO: CharDistribution_CosineSim_search_term_x_product_attribute_1D (1D): corr = 0.036551
+[2016-05-08 12:09:32,860] INFO: CharDistribution_KL_search_term_x_product_title_1D (1D): corr = -0.223736
+[2016-05-08 12:11:01,222] INFO: CharDistribution_KL_search_term_x_product_description_1D (1D): corr = -0.048662
+[2016-05-08 12:12:21,357] INFO: CharDistribution_KL_search_term_x_product_attribute_1D (1D): corr = -0.117159
