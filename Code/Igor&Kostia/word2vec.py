@@ -6,7 +6,7 @@ Author: Kostia Omelianchuk
 Team: Turing test
 """
 
-
+from config_IgorKostia import *
 
 
 import gensim
@@ -22,18 +22,18 @@ import os
 import math as m
 import pandas as pd
 from gensim import models
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
+
 
 #loading data
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-df_all=pd.read_csv("processing_text/df_train_and_test_processed.csv", encoding="ISO-8859-1")
-df_all1=pd.read_csv("processing_text/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
+df_all=pd.read_csv(PROCESSINGTEXT_DIR+"/df_train_and_test_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
-df_all1=pd.read_csv("processing_text/df_attribute_bullets_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_attribute_bullets_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
-df_attr = pd.read_csv('processing_text/df_attributes_kostia.csv', encoding="ISO-8859-1")
+df_attr = pd.read_csv(PROCESSINGTEXT_DIR+'/df_attributes_kostia.csv', encoding="ISO-8859-1")
 df_all = pd.merge(df_all, df_attr, how='left', on='product_uid')
 
 
@@ -286,7 +286,7 @@ for j in range(len(n_sim)):
 #save features
 
 b=df_all[st_names]
-b.to_csv("features/df_word2vec_new.csv", index=False) 
+b.to_csv(FEATURES_DIR+"/df_word2vec_new.csv", index=False) 
 
 
 

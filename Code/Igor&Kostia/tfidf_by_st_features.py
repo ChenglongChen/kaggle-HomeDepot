@@ -6,6 +6,8 @@ Author: Kostia Omelianchuk
 Team: Turing test
 """
 
+from config_IgorKostia import *
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
@@ -18,11 +20,11 @@ import os
 import math as m
 
 
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
+
 
 #data loading
-df_all=pd.read_csv("processing_text/df_train_and_test_processed.csv", encoding="ISO-8859-1")
-df_all1=pd.read_csv("processing_text/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
+df_all=pd.read_csv(PROCESSINGTEXT_DIR+"/df_train_and_test_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
 
@@ -330,5 +332,5 @@ for j in range(12):
 
 #save features
 b=df_all[st_names]
-b.to_csv("features/df_st_tfidf.csv", index=False) 
+b.to_csv(FEATURES_DIR+"/df_st_tfidf.csv", index=False) 
 

@@ -7,10 +7,11 @@ Author: Kostia Omelianchuk
 Team: Turing test
 
 """
+
+from config_IgorKostia import * 
  
 import os
 import pandas as pd
-#os.chdir("C:/xgboost-master/python-package")
 import xgboost as xgb 
 import csv
 import random
@@ -40,18 +41,18 @@ drop_list= []
 
 
 
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
+
 
 #loading data
-df_all = pd.read_csv('features/df_basic_features.csv', encoding="utf-8")
-df_all1 = pd.read_csv('features/df_thekey_dummies.csv', encoding="utf-8")
-df_all2 = pd.read_csv('features/df_brand_material_dummies.csv', encoding="utf-8")
+df_all = pd.read_csv(FEATURES_DIR+'/df_basic_features.csv', encoding="utf-8")
+df_all1 = pd.read_csv(FEATURES_DIR+'/df_thekey_dummies.csv', encoding="utf-8")
+df_all2 = pd.read_csv(FEATURES_DIR+'/df_brand_material_dummies.csv', encoding="utf-8")
 
-df_dld = pd.read_csv('features/dld_features.csv', encoding="utf-8")
-df_tfidf_st = pd.read_csv('features/df_st_tfidf.csv', encoding="utf-8")
-df_word2vec = pd.read_csv('features/df_word2vec_new.csv', encoding="utf-8")
-df_dist_new = pd.read_csv('features/df_dist_new.csv', encoding="utf-8")
-df_tfidf_intersept_new = pd.read_csv('features/df_tfidf_intersept_new.csv', encoding="utf-8")
+df_dld = pd.read_csv(FEATURES_DIR+'/dld_features.csv', encoding="utf-8")
+df_tfidf_st = pd.read_csv(FEATURES_DIR+'/df_st_tfidf.csv', encoding="utf-8")
+df_word2vec = pd.read_csv(FEATURES_DIR+'/df_word2vec_new.csv', encoding="utf-8")
+df_dist_new = pd.read_csv(FEATURES_DIR+'/df_dist_new.csv', encoding="utf-8")
+df_tfidf_intersept_new = pd.read_csv(FEATURES_DIR+'/df_tfidf_intersept_new.csv', encoding="utf-8")
 
 
 
@@ -77,8 +78,8 @@ df_all=df_all.drop(list(set(list(all_names & new_list))),axis=1)
 
 list_of_features=df_all.keys().drop(["relevance","id"])
 
-df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
-df_test = pd.read_csv('data/test.csv', encoding="ISO-8859-1")
+df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
+df_test = pd.read_csv(DATA_DIR+'/test.csv', encoding="ISO-8859-1")
 
 num_train = df_train.shape[0]
 
@@ -210,12 +211,12 @@ for i in range(100,130):
             R= len(list_of_features) - 21
         print R
         pred, bx_test, bx_train, by_train = run(X1_f,Y1, X2_f,bclf,"first"+str(i)+"")
-        pd.DataFrame({"number": FP, "feature_name": first_part}).to_csv("saved_models/first_part_"+str(i)+".csv",index=False) 
-        pd.DataFrame(bx_train).to_csv("saved_models/train_first_"+str(i)+".csv",index=False) 
-        pd.DataFrame(bx_test).to_csv("saved_models/test_first_"+str(i)+".csv",index=False)
+        pd.DataFrame({"number": FP, "feature_name": first_part}).to_csv(MODELS_DIR+"/first_part_"+str(i)+".csv",index=False) 
+        pd.DataFrame(bx_train).to_csv(MODELS_DIR+"/train_first_"+str(i)+".csv",index=False) 
+        pd.DataFrame(bx_test).to_csv(MODELS_DIR+"/test_first_"+str(i)+".csv",index=False)
         
         pred, bx_test, bx_train, by_train = run(X1_s,Y1, X2_s,bclf,"second"+str(i)+"")
-        pd.DataFrame({"number": FP, "feature_name": first_part}).to_csv("saved_models/second_part_"+str(i)+".csv",index=False) 
-        pd.DataFrame(bx_train).to_csv("saved_models/train_second_"+str(i)+".csv",index=False) 
-        pd.DataFrame(bx_test).to_csv("saved_models/test_second_"+str(i)+".csv",index=False)
+        pd.DataFrame({"number": FP, "feature_name": first_part}).to_csv(MODELS_DIR+"/second_part_"+str(i)+".csv",index=False) 
+        pd.DataFrame(bx_train).to_csv(MODELS_DIR+"/train_second_"+str(i)+".csv",index=False) 
+        pd.DataFrame(bx_test).to_csv(MODELS_DIR+"/test_second_"+str(i)+".csv",index=False)
 

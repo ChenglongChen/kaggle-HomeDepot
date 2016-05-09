@@ -11,6 +11,8 @@ Author: Igor Buinyi
 Team: Turing test
 """
 
+from config_IgorKostia import *
+
 import numpy as np
 import pandas as pd
 from sklearn.tree import DecisionTreeRegressor,ExtraTreeRegressor
@@ -24,25 +26,26 @@ import os
 from scipy.stats import pearsonr
 
 
-df_train = pd.read_csv('data/train.csv', encoding="ISO-8859-1")
-df_test = pd.read_csv('data/test.csv', encoding="ISO-8859-1")
+df_train = pd.read_csv(DATA_DIR+'/train.csv', encoding="ISO-8859-1")
+df_test = pd.read_csv(DATA_DIR+'/test.csv', encoding="ISO-8859-1")
 num_train = df_train.shape[0] #number of observations
 num_test = df_test.shape[0] #number of observations
 
 
-df_all = pd.read_csv('features/df_basic_features_wo_google.csv', encoding="utf-8")
-#df_all = pd.read_csv('features/df_basic_features.csv', encoding="utf-8")
+df_all = pd.read_csv(FEATURES_DIR+'/df_basic_features_wo_google.csv', encoding="utf-8")
+#df_all = pd.read_csv(FEATURES_DIR+'/df_basic_features.csv', encoding="utf-8")
 
-df_dist = pd.read_csv('features/df_dist_new.csv', encoding="utf-8")
-df_st_tfidf= pd.read_csv('features/df_st_tfidf.csv', encoding="utf-8")
-df_st_tfidf = df_st_tfidf.drop(['Unnamed: 0'],axis=1)
-df_tfidf_intersect = pd.read_csv('features/df_tfidf_intersept_new.csv', encoding="utf-8")
+df_dist = pd.read_csv(FEATURES_DIR+'/df_dist_new.csv', encoding="utf-8")
+df_st_tfidf= pd.read_csv(FEATURES_DIR+'/df_st_tfidf.csv', encoding="utf-8")
+if 'Unnamed: 0' in df_st_tfidf.keys():
+    df_st_tfidf = df_st_tfidf.drop(['Unnamed: 0'],axis=1)
+df_tfidf_intersect = pd.read_csv(FEATURES_DIR+'/df_tfidf_intersept_new.csv', encoding="utf-8")
 #df_word2vec = pd.read_csv('features/df_word2vec_new.csv', encoding="utf-8")
-df_word2vec = pd.read_csv('features/df_word2vec_wo_google_dict.csv', encoding="utf-8")
+df_word2vec = pd.read_csv(FEATURES_DIR+'/df_word2vec_wo_google_dict.csv', encoding="utf-8")
 
-df_dld = pd.read_csv('features/dld_features.csv', encoding="utf-8")
-df_above15 = pd.read_csv('features/df_feature_above15_ext_wo_google.csv', encoding="utf-8")
-#df_above15 = pd.read_csv('features/df_feature_above15_ext.csv', encoding="utf-8")
+df_dld = pd.read_csv(FEATURES_DIR+'/dld_features.csv', encoding="utf-8")
+df_above15 = pd.read_csv(FEATURES_DIR+'/df_feature_above15_ext_wo_google.csv', encoding="utf-8")
+#df_above15 = pd.read_csv(FEATURES_DIR+'/df_feature_above15_ext.csv', encoding="utf-8")
 df_all = pd.merge(df_all, df_above15, how='left', on='id')
 
 df_all = pd.merge(df_all, df_dist, how='left', on='id')
@@ -52,10 +55,10 @@ df_all = pd.merge(df_all, df_word2vec, how='left', on='id')
 df_all = pd.merge(df_all, df_dld, how='left', on='id')
 
 
-df_bm_dummy = pd.read_csv('features/df_brand_material_dummies_wo_google.csv', encoding="utf-8")
-df_thekey_dummy = pd.read_csv('features/df_thekey_dummies_wo_google.csv', encoding="utf-8")
-#df_bm_dummy = pd.read_csv('features/df_brand_material_dummies.csv', encoding="utf-8")
-#df_thekey_dummy = pd.read_csv('features/df_thekey_dummies.csv', encoding="utf-8")
+df_bm_dummy = pd.read_csv(FEATURES_DIR+'/df_brand_material_dummies_wo_google.csv', encoding="utf-8")
+df_thekey_dummy = pd.read_csv(FEATURES_DIR+'/df_thekey_dummies_wo_google.csv', encoding="utf-8")
+#df_bm_dummy = pd.read_csv(FEATURES_DIR+'/df_brand_material_dummies.csv', encoding="utf-8")
+#df_thekey_dummy = pd.read_csv(FEATURES_DIR+'/df_thekey_dummies.csv', encoding="utf-8")
 df_all = pd.merge(df_all, df_bm_dummy, how='left', on='id')
 df_all = pd.merge(df_all, df_thekey_dummy, how='left', on='id')
 
@@ -79,7 +82,7 @@ for var in drop_list:
 df_all=df_all.drop(new_drop_list,axis=1)
 print len(df_all.keys())
 
-df_importance = pd.read_csv('models/feature_importances_benchmark_without_dummies.csv', encoding="utf-8")
+df_importance = pd.read_csv(MODELS_DIR+'/feature_importances_benchmark_without_dummies.csv', encoding="utf-8")
 df_importance=df_importance.sort_values(['importance'],ascending=[0])
 df_importance['cumulative']=df_importance['importance'].map(lambda x: sum(df_importance['importance'][df_importance['importance']>=x]))
 
@@ -106,7 +109,7 @@ for cnt in range(1,len(list(df_importance['name'][df_importance['cumulative']<im
         print cnt, len(new_var_list)
 
 
-df_importance_dummy = pd.read_csv('models/feature_importances_benchmark_top40_and_dummies.csv', encoding="utf-8")
+df_importance_dummy = pd.read_csv(MODELS_DIR+'/feature_importances_benchmark_top40_and_dummies.csv', encoding="utf-8")
 df_importance_dummy=df_importance_dummy.sort_values(['importance'],ascending=[0])
 df_importance_dummy['cumulative']=df_importance_dummy['importance'].map(lambda x: sum(df_importance_dummy['importance'][df_importance_dummy['importance']>=x]))
 
@@ -239,7 +242,7 @@ for clf, feature_list, name_str in clf_list:
         print '\t\tFold [%s] [RMSE: %s] [%s minutes]' % (i,round(RMSE,6), round((time()-t0)/60,1))
     
     pd.DataFrame({"id": id_train[cv_indices_stacked], "predicted": cv_label_pred_stacked, \
-        "actual": cv_labels_stacked}).to_csv('models_ensemble/trainvalidation_'+name_str+'_2015-04-23.csv',index=False)
+        "actual": cv_labels_stacked}).to_csv(MODELSENSEMBLE_DIR+'/trainvalidation_'+name_str+'_2015-04-23.csv',index=False)
     print '\tTrain validation file saved [RMSE: %s]' % (round(total_RMSE/len(skf),6))
     
     """
@@ -249,7 +252,7 @@ for clf, feature_list, name_str in clf_list:
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
     
-    pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv('models_ensemble/testprediction_'+name_str+'_2015-04-23.csv',index=False)
+    pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv(MODELSENSEMBLE_DIR+'/testprediction_'+name_str+'_2015-04-23.csv',index=False)
     print '\tTest prediction file saved [%s minutes]\n'  % (round((time()-t0)/60,1))
     
 print 'Total time %s minutes' % (round((time()-t00)/60,1))

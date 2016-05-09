@@ -6,6 +6,8 @@ Author: Kostia Omelianchuk
 Team: Turing test
 """
 
+from config_IgorKostia import *
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
@@ -19,15 +21,15 @@ import math as m
 import gc
 import sys
 
+from homedepot_functions import str_stemmer
 
-os.chdir("D:/SVN/komelianchuk/r/kaggle2")
 
 ###data loading
-df_all=pd.read_csv("processing_text/df_train_and_test_processed.csv", encoding="ISO-8859-1")
-df_all1=pd.read_csv("processing_text/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
+df_all=pd.read_csv(PROCESSINGTEXT_DIR+"/df_train_and_test_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_product_descriptions_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
-df_all1=pd.read_csv("processing_text/df_attribute_bullets_processed.csv", encoding="ISO-8859-1")
+df_all1=pd.read_csv(PROCESSINGTEXT_DIR+"/df_attribute_bullets_processed.csv", encoding="ISO-8859-1")
 df_all2 = pd.merge(df_all, df_all1, how="left", on="product_uid")
 df_all = df_all2
 
@@ -36,7 +38,7 @@ def replace_nan(s):
                 s=""
         return s
 #code for attributes creation
-df_attr = pd.read_csv('data/attributes.csv', encoding="ISO-8859-1")
+df_attr = pd.read_csv(DATA_DIR+'/attributes.csv', encoding="ISO-8859-1")
 def replace_nan_float(s):
         if np.isnan(s)==True:
                 s=0
@@ -59,12 +61,12 @@ df_atrr = pd.DataFrame({'product_uid' : pd.Series(pid[1:]), 'value' : pd.Series(
 
 #use Igor stemmer for process attributes from 'homedepot_fuctions.py'
 df_atrr['attribute_stemmed']=df_atrr['value'].map(lambda x:str_stemmer(x))
-df_atrr.to_csv("processing_text/df_attributes_kostia.csv",  index=False, encoding="utf-8") 
+df_atrr.to_csv(PROCESSINGTEXT_DIR+"/df_attributes_kostia.csv",  index=False, encoding="utf-8") 
 
 
 
 
-#df_attr = pd.read_csv('data/df_attributes_kostia.csv', encoding="utf-8")
+#df_attr = pd.read_csv(DATA_DIR+'/df_attributes_kostia.csv', encoding="utf-8")
 df_all = pd.merge(df_all, df_atrr, how='left', on='product_uid')
 
 
@@ -224,7 +226,7 @@ print 'unigram time:',round(time()-t0,3) ,'s\n'
 st_names=["st_unigram", "pt_unigram","pd_unigram","ab_unigram","at_unigram"]
 b=df_all[st_names]
 b["id"]=df_all["id"]
-b.to_csv("processing_text/df_unigram.csv", index=False, encoding='utf-8') 
+b.to_csv(PROCESSINGTEXT_DIR+"/df_unigram.csv", index=False, encoding='utf-8') 
 #df_all=df_all.drop(st_names,axis=1)
 print 1
 gc.collect()
@@ -239,7 +241,7 @@ print 'bigram time:',round(time()-t0,3) ,'s\n'
 st_names=["st_bigram", "pt_bigram","pd_bigram","ab_bigram","at_bigram"]
 b=df_all[st_names]
 b["id"]=df_all["id"]
-b.to_csv("processing_text/df_bigram.csv", index=False, encoding='utf-8') 
+b.to_csv(PROCESSINGTEXT_DIR+"/df_bigram.csv", index=False, encoding='utf-8') 
 #df_all=df_all.drop(st_names,axis=1)
 print 2
 gc.collect()
@@ -254,7 +256,7 @@ print 'trigram time:',round(time()-t0,3) ,'s\n'
 st_names=["st_trigram", "pt_trigram","pd_trigram","ab_trigram","at_trigram"]
 b=df_all[st_names]
 b["id"]=df_all["id"]
-b.to_csv("processing_text/df_trigram.csv", index=False, encoding='utf-8') 
+b.to_csv(PROCESSINGTEXT_DIR+"/df_trigram.csv", index=False, encoding='utf-8') 
 #df_all=df_all.drop(st_names,axis=1)
 print 3
 gc.collect()
@@ -269,7 +271,7 @@ print 'fourgram time:',round(time()-t0,3) ,'s\n'
 st_names=["st_fourgram", "pt_fourgram","pd_fourgram","ab_fourgram","at_fourgram"]
 b=df_all[st_names]
 b["id"]=df_all["id"]
-b.to_csv("processing_text/df_fourgram.csv", index=False, encoding='utf-8') 
+b.to_csv(PROCESSINGTEXT_DIR+"/df_fourgram.csv", index=False, encoding='utf-8') 
 #df_all=df_all.drop(st_names,axis=1)
 print 4
 gc.collect()
@@ -285,7 +287,7 @@ print 'biterm time:',round(time()-t0,3) ,'s\n'
 #st_names=["st_biterm", "pt_biterm","pd_biterm","ab_biterm","at_biterm"]
 #b=df_all[st_names]
 #b["id"]=df_all["id"]
-#b.to_csv("data/df_biterm.csv", index=False) 
+#b.to_csv(DATA_DIR+"/df_biterm.csv", index=False) 
 #df_all=df_all.drop(st_names,axis=1)
 #print 5
 
@@ -301,16 +303,16 @@ print 'triterm time:',round(time()-t0,3) ,'s\n'
 st_names=["st_biterm", "pt_biterm","st_triterm", "pt_triterm"]
 b=df_all[st_names]
 b["id"]=df_all["id"]
-b.to_csv("processing_text/df_bitriterm.csv", index=False, encoding='utf-8') 
+b.to_csv(PROCESSINGTEXT_DIR+"/df_bitriterm.csv", index=False, encoding='utf-8') 
 #df_all=df_all.drop(st_names,axis=1)
 print 6
 
 
-u= pd.read_csv('processing_text/df_unigram.csv')
-b= pd.read_csv('processing_text/df_bigram.csv')
-t= pd.read_csv('processing_text/df_trigram.csv')
-f= pd.read_csv('processing_text/df_fourgram.csv')
-bt= pd.read_csv('processing_text/df_bitriterm.csv')
+u= pd.read_csv(PROCESSINGTEXT_DIR+'/df_unigram.csv')
+b= pd.read_csv(PROCESSINGTEXT_DIR+'/df_bigram.csv')
+t= pd.read_csv(PROCESSINGTEXT_DIR+'/df_trigram.csv')
+f= pd.read_csv(PROCESSINGTEXT_DIR+'/df_fourgram.csv')
+bt= pd.read_csv(PROCESSINGTEXT_DIR+'/df_bitriterm.csv')
 
 df_all=pd.merge(u, b, how="left", on="id")
 df_all=pd.merge(df_all, t, how="left", on="id")
@@ -319,7 +321,7 @@ df_all=pd.merge(df_all, bt, how="left", on="id")
 
 df_all["id"]=df_all2["id"]
 
-df_all.to_csv("processing_text/df_with_all_terms_final.csv", index=False, encoding='utf-8') 
+df_all.to_csv(PROCESSINGTEXT_DIR+"/df_with_all_terms_final.csv", index=False, encoding='utf-8') 
 
 print "gram is over"
 
@@ -329,7 +331,7 @@ print "gram is over"
 ######tfidf_intersect_features
 #######################
 
-df_all= pd.read_csv('processing_text/df_with_all_terms_final.csv')
+df_all= pd.read_csv(PROCESSINGTEXT_DIR+'/df_with_all_terms_final.csv')
 gc.collect()
 
    
@@ -451,7 +453,7 @@ for i in range(0,5):
 #save features
 b=df_all[df_all.keys()[67:len(df_all.keys())]]
 b["id"]=df_all["id"]
-b.to_csv("features/df_tfidf_intersept_new.csv", index=False, encoding="utf-8")
+b.to_csv(FEATURES_DIR+"/df_tfidf_intersept_new.csv", index=False, encoding="utf-8")
 df_all=df_all.drop(df_all.keys()[25:len(df_all.keys())],axis=1)  
 
 
@@ -701,7 +703,7 @@ print 'triterm time:',round(time()-t0,3) ,'s\n'
 #save features
 b=df_all[df_all.keys()[25:len(df_all.keys())]]
 b["id"]=df_all["id"]
-b.to_csv("features/df_dist_new.csv", index=False, encoding="utf-8")
+b.to_csv(FEATURES_DIR+"/df_dist_new.csv", index=False, encoding="utf-8")
 df_all=df_all.drop(df_all.keys()[25:len(df_all.keys())],axis=1)  
 
 

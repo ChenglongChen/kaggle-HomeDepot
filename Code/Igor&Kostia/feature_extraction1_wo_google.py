@@ -10,6 +10,8 @@ Author: Igor Buinyi
 Team: Turing test
 """
 
+from config_IgorKostia import *
+
 import numpy as np
 import pandas as pd
 from time import time
@@ -34,9 +36,9 @@ t1 = time()
 ### STEP 0: Load the results of text preprocessing
 #################################################################
 
-df_pro_desc = pd.read_csv('processing_text/df_product_descriptions_processed_wo_google.csv')
-df_attr_bullets = pd.read_csv('processing_text/df_attribute_bullets_processed_wo_google.csv')
-df_all = pd.read_csv('processing_text/df_train_and_test_processed_wo_google.csv')
+df_pro_desc = pd.read_csv(PROCESSINGTEXT_DIR+'/df_product_descriptions_processed_wo_google.csv')
+df_attr_bullets = pd.read_csv(PROCESSINGTEXT_DIR+'/df_attribute_bullets_processed_wo_google.csv')
+df_all = pd.read_csv(PROCESSINGTEXT_DIR+'/df_train_and_test_processed_wo_google.csv')
 print 'loading time:',round((time()-t0)/60,1) ,'minutes\n'
 t0 = time()
 
@@ -1595,8 +1597,8 @@ df_all['description20_percentile']=df_all.apply(lambda x: \
             my_dict[x['search_term_beforethekey_thekey_stemmed']]),axis=1)
 
 
-    
-df_all[['id','above15_dummy_frequency_of_beforethekey_thekey','description20_percentile']].to_csv("features/df_feature_above15_ext_wo_google.csv", index=False)
+# these vars were added later, so they are saved separately    
+df_all[['id','above15_dummy_frequency_of_beforethekey_thekey','description20_percentile']].to_csv(FEATURES_DIR+"/df_feature_above15_ext_wo_google.csv", index=False)
 df_all=df_all.drop(['above15_dummy_frequency_of_beforethekey_thekey','description20_percentile'],axis=1)
     
 
@@ -1611,7 +1613,7 @@ df_all=df_all.drop(['description_similarity_tuple'],axis=1)
 df_all=df_all.drop(['search_term_beforethekey_thekey_stemmed'],axis=1)
 
 
-df_all.drop(string_variables_list,axis=1).to_csv("features/df_basic_features_wo_google.csv", index=False)
+df_all.drop(string_variables_list,axis=1).to_csv(FEATURES_DIR+"/df_basic_features_wo_google.csv", index=False)
 print 'save file time:',round((time()-t0)/60,1) ,'minutes\n'
 t0 = time()  
 
@@ -1625,12 +1627,12 @@ df_all=df_all[['id']+string_variables_list]
 brand_dict={}
 material_dict={}
 import csv
-with open('processing_text/brand_statistics_wo_google.csv') as csvfile:
+with open(PROCESSINGTEXT_DIR+'/brand_statistics_wo_google.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         brand_dict[row['name']]={'cnt_attribute': int(row['cnt_attribute']), 'cnt_query': int(row['cnt_query'])}
         
-with open('processing_text/material_statistics_wo_google.csv') as csvfile:
+with open(PROCESSINGTEXT_DIR+'/material_statistics_wo_google.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         material_dict[row['name']]={'cnt_attribute': int(row['cnt_attribute']), 'cnt_query': int(row['cnt_query'])}
@@ -1681,7 +1683,7 @@ t0 = time()
 
 
 
-df_all.drop(string_variables_list,axis=1).to_csv("features/df_brand_material_dummies_wo_google.csv", index=False)
+df_all.drop(string_variables_list,axis=1).to_csv(FEATURES_DIR+"/df_brand_material_dummies_wo_google.csv", index=False)
 print 'save file time:',round((time()-t0)/60,1) ,'minutes\n'
 t0 = time()  
 
@@ -1741,7 +1743,7 @@ print 'create thekeys dummies time:',round((time()-t0)/60,1) ,'minutes\n'
 t0 = time()        
        
        
-df_all.drop(string_variables_list,axis=1).to_csv("features/df_thekey_dummies_wo_google.csv", index=False)
+df_all.drop(string_variables_list,axis=1).to_csv(FEATURES_DIR+"/df_thekey_dummies_wo_google.csv", index=False)
 print 'save file time:',round((time()-t0)/60,1) ,'minutes\n'
 t0 = time()         
        
