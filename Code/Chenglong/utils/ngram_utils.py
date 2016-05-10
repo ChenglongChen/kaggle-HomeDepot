@@ -197,11 +197,11 @@ if __name__ == "__main__":
     words = text.split(" ")
 
     assert _ngrams(words, 1) == ["I", "am", "Denny", "boy", "ha"]
-    assert _ngrams(words, 2) == ["I_am", "am_Denny", "Denny_boy", "boy_ha"]
-    assert _ngrams(words, 3) == ["I_am_Denny", "am_Denny_boy", "Denny_boy_ha"]
-    assert _ngrams(words, 4) == ["I_am_Denny_boy", "am_Denny_boy_ha"]
+    assert _ngrams(words, 2) == ["I am", "am Denny", "Denny boy", "boy ha"]
+    assert _ngrams(words, 3) == ["I am Denny", "am Denny boy", "Denny boy ha"]
+    assert _ngrams(words, 4) == ["I am Denny boy", "am Denny boy ha"]
 
     assert _nterms(words, 1) == ["I", "am", "Denny", "boy", "ha"]
-    assert _nterms(words, 2) == ["I_am", "I_Denny", "I_boy", "I_ha", "am_Denny", "am_boy", "am_ha", "Denny_boy", "Denny_ha", "boy_ha"]
-    assert _nterms(words, 3) == ["I_am_Denny", "I_am_boy", "I_am_ha", "I_Denny_boy", "I_Denny_ha", "I_boy_ha", "am_Denny_boy", "am_Denny_ha", "am_boy_ha", "Denny_boy_ha"]
-    assert _nterms(words, 4) == ["I_am_Denny_boy", "I_am_Denny_ha", "I_am_boy_ha", "I_Denny_boy_ha", "am_Denny_boy_ha"]
+    assert _nterms(words, 2) == ["I am", "I Denny", "I boy", "I ha", "am Denny", "am boy", "am ha", "Denny boy", "Denny ha", "boy ha"]
+    assert _nterms(words, 3) == ["I am Denny", "I am boy", "I am ha", "I Denny boy", "I Denny ha", "I boy ha", "am Denny boy", "am Denny ha", "am boy ha", "Denny boy ha"]
+    assert _nterms(words, 4) == ["I am Denny boy", "I am Denny ha", "I am boy ha", "I Denny boy ha", "am Denny boy ha"]

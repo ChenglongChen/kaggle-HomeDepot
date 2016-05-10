@@ -35,6 +35,7 @@ class Combiner:
         self.corr_threshold = corr_threshold
         self.feature_names_basic = []
         self.feature_names_cv = []
+        self.feature_names = []
         self.basic_only = 0
         logname = "feature_combiner_%s_%s.log"%(feature_name, time_utils._timestamp())
         self.logger = logging_utils._get_logger(config.LOG_DIR, logname)
@@ -76,10 +77,12 @@ class Combiner:
                             fname, dim, abs(corr), self.corr_threshold))
                         continue
                     dfAll[fname] = x
+                    self.feature_names.append(fname)
                 else:
                     columns = ["%s_%d"%(fname, x) for x in range(dim)]
                     df = pd.DataFrame(x, columns=columns)
                     dfAll = pd.concat([dfAll, df], axis=1)
+                    self.feature_names.extend(columns)
                 feat_cnt += 1
                 self.feature_names_basic.append(fname)
                 if dim == 1:
@@ -130,10 +133,12 @@ class Combiner:
                             fname, dim, abs(corr), self.corr_threshold))
                         continue
                     dfAll_cv_all[fname] = x
+                    self.feature_names.append(fname)
                 else:
                     columns = ["%s_%d"%(fname, x) for x in range(dim)]
                     df = pd.DataFrame(x, columns=columns)
                     dfAll_cv_all = pd.concat([dfAll_cv_all, df], axis=1)
+                    self.feature_names.extend(columns)
                 feat_cv_cnt += 1
                 self.feature_names_cv.append(fname)
                 if dim == 1:
@@ -218,6 +223,7 @@ class Combiner:
             "splitter": self.splitter,
             "n_iter": self.n_iter,
             "basic_only": self.basic_only,
+            "feature_names": self.feature_names
         }
         fname = os.path.join(config.FEAT_DIR+"/Combine", self.feature_name+config.FEAT_FILE_SUFFIX)
         pkl_utils._save(fname, data_dict)
@@ -236,6 +242,7 @@ class StackingCombiner:
         self.corr_threshold = corr_threshold
         self.feature_names_basic = []
         self.feature_names_cv = []
+        self.feature_names = []
         self.has_basic = 1 if self.meta_feature_dict else 0
         logname = "feature_combiner_%s_%s.log"%(feature_name, time_utils._timestamp())
         self.logger = logging_utils._get_logger(config.LOG_DIR, logname)
@@ -264,6 +271,7 @@ class StackingCombiner:
             self.X_train_basic = cb.X_train
             self.X_test_basic = cb.X_test
             self.feature_names_basic = cb.feature_names_basic
+            self.feature_names.extend(cb.feature_names)
         else:
             self.X_train_basic = None
             self.X_test_basic = None
@@ -296,6 +304,7 @@ class StackingCombiner:
                 dfTest[fname] = x
                 feat_cnt += 1
                 self.feature_names_cv.append(fname)
+                self.feature_names.append(fname)
                 self.logger.info("Combine {:>3}/{:>3} feat: {} ({}D)".format(
                     feat_cnt, len(self.feature_list), fname, dim))
                 # load probability if any
@@ -308,6 +317,7 @@ class StackingCombiner:
                         dfTest["%s_proba%d"%(fname, i)] = x[:,i]
                     self.logger.info("Combine {:>3}/{:>3} proba feat: {} ({}D)".format(
                         feat_cnt, len(self.feature_list), fname, dim))
+                    self.feature_names.extend(["%s_proba%d"%(fname, i) for i in range(dim)])
                 except:
                     pass
 
@@ -395,6 +405,7 @@ class StackingCombiner:
             "splitter": self.splitter,
             "n_iter": self.n_iter,
             "has_basic": self.has_basic,
+            "feature_names": self.feature_names,
         }
         fname = os.path.join(config.FEAT_DIR+"/Combine", self.feature_name+config.FEAT_FILE_SUFFIX)
         pkl_utils._save(fname, data_dict)

@@ -85,15 +85,25 @@ class Learner:
             
         return None
 
-    def fit(self, X, y):
-        self.learner.fit(X, y)
+    def fit(self, X, y, feature_names=None):
+        if feature_names is not None:
+            self.learner.fit(X, y, feature_names)
+        else:
+            self.learner.fit(X, y)
         return self
 
-    def predict(self, X):
-        y_pred = self.learner.predict(X)
+    def predict(self, X, feature_names=None):
+        if feature_names is not None:
+            y_pred = self.learner.predict(X, feature_names)
+        else:
+            y_pred = self.learner.predict(X)
         # relevance is in [1,3]
         y_pred = np.clip(y_pred, 1., 3.)
         return y_pred
+
+    def plot_importance(self):
+        ax = self.learner.plot_importance()
+        return ax
 
 
 class EnsembleLearner:
@@ -175,6 +185,10 @@ class Feature:
 
         return X_train, y_train, X_test
 
+    ## for feature importance
+    def _get_feature_names(self):
+        return self.data_dict["feature_names"]
+
 
 class StackingFeature(Feature):
     def __init__(self, feature_name):
@@ -213,12 +227,13 @@ class StackingFeature(Feature):
 
 
 class Task:
-    def __init__(self, learner, feature, suffix, logger, verbose=True):
+    def __init__(self, learner, feature, suffix, logger, verbose=True, plot_importance=False):
         self.learner = learner
         self.feature = feature
         self.suffix = suffix
         self.logger = logger
         self.verbose = verbose
+        self.plot_importance = plot_importance
         self.n_iter = self.feature.n_iter
         self.rmse_cv_mean = 0
         self.rmse_cv_std = 0
@@ -287,15 +302,25 @@ class Task:
 
     def refit(self):
         X_train, y_train, X_test = self.feature._get_train_test_data()
-        self.learner.fit(X_train, y_train)
-        y_pred = self.learner.predict(X_test)
+        if self.plot_importance:
+            feature_names = self.feature._get_feature_names()
+            self.learner.fit(X_train, y_train, feature_names)
+            y_pred = self.learner.predict(X_test, feature_names)
+        else:
+            self.learner.fit(X_train, y_train)
+            y_pred = self.learner.predict(X_test)
+        
         id_test = self.feature.data_dict["id_test"].astype(int)
 
         # save
         fname = "%s/%s/test.pred.%s.csv"%(config.OUTPUT_DIR, "All", self.__str__())
         pd.DataFrame({"id": id_test, "prediction": y_pred}).to_csv(fname, index=False)
         if hasattr(self.learner.learner, "predict_proba"):
-            y_proba = self.learner.learner.predict_proba(X_test)
+            if self.plot_importance:
+                feature_names = self.feature._get_feature_names()
+                y_proba = self.learner.learner.predict_proba(X_test, feature_names)
+            else:
+                y_proba = self.learner.learner.predict_proba(X_test)
             fname = "%s/%s/test.proba.%s.csv"%(config.OUTPUT_DIR, "All", self.__str__())
             columns = ["proba%d"%i for i in range(y_proba.shape[1])]
             df = pd.DataFrame(y_proba, columns=columns)
@@ -306,6 +331,11 @@ class Task:
         fname = "%s/test.pred.%s.[Mean%.6f]_[Std%.6f].csv"%(
             config.SUBM_DIR, self.__str__(), self.rmse_cv_mean, self.rmse_cv_std)
         pd.DataFrame({"id": id_test, "relevance": y_pred}).to_csv(fname, index=False)
+
+        # plot importance
+        if self.plot_importance:
+            ax = self.learner.plot_importance()
+            ax.figure.savefig("%s/%s.pdf"%(config.FIG_DIR, self.__str__()))
         return self
 
     def go(self):
@@ -361,7 +391,7 @@ class StackingTask(Task):
 
 class TaskOptimizer:
     def __init__(self, task_mode, learner_name, feature_name, logger, 
-                    max_evals=100, verbose=True, refit_once=False):
+                    max_evals=100, verbose=True, refit_once=False, plot_importance=False):
         self.task_mode = task_mode
         self.learner_name = learner_name
         self.feature_name = feature_name
@@ -370,6 +400,7 @@ class TaskOptimizer:
         self.max_evals = max_evals
         self.verbose = verbose
         self.refit_once = refit_once
+        self.plot_importance = plot_importance
         self.trial_counter = 0
         self.model_param_space = ModelParamSpace(self.learner_name)
 
@@ -386,7 +417,7 @@ class TaskOptimizer:
         learner = Learner(self.learner_name, param_dict)
         suffix = "_[Id@%s]"%str(self.trial_counter)
         if self.task_mode == "single":
-            self.task = Task(learner, self.feature, suffix, self.logger, self.verbose)
+            self.task = Task(learner, self.feature, suffix, self.logger, self.verbose, self.plot_importance)
         elif self.task_mode == "stacking":
             self.task = StackingTask(learner, self.feature, suffix, self.logger, self.verbose, self.refit_once)
         self.task.go()
@@ -432,7 +463,8 @@ def main(options):
         options.feature_name, options.learner_name, time_utils._timestamp())
     logger = logging_utils._get_logger(config.LOG_DIR, logname)
     optimizer = TaskOptimizer(options.task_mode, options.learner_name, 
-        options.feature_name, logger, options.max_evals, verbose=True, refit_once=options.refit_once)
+        options.feature_name, logger, options.max_evals, verbose=True, 
+        refit_once=options.refit_once, plot_importance=options.plot_importance)
     optimizer.run()
 
 def parse_args(parser):
@@ -446,6 +478,8 @@ def parse_args(parser):
         help="maximun number of evals for hyperopt", default=100)
     parser.add_option("-o", default=False, action="store_true", dest="refit_once",
         help="stacking refit_once")
+    parser.add_option("-p", default=False, action="store_true", dest="plot_importance",
+        help="plot feautre importance (currently only for xgboost)")
 
     (options, args) = parser.parse_args()
     return options, args

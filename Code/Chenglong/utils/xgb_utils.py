@@ -6,6 +6,8 @@
 """
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import xgboost as xgb
 
 
@@ -68,17 +70,33 @@ class XGBRegressor:
                     self.param["subsample"],
                 ))
         
-    def fit(self, X, y):
-        data = xgb.DMatrix(X, label=y, missing=self.missing)
+    def fit(self, X, y, feature_names=None):
+        data = xgb.DMatrix(X, label=y, missing=self.missing, feature_names=feature_names)
         data.set_base_margin(self.base_score*np.ones(X.shape[0]))
         self.model = xgb.train(self.param, data, self.n_estimators)
         return self
 
-    def predict(self, X):
-        data = xgb.DMatrix(X, missing=self.missing)
+    def predict(self, X, feature_names=None):
+        data = xgb.DMatrix(X, missing=self.missing, feature_names=feature_names)
         data.set_base_margin(self.base_score*np.ones(X.shape[0]))
         y_pred = self.model.predict(data)
         return y_pred
+
+    def plot_importance(self):
+        ax = xgb.plot_importance(self.model)
+        self.save_topn_features()
+        return ax
+
+    def save_topn_features(self, fname="XGBRegressor_topn_features.txt", topn=-1):
+        ax = xgb.plot_importance(self.model)
+        yticklabels = ax.get_yticklabels()[::-1]
+        if topn == -1:
+            topn = len(yticklabels)
+        else:
+            topn = min(topn, len(yticklabels))
+        with open(fname, "w") as f:
+            for i in range(topn):
+                f.write("%s\n"%yticklabels[i].get_text())
 
 
 class XGBClassifier:
@@ -143,23 +161,39 @@ class XGBClassifier:
                     self.param["subsample"],
                 ))
 
-    def fit(self, X, y):
-        data = xgb.DMatrix(X, label=y, missing=self.missing)
+    def fit(self, X, y, feature_names=None):
+        data = xgb.DMatrix(X, label=y, missing=self.missing, feature_names=feature_names)
         data.set_base_margin(self.base_score*np.ones(X.shape[0] * self.num_class))
         self.model = xgb.train(self.param, data, self.n_estimators)
         return self
 
-    def predict_proba(self, X):
-        data = xgb.DMatrix(X, missing=self.missing)
+    def predict_proba(self, X, feature_names=None):
+        data = xgb.DMatrix(X, missing=self.missing, feature_names=feature_names)
         data.set_base_margin(self.base_score*np.ones(X.shape[0] * self.num_class))
         proba = self.model.predict(data)
         proba = proba.reshape(X.shape[0], self.num_class)
         return proba
 
-    def predict(self, X):
-        proba = self.predict_proba(X)
+    def predict(self, X, feature_names=None):
+        proba = self.predict_proba(X, feature_names=feature_names)
         y_pred = np.argmax(proba, axis=1)
         return y_pred
+
+    def plot_importance(self):
+        ax = xgb.plot_importance(self.model)
+        self.save_topn_features()
+        return ax
+
+    def save_topn_features(self, fname="XGBClassifier_topn_features.txt", topn=10):
+        ax = xgb.plot_importance(self.model)
+        yticklabels = ax.get_yticklabels()[::-1]
+        if topn == -1:
+            topn = len(yticklabels)
+        else:
+            topn = min(topn, len(yticklabels))
+        with open(fname, "w") as f:
+            for i in range(topn):
+                f.write("%s\n"%yticklabels[i].get_text())
 
 
 class HomedepotXGBClassifier(XGBClassifier):

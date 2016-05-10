@@ -57,31 +57,26 @@ def grap_all_feat_corr_dict():
     return d
 
 def main():
-    rng = np.random.RandomState(config.RANDOM_SEED)
-    sample_size = 50
-    colors = 'rgbcmyk'
+    colors = "rgbcmyk"
     d = grap_all_feat_corr_dict()
     keys = sorted(d.keys())
     N = len(keys)
     fig = plt.figure()
     ax = fig.add_subplot(111)
     for e,k in enumerate(keys, start=1):
-        vals = d[k]
-        # sample a few
-        if len(vals) > sample_size:
-            idx = rng.randint(len(vals), size=sample_size)
-            vals = [vals[i] for i in idx]
-        plt.bar(np.linspace(e-0.48,e+0.48,len(vals)), sorted(vals), 
-            width=1./(len(vals)+5), color=colors[e % len(colors)])
-    plt.xlabel("Feature Group", fontsize=13)
-    plt.ylabel("Correlation Coef", fontsize=13)
-    plt.xticks(range(1,N+1), fontsize=13)
-    plt.yticks([-0.4, -0.2, 0, 0.2, 0.4], fontsize=13)
+        vals = sorted(d[k])
+        color = colors[(e-1) % len(colors)]
+        plt.bar(np.linspace(e-0.48,e+0.48,len(vals)), vals, 
+            width=1./(len(vals)+10), color=color, edgecolor=color)
+    plt.xlabel("Feature Group", fontsize=15)
+    plt.ylabel("Correlation Coefficient", fontsize=15)
+    plt.xticks(range(1,N+1), fontsize=15)
+    plt.yticks([-0.4, -0.2, 0, 0.2, 0.4], fontsize=15)
     ax.set_xticklabels(keys, rotation=45, ha="right")
     ax.set_xlim([0, N+1])
     ax.set_ylim([-0.4, 0.4])
     pos1 = ax.get_position()
-    pos2 = [pos1.x0 - 0.075, pos1.y0 + 0.15,  pos1.width * 1.2, pos1.height * 0.9] 
+    pos2 = [pos1.x0 - 0.075, pos1.y0 + 0.175,  pos1.width * 1.2, pos1.height * 0.85] 
     ax.set_position(pos2)
     plt.show()
 
