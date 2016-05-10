@@ -11,7 +11,7 @@ Turing Test's Solution for [Home Depot Product Search Relevance Competition on K
 
 ## FlowChart
 
-<img src="./Fig/FlowChart.jpg" alt="FlowChart" align="center" width="1000px"/>
+<img src="./Fig/FlowChart.jpg" alt="FlowChart" align="center" width="900px"/>
 
 ## Documentation
 
