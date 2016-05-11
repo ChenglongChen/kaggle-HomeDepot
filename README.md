@@ -140,7 +140,7 @@ We used Python 2.7.11  on Windows platform and modules comes with Anaconda 2.4.0
 
 In addition, we also used the following libraries and modules:
 - NLTK 3.1 (use `nltk.download()` command)
-- [gensim 0.12.4](https://github.com/piskvorky/gensim/archive/0.12.4.tar.gz)
+- [gensim 0.12.2](https://github.com/piskvorky/gensim/archive/0.12.2.tar.gz)
 - [xgboost 0.4](https://github.com/dmlc/xgboost/archive/v0.40.tar.gz)
 
 Some descriptive analysis and final model blending was also done in Excel 2007 and Excel 2010.
