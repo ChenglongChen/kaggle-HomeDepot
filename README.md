@@ -4,12 +4,12 @@ Turing Test's Solution for [Home Depot Product Search Relevance Competition on K
 ## Submission
 | Submission | CV RMSE | Public LB RMSE | Private LB RMSE | Position |
 | :--- | :-------: | :--------------: | :---------------: | :------------------: |
-| [Simplified Single Model from Igor and Kostia (10 features)] | 0.44792 | 0.45072 | 0.44949 | **31** |
-| [Best Single Model from Igor and Kostia] | 0.43787 | 0.44017 | 0.43895 | **11** |
-| [Best Single Model from Chenglong](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv) | 0.43832 | 0.43996 | 0.43811 | **9** |
-| [Best Ensemble Model from Igor and Kostia](./Output/Subm/submission_kostia + igor final_ensemble (1 to 3 weights).csv) | - | 0.43819 | 0.43704 | **8** |
-| [Best Ensemble Model from Chenglong](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv) | 0.43609 | 0.43582 | 0.43325 | **4** |
-| [Best Final Ensemble Model](./Output/Subm/reproduced_blend_0.438_0.436CV.csv) | - | 0.43465 | 0.43248 | **3** |
+| Simplified Single Model from Igor and Kostia (10 features) | 0.44792 | 0.45072 | 0.44949 | **31** |
+| Best Single Model from Igor and Kostia | 0.43787 | 0.44017 | 0.43895 | **11** |
+| Best Single Model from Chenglong | 0.43832 | 0.43996 | 0.43811 | **9** |
+| Best Ensemble Model from Igor and Kostia | - | 0.43819 | 0.43704 | **8** |
+| Best Ensemble Model from Chenglong | 0.43550 | 0.43555 | 0.43368 | **6** |
+| Best Final Ensemble Model | - | 0.43433| 0.43271 | **3** |
 
 ## FlowChart
 
@@ -108,13 +108,13 @@ During the competition, we have run various tasks (i.e., various features and va
 After generating the `feature` `basic_nonlinear_201604210409` (see step 4 how to generate this), run the following command to generate the best single model:  
 `python task.py -m single -f basic_nonlinear_201604210409 -l reg_xgb_tree_best_single_model -e 1`
 
-This should generate a submission with local CV RMSE around 0.438 ~ 0.439. (The best single model we have generated is [here](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv).
+This should generate a submission with local CV RMSE around 0.438 ~ 0.439.
 
 #####3. Best Ensemble Model
 After building **some diverse** 1st level models, run the following command to generate the best ensemble model:  
 `python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble -o`
 
-This should generate a submission with local CV RMSE around 0.436. (The best ensemble model we have generated is [here](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv).
+This should generate a submission with local CV RMSE around 0.436.
 
 
 
