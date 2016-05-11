@@ -4,6 +4,8 @@ Turing Test's Solution for [Home Depot Product Search Relevance Competition on K
 ## Submission
 | Submission | CV RMSE | Public LB RMSE | Private LB RMSE | Position |
 | :--- | :-------: | :--------------: | :---------------: | :------------------: |
+| [Simplified Single Model from Igor and Kostia (10 features)] | 0.44792 | 0.45072 | 0.44949 | **31** |
+| [Best Single Model from Igor and Kostia] | 0.43787 | 0.44017 | 0.43895 | **11** |
 | [Best Single Model from Chenglong](./Output/Subm/test.pred.[Feat@basic_nonlinear_201604210409]_[Learner@reg_xgb_tree]_[Id@84].[Mean0.438318]_[Std0.000786].csv) | 0.43832 | 0.43996 | 0.43811 | **9** |
 | [Best Ensemble Model from Igor and Kostia](./Output/Subm/submission_kostia + igor final_ensemble (1 to 3 weights).csv) | - | 0.43819 | 0.43704 | **8** |
 | [Best Ensemble Model from Chenglong](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv) | 0.43609 | 0.43582 | 0.43325 | **4** |
@@ -113,3 +115,86 @@ After building **some diverse** 1st level models, run the following command to g
 `python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble -o`
 
 This should generate a submission with local CV RMSE around 0.436. (The best ensemble model we have generated is [here](./Output/Subm/test.pred.[Feat@level2_meta_linear_201605030922]_[Learner@reg_ensemble]_[Id@1].[Mean0.436087]_[Std0.001027].csv).
+
+
+
+
+
+### Igor&Kostia's Part
+
+
+Before proceeding, one should specify correct paths in file `config_IgorKostia.py` and place all the data from the [competition website](https://www.kaggle.com/c/home-depot-product-search-relevance/data) into folder specified by variable `DATA_DIR`.  To reproduce our `Ensemble_B`   from Step IK5  one should place the used feature sets into folder specified by variable `FEATURESETS_DIR`. Note that in the following, all the commands and scripts are executed and run in directory `./Code/Igor\&Kostia`.
+
+
+
+#### Step IK1. Install Dependencies
+#####1. Python
+
+We used Python 2.7.11  on Windows platform and modules comes with Anaconda 2.4.0 (64-bit), including:
+- scikit-learn 0.17.1
+- numpy 1.10.1
+- pandas 0.17.0
+- re 2.2.1
+- matplotlib 1.4.3
+- scipy 0.16.0
+
+In addition, we also used the following libraries and modules:
+- NLTK 3.1 (use `nltk.download()` command)
+- [gensim 0.12.4](https://github.com/piskvorky/gensim/archive/0.12.4.tar.gz)
+- [xgboost 0.4](https://github.com/dmlc/xgboost/archive/v0.40.tar.gz)
+
+Some descriptive analysis and final model blending was also done in Excel 2007 and Excel 2010.
+
+#### Step IK2. Text Preprocessing
+We do all text preprocessing before any feature generation and save the results to files. It helped us save a few computing days since the same preprocessing steps are necessary to generate different features.
+- Run `text_processing.py`.
+- Run `text_processing_wo_google.py`.
+
+
+The necessary replacement data is loaded automatically from files  `homedepot_functions.py` and `google_dict.py`.
+
+#### Step IK3. Feature Generation
+We need to run consequently the following files:
+- `feature_extraction1.py`.
+- `grams_and_terms_features.py`.
+- `dld_features.py`.
+- `word2vec.py`.
+
+
+To generate features without using the Google dictionary, we also need to run:
+- `feature_extraction1_wo_google.py`.
+- `word2vec_without_google_dict.py`.
+
+
+As a result, we will have a few csv files with the necessary features for model building. 
+
+#### Step IK4. Generate Benchmark Model with Feature Importances
+- Run `generate_feature_importances.py`.
+
+
+#### Step IK5. Generate Submission File
+One part of the ensemble `Ensemble_A` is generated from the following code:
+- `generate_models.py`.
+- `generate_model_wo_google.py`.
+- `generate_ensemble_output_from_models.py`.
+
+To get the other part `Ensemble_B`, we need to run these files:
+- `ensemble_script_imitation_version.py` (It just reproduces the selection of random features generated from `ensemble_script_random_version.py`. You do not need to run `ensemble_script_random_version.py` again).
+- `model_selecting.py`.
+
+These two parts can be generated in parallel. Our final submission from Igor&Kostia was then prodused in Excel as:
+`Output`=0.75 `Ensemble_A`+ 0.25 `Ensemble_B`
+
+###  Blending Two Ensembles into the Final Submissions
+So, we had two ensembles prepared using different methodologies. We observed that our ensembles behave differently in different parts of the datasets (`part1`:  `id<=163700`,  `part2`:  `163700 < id  <= 221473`,
+`part_3`:  `id > 221473`.  Since we observed regular patterns in the data as well, we thought that one of the ensembles might be especially prone to overfitting in some parts. So, while blending our ensembles for final submissions, we made different bets assuming that in some parts one of the models would behave much worse in private than in public.
+
+
+Our two final submission were produced in Excel with the weights from  the table below (the weight for Chenglong's and Igor&Kostia's parts add up to 1). Both these submissions scored the same `0.43271` on the private leaderboard.
+
+|    | Weight Chenglong for `part1` and `part2` | Weight Chenglong for `part3`| Public LB RMSE | Private LB RMSE |
+| :-----------------: | :---------: | :---------: | :---------------: | :---------------: | 
+| Submission 1 | 0.75 | 0.8 | 0.43443 | 0.43271 |
+| Submission 2 | 0.6  | 0.3 | 0.43433 | 0.43271 |
+
+

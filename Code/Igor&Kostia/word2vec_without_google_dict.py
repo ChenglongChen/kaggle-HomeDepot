@@ -9,7 +9,7 @@ Team: Turing test
 """
 
 
-
+from config_IgorKostia import *
 
 import gensim
 import logging
@@ -297,10 +297,10 @@ for model in model_list:
 st_names=["id"]    
 #for j in range(len(n_sim)):   
 name_list=list([6,7,8,9,10,11,18,19,20,21,22,23])
-for j in name_list: 
+for j in range(len(n_sim)):   
 
-    df_all["word2vec_"+str(j)]=n_sim[j]
-    st_names.append("word2vec_"+str(j))
+    df_all["word2vec_"+str(name_list[j])]=n_sim[j]
+    st_names.append("word2vec_"+str(name_list[j]))
     
 
 

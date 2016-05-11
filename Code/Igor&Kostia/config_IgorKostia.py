@@ -9,11 +9,7 @@ Team: Turing test
 
 
 import os
-
-
-#ROOT_DIR="D:/HomeDepot"
-ROOT_DIR="g:/kaggle/latex/py"
-
+ROOT_DIR = os.getcwd()
 
 DATA_DIR= "%s/data"%ROOT_DIR
 PROCESSINGTEXT_DIR= "%s/processing_text"%ROOT_DIR

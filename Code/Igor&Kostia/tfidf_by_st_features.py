@@ -327,8 +327,8 @@ for i in range(len(df_all)):
 
 
 for j in range(12):    
-    df_all["st_tfidf_"+str(j+12)]=list_of_list[j]
-    st_names.append("st_tfidf_"+str(j+12))
+    df_all["st_tfidf_"+str(j)"+".1"]=list_of_list[j]
+    st_names.append("st_tfidf_"+str(j)"+".1")
 
 #save features
 b=df_all[st_names]
