@@ -123,7 +123,7 @@ This should generate a submission with local CV RMSE around 0.436. (The best ens
 ### Igor&Kostia's Part
 
 
-Before proceeding, one should specify correct paths in file `config_IgorKostia.py` and place all the data from the [competition website](https://www.kaggle.com/c/home-depot-product-search-relevance/data) into folder specified by variable `DATA_DIR`.  To reproduce our `Ensemble_B`   from Step IK5  one should place the used feature sets into folder specified by variable `FEATURESETS_DIR`. Note that in the following, all the commands and scripts are executed and run in directory `./Code/Igor\&Kostia`.
+Before proceeding, one should specify correct paths in file `config_IgorKostia.py` and place all the data from the [competition website](https://www.kaggle.com/c/home-depot-product-search-relevance/data) into folder specified by variable `DATA_DIR`.  To reproduce our `Ensemble_B`   from Step IK5  one should place the used feature sets into folder specified by variable `FEATURESETS_DIR`. Note that in the following, all the commands and scripts are executed and run in directory `./Code/Igor&Kostia`.
 
 
 
