@@ -27,7 +27,7 @@ Before proceeding, one should place all the data from the [competition website](
 Note that in the following, all the commands and scripts are executed and run in directory `./Code/Chenglong`.
 
 #### Step 1. Install Dependencies
-#####1. Python
+##### 1. Python
 We used Python 3.5.1 and modules comes with [Anaconda 2.4.1 (64-bit)](https://repo.continuum.io/archive/Anaconda3-2.4.1-Linux-x86_64.sh). In addition, we also used the following libraries and modules:
 - [gensim 0.12.4](https://github.com/piskvorky/gensim/archive/0.12.4.tar.gz)
 - [hyperopt 0.0.3.dev](https://github.com/hyperopt/hyperopt)
@@ -37,24 +37,24 @@ We used Python 3.5.1 and modules comes with [Anaconda 2.4.1 (64-bit)](https://re
 - [regex 2.4.85](https://pypi.python.org/pypi/regex)
 - [xgboost 0.4](https://github.com/dmlc/xgboost/archive/v0.40.tar.gz)
 
-#####2. R
+##### 2. R
 We used the following packages installed via `install.packages()`:
 - data.table
 - Rtsne
 
-#####3. Other
+##### 3. Other
 We used the following thirdparty packages:
 - [rgf 1.2](http://stat.rutgers.edu/home/tzhang/software/rgf/rgf1.2.zip)
 
 #### Step 2. Prepare External Data
-#####1. Pre-trained Word2Vec Model
+##### 1. Pre-trained Word2Vec Model
 We used pre-trained Word2Vec models listed in this [Github repo](https://github.com/3Top/word2vec-api). In specific:
 - [Google News](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/)
 - [Wikipedia+Gigaword 5](http://nlp.stanford.edu/data/glove.6B.zip)
 
 We used [glove-gensim](https://github.com/manasRK/glove-gensim) to convert GloVe vectors into Word2Vec format for easy usage with Gensim. After that, put all the models in the corresponding directory (see `config.py` for detail).
 
-#####2. Other
+##### 2. Other
 We also used the following external data:
 - Color data from this [Kaggle forum post](https://www.kaggle.com/c/home-depot-product-search-relevance/forums/t/18967/data-preparation), i.e., `./Data/dict/color_data.py` in this repo.
 - Google spelling correction dictionary from this [Kaggle forum post](https://www.kaggle.com/steubk/home-depot-product-search-relevance/fixing-typos), i.e., `google_spelling_checker_dict.py` in this repo.
@@ -72,7 +72,7 @@ After team merging with Igor&Kostia, we have rebuilt everything from scratch, an
 In step 3, we have generated a few thousands of features. However, only part of them will be used to build our model. For example, we don't need those features that have very little predictive power (e.g., have very small correlation with the target relevance.) Thus we need to do some feature selection.
 
 In our solution, feature selection is enabled via the following two successive steps.
-#####1. Regex Style Manual Feature Selection
+##### 1. Regex Style Manual Feature Selection
 This approach is implemented as `get_feature_conf_*.py`. The general idea is to include or exclude specific features via `regex` operations of the feature names. For example, 
 - one can specify the features that he want to **include** via the `MANDATORY_FEATS` variable, despite of its correlation with the target 
 - one can also specify the features that he want to **exclude** via the `COMMENT_OUT_FEATS` variable, despite of its correlation with the target (`MANDATORY_FEATS` has higher priority than `COMMENT_OUT_FEATS`.)
@@ -83,7 +83,7 @@ we will get a new feature conf `./conf/feature_conf_nonlinear_201605010058.py` w
 
 One can play around with `MANDATORY_FEATS` and `COMMENT_OUT_FEATS` to generate different feature subset. We have included in `./conf` a few other feature confs from our final submission. Among them, `feature_conf_nonlinear_201604210409.py` is used to build the best single model.
 
-#####2. Correlation based Feature Selection
+##### 2. Correlation based Feature Selection
 With the above generated feature conf, one can combine all the features into a feature matrix via the following command:  
 `python feature_combiner.py -l 1 -c feature_conf_nonlinear_201604210409 -n basic_nonlinear_201604210409 -t 0.05`
 
@@ -92,7 +92,7 @@ The `-t 0.05` above is used to enable the correlation base feature selection. In
 TODO(Chenglong): Explore other feature selection strategies, e.g., greedy forward feature selection (FFS) and greedy backward feature selection (BFS).
 
 #### Step 5. Generate Submission
-#####1. Various Tasks
+##### 1. Various Tasks
 In our solution, a `task` is an object composite of a specific `feature` (e.g., `basic_nonlinear_201604210409`) and a specific `learner` (`XGBoostRegressor` from [xgboost](https://github.com/dmlc/xgboost)). The definitions for `task`, `feature` and `learner` are in `task.py`.
 
 Take the following command for example.    
@@ -104,13 +104,13 @@ Take the following command for example.
 
 During the competition, we have run various tasks (i.e., various features and various learners) to generate a diverse 1st level model library. Please see `./Log/level1_models` for all the tasks we have included in our final submission.
 
-#####2. Best Single Model
+##### 2. Best Single Model
 After generating the `feature` `basic_nonlinear_201604210409` (see step 4 how to generate this), run the following command to generate the best single model:  
 `python task.py -m single -f basic_nonlinear_201604210409 -l reg_xgb_tree_best_single_model -e 1`
 
 This should generate a submission with local CV RMSE around 0.438 ~ 0.439.
 
-#####3. Best Ensemble Model
+##### 3. Best Ensemble Model
 After building **some diverse** 1st level models, run the following command to generate the best ensemble model:  
 `python run_stacking_ridge.py -l 2 -d 0 -t 10 -c 1 -L reg_ensemble -o`
 
@@ -128,7 +128,7 @@ Before proceeding, one should specify correct paths in file `config_IgorKostia.p
 
 
 #### Step IK1. Install Dependencies
-#####1. Python
+##### 1. Python
 
 We used Python 2.7.11  on Windows platform and modules comes with Anaconda 2.4.0 (64-bit), including:
 - scikit-learn 0.17.1
